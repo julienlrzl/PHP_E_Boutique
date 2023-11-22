@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f3bcf206-0156-494b-b473-fb5cecb9e812" name="Changes" comment="" />
+    <list default="true" id="f3bcf206-0156-494b-b473-fb5cecb9e812" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/public/js/scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contenu/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/index.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/templates/index.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twig-config.php" beforeDir="false" afterPath="$PROJECT_DIR$/twig-config.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,6 +47,15 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/js/bootstrap" />
+      <recent name="$PROJECT_DIR$/public/css" />
+      <recent name="$PROJECT_DIR$/public/css/bootstrap" />
+      <recent name="$PROJECT_DIR$/app/View/templates" />
+      <recent name="$PROJECT_DIR$/app" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -49,7 +64,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1700666644525</updated>
-      <workItem from="1700666645467" duration="2359000" />
+      <workItem from="1700666645467" duration="3605000" />
     </task>
     <servers />
   </component>
