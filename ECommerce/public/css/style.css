@@ -1,3 +1,19 @@
+/*******************************************************************************
+ *
+ * Nom : style.css
+ * Date et auteur :
+ *      Julien Larzul
+ *		Créé le 21/11/2023
+ *
+ * Description :
+ *		Fichier CSS de notre site E-Commerce
+ *
+ *******************************************************************************/
+
+/*------------------------------------------------------------------------------------------*/
+/* 1. General */
+/*------------------------------------------------------------------------------------------*/
+
 body {
     min-height: 100vh;
     display: flex;
@@ -6,4 +22,95 @@ body {
 
 main {
     flex: 1;
+}
+
+/*------------------------------------------------------------------------------------------*/
+/* 2. Header */
+/*------------------------------------------------------------------------------------------*/
+
+.container-header{
+    display: flex;
+    flex-direction: column;
+}
+
+.logo{
+    padding: 15px;
+}
+
+#logo-principal{
+    height: 120px;
+    width: 226px;
+}
+
+.navbar-custom {
+    background-color: #f8f6f1;
+    min-height: 50px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.link-custom-navbar {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: #412420;
+    transition: color 0.3s;
+    letter-spacing: 0.015em;
+    text-transform: uppercase;
+}
+
+.link-custom-navbar-icon {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #412420;
+    transition: color 0.3s;
+}
+
+.link-custom-navbar:hover {
+    color: #ca851d;
+}
+
+.link-custom-navbar-icon:hover {
+    color: #ca851d;
+}
+
+/*------------------------------------------------------------------------------------------*/
+/* 3. Footer */
+/*------------------------------------------------------------------------------------------*/
+.footer-custom{
+    min-height: 100px;
+}
+
+.footer-text{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: #412420;
+}
+
+#text-footer-main{
+
+}
+
+.nav-link-footer{
+    color: #412420;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-link-footer:hover{
+    color: #ca851d;
+}
+
+/*------------------------------------------------------------------------------------------*/
+/* 3. Main */
+/*------------------------------------------------------------------------------------------*/
+#photo{
+    height: 575px;
+    width: 1425px;
 }
