@@ -16,9 +16,7 @@
     <link rel="stylesheet" href="public/css/style.css">
 
     <!-- Icônes Favicon -->
-    <link rel="icon" href="favicon-16x16.png" sizes="16x16" type="image/png">
-    <link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="favicon-48x48.png" sizes="48x48" type="image/png">
+    <link rel="icon" href="public/image/favicon.ico" type="image/x-icon">
 
     <!--ADD Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -84,9 +82,67 @@
 
 <!-- Section principale -->
 <main>
+    <!-- Section Photo main -->
     <section>
-        <img src="public/image/photo-main.png" id="photo-main">
+        <div class="image-container">
+            <img src="public/image/photo-main.png" id="photo-main">
+            <h2 class="image-text">Arabica Brazil Organic</h2>
+            <h4 class="image-text-bis">nouvelle récolte 2024</h4>
+            <button class="button-disp">
+                Precommandez
+                <div class="arrow-wrapper">
+                    <div class="arrow"></div>
+                </div>
+            </button>
+        </div>
     </section>
+    <!-- END Section Photo main -->
+    <!-- Section description entreprise -->
+    <section>
+        <div class="container-fluid col-ensemble">
+            <div class="row">
+                <div class="col-md-4 d-flex align-items-start">
+                    <!-- Contenu de la première colonne -->
+                    <div class="text-left mx-auto">
+                        <h2 class="text-description">LJ</h2>
+                        <p class="text-description-bis">La boutique<br>française<br>indépendante.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <!-- Contenu de la deuxième colonne -->
+                    <img src="public/image/epicerie.jpg" id="epicerie">
+                </div>
+                <div class="col-md-4 d-flex align-items-start">
+                    <!-- Contenu de la troisième colonne -->
+                    <div class="text-left mx-auto">
+                        <h2 id="text0">La Boutique Française</h2>
+                        <p id="text1">Bienvenue dans notre établissement au cœur de Lyon, dédié à l'authenticité
+                            gastronomique française. Découvrez des fruits secs locaux, des boissons artisanales et des
+                            biscuits confectionnés avec passion. Chaque bouchée raconte l'histoire d'une tradition
+                            préservée, où les saveurs naturelles et l'artisanat se conjuguent pour une expérience
+                            gustative française unique.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END Section description entreprise -->
+    <!-- END Section coupon reduction -->
+    <section id="rectangle">
+        <div class="rectangle">
+            <div class="coupon0">
+                <p id="text-coupon0">15 % de réduction pour toute première inscription sur la boutique Française en
+                    ligne !</p>
+            </div>
+            <div class="coupon0">
+                <p id="text-coupon1">L’offre de bienvenue s’étend sur toute notre gamme, vous permettant de découvrir
+                    nos produits artisanaux français à prix réduit pendant les trois premiers mois de votre
+                    inscription.</p>
+            </div>
+            <a id="text-coupon2" href="#">Inscrivez-vous dès maintenant !</a>
+        </div>
+    </section>
+    <!-- END Section coupon seduction -->
 </main>
 
 <!-- Pied de page -->

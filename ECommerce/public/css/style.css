@@ -110,7 +110,211 @@ main {
 /*------------------------------------------------------------------------------------------*/
 /* 3. Main */
 /*------------------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------*/
+/* 3. Section photo main */
+/*------------------------------------------------------------------------------------------*/
 #photo{
     height: 575px;
     width: 1425px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.image-text {
+    position: absolute;
+    color: white;
+    font-size: 55px;
+    line-height: 60px;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    top: 45%;
+}
+
+.image-text-bis {
+    position: absolute;
+    color: white;
+    font-size: 26px;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    top: 60%;
+}
+
+.button-disp{
+    position: absolute;
+    top: 70%;
+}
+
+button {
+    --primary-color: #ffffff;
+    --secondary-color: #000000;
+    --hover-color: #f8f6f1;
+    --arrow-width: 10px;
+    --arrow-stroke: 2px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 20px;
+    color: var(--secondary-color);
+    padding: 1em 1.8em;
+    background: var(--primary-color);
+    display: flex;
+    transition: 0.2s background;
+    align-items: center;
+    gap: 0.6em;
+    font-weight: bold;
+}
+
+button .arrow-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button .arrow {
+    margin-top: 1px;
+    width: var(--arrow-width);
+    background: var(--primary-color);
+    height: var(--arrow-stroke);
+    position: relative;
+    transition: 0.2s;
+}
+
+button .arrow::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    border: solid var(--secondary-color);
+    border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+    display: inline-block;
+    top: -3px;
+    right: 3px;
+    transition: 0.2s;
+    padding: 3px;
+    transform: rotate(-45deg);
+}
+
+button:hover {
+    background-color: var(--hover-color);
+}
+
+button:hover .arrow {
+    background: var(--secondary-color);
+}
+
+button:hover .arrow:before {
+    right: 0;
+}
+
+/*------------------------------------------------------------------------------------------*/
+/* 3. Section description entreprise */
+/*------------------------------------------------------------------------------------------*/
+.col-ensemble{
+    margin-top: 125px;
+    margin-bottom: 125px;
+}
+
+.custom-text-align-left {
+    text-align: left;
+}
+
+.text-description{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 48px;
+    color: #d6d5d5;
+    text-transform: uppercase;
+}
+
+.text-description-bis{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    text-transform: uppercase;
+    line-height: 38px;
+}
+
+#text0{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 400px;
+}
+
+#text1{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 26px;
+    font-weight: 400;
+    width: 85%;
+}
+
+#epicerie{
+    height: 300px;
+    width: 300px;
+}
+
+/*------------------------------------------------------------------------------------------*/
+/* 3. Section coupon reduction */
+/*------------------------------------------------------------------------------------------*/
+#rectangle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rectangle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 977px;
+    height: 232px;
+    background-color: #f8f6f1;
+    margin-bottom: 125px;
+    padding-top: 10px;
+}
+
+.coupon0{
+    margin-bottom: 25px;
+}
+
+#text-coupon0{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    font-style: normal;
+    color: #412420;
+}
+
+#text-coupon1{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    color: #412420;
+    text-align: center;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+#text-coupon2{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    color: #412420;
+    text-align: center;
+    text-decoration: none;
 }
