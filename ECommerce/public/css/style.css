@@ -18,6 +18,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    padding-top: 220px;
 }
 
 main {
@@ -108,15 +109,15 @@ main {
 }
 
 /*------------------------------------------------------------------------------------------*/
-/* 3. Main */
+/* 4. Main */
 /*------------------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------*/
-/* 3. Section photo main */
+/* 5. Section photo main */
 /*------------------------------------------------------------------------------------------*/
 #photo{
     height: 575px;
-    width: 1425px;
+    width: auto;
 }
 
 .image-container {
@@ -213,7 +214,7 @@ button:hover .arrow:before {
 }
 
 /*------------------------------------------------------------------------------------------*/
-/* 3. Section description entreprise */
+/* 6. Section description entreprise */
 /*------------------------------------------------------------------------------------------*/
 .col-ensemble{
     margin-top: 125px;
@@ -265,7 +266,7 @@ button:hover .arrow:before {
 }
 
 /*------------------------------------------------------------------------------------------*/
-/* 3. Section coupon reduction */
+/* 7. Section coupon reduction */
 /*------------------------------------------------------------------------------------------*/
 #rectangle{
     display: flex;
@@ -317,4 +318,144 @@ button:hover .arrow:before {
     color: #412420;
     text-align: center;
     text-decoration: none;
+}
+
+/*------------------------------------------------------------------------------------------*/
+/* 8. Section produits */
+/*------------------------------------------------------------------------------------------*/
+.col-ensemble-bis{
+    margin-bottom: 125px;
+}
+
+.col-ensemble-int{
+    margin-bottom: 70px;
+}
+
+#produits{
+    height: 400px;
+    width: 400px;
+}
+
+.image-text-0 {
+    position: absolute;
+    color: white;
+    font-size: 28px;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    top: 40%;
+}
+
+.image-text-1 {
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    top: 55%;
+}
+
+.button-disp-bis{
+    position: absolute;
+    top: 65%;
+}
+
+/*------------------------------------------------------------------------------------------*/
+/* 9. Section contact */
+/*------------------------------------------------------------------------------------------*/
+.contact-title{
+    color: #412420;
+    font-size: 32px;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    width: 80%;
+    text-transform: uppercase;
+    line-height: 40px;
+}
+
+.col-ensemble-contact{
+    margin-top: 125px;
+    margin-bottom: 30px;
+}
+
+#colombe{
+    height: 150px;
+    width: 150px;
+}
+
+.col-ensemble-contact-button{
+    margin-top: 30px;
+    margin-bottom: 125px;
+}
+
+.bouton-contact {
+    width: fit-content;
+    min-width: 100px;
+    height: 45px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1.5px solid rgb(242,238,226);
+    box-shadow: 0px 0px 20px -20px;
+    cursor: pointer;
+    background-color: #ffffff;
+    transition: all 0.2s ease-in-out 0ms;
+    user-select: none;
+    text-transform: uppercase;
+    color: #412420;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+
+}
+
+.bouton-contact:hover {
+    background-color: rgb(242,238,226);
+    box-shadow: 0px 0px 20px -18px;
+}
+
+.bouton-contact:active {
+    transform: scale(0.95);
+}
+
+/*------------------------------------------------------------------------------------------*/
+/* 10. Section confiance */
+/*------------------------------------------------------------------------------------------*/
+.col-ensemble-confiance{
+    margin-bottom: 125px;
+}
+
+.title-confiance{
+    color: #412420;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 23px;
+    text-transform: capitalize;
+    margin-top: 80px;
+}
+
+.text-confiance{
+    color: #412420;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 80px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.custom-border {
+    border-top: 1.2px solid #f0f0f2;
+    border-bottom: 1.2px solid #f0f0f2;
+}
+
+.border-right{
+    border-right: 1.2px solid #f0f0f2;;
 }
