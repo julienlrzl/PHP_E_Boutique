@@ -165,36 +165,39 @@
                 <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/img2_fruitssec.png" id="produits">
                 <h2 class="image-text-0">Fruits Secs Bio</h2>
                 <h4 class="image-text-1">Savoureux et Sains</h4>
-                <button class="button-disp-bis">
+                <button class="button-disp-bis" onclick="redirectToFruitsSecs()">
                     Nos Produits
                     <div class="arrow-wrapper">
                         <div class="arrow"></div>
                     </div>
                 </button>
+                <a href="/ProjetPHP/php-e-boutique/ECommerce/app/View/templates/fruitssec.twig" class="hidden-link0"></a>
             </div>
             <div class="col-md-4 text-center image-container">
                 <!-- Contenu de la deuxième colonne -->
                 <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/img1_boissons.png" id="produits">
                 <h2 class="image-text-0">Diverses Boissons</h2>
                 <h4 class="image-text-1">Du chaud au froid</h4>
-                <button class="button-disp-bis">
+                <button class="button-disp-bis" onclick="redirectToBoissons()">
                     Nos Produits
                     <div class="arrow-wrapper">
                         <div class="arrow"></div>
                     </div>
                 </button>
+                <a href="/ProjetPHP/php-e-boutique/ECommerce/app/View/templates/biscuits.twig" class="hidden-link1"></a>
             </div>
             <div class="col-md-4 text-center image-container">
                 <!-- Contenu de la deuxième colonne -->
                 <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/img3_biscuits.png" id="produits">
                 <h2 class="image-text-0">Biscuits Artisanaux</h2>
                 <h4 class="image-text-1">Une touche locale</h4>
-                <button class="button-disp-bis">
+                <button class="button-disp-bis" onclick="redirectToBiscuits()">
                     Nos Produits
                     <div class="arrow-wrapper">
                         <div class="arrow"></div>
                     </div>
                 </button>
+                <a href="/ProjetPHP/php-e-boutique/ECommerce/app/View/templates/boissons.twig" class="hidden-link2"></a>
             </div>
         </div>
     </section>
@@ -229,6 +232,9 @@
     <section class="container">
         <div class="row col-ensemble-confiance custom-border">
             <div class="col-md-3 text-center border-right">
+                <div>
+                    <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/logo1_confiance.png" id="logoconfiance">
+                </div>
                 <div class="title-confiance">
                     <!-- Contenu de la première colonne -->
                     Expédition Rapide
@@ -238,6 +244,9 @@
                 </div>
             </div>
             <div class="col-md-3 text-center border-right">
+                <div>
+                    <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/logo2_confiance.png" id="logoconfiance">
+                </div>
                 <div class="title-confiance">
                     <!-- Contenu de la deuxième colonne -->
                     Paiement Sécurisé
@@ -247,6 +256,9 @@
                 </div>
             </div>
             <div class="col-md-3 text-center border-right">
+                <div>
+                    <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/logo3_confiance.png" id="logoconfiance">
+                </div>
                 <div class="title-confiance">
                     <!-- Contenu de la troisième colonne -->
                     Conseil Clientèle
@@ -256,6 +268,9 @@
                 </div>
             </div>
             <div class="col-md-3 text-center">
+                <div>
+                    <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/logo4_confiance.png" id="logoconfiance">
+                </div>
                 <div class="title-confiance">
                     <!-- Contenu de la quatrième colonne -->
                     Certification Bio
@@ -287,7 +302,6 @@
     </div>
 </footer>
 <!--Bootstrap-->
-<script src="/ProjetPHP/php-e-boutique/ECommerce/public/js/jquery/jquery.min.js"></script>
 <script src="/ProjetPHP/php-e-boutique/ECommerce/public/js/bootstrap/bootstrap.min.js"></script>
 <!--End of Bootstrap-->
 </body>

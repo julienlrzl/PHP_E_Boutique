@@ -532,7 +532,7 @@ button:hover .arrow:before {
     margin-bottom: 10px;
     line-height: 23px;
     text-transform: capitalize;
-    margin-top: 80px;
+    margin-top: 30px;
 }
 
 .text-confiance{
@@ -542,7 +542,7 @@ button:hover .arrow:before {
     font-weight: 400;
     font-size: 14px;
     line-height: 24px;
-    margin-bottom: 80px;
+    margin-bottom: 50px;
     padding-left: 25px;
     padding-right: 25px;
 }
@@ -554,4 +554,10 @@ button:hover .arrow:before {
 
 .border-right{
     border-right: 1.2px solid #f0f0f2;;
+}
+
+#logoconfiance{
+    margin-top: 50px;
+    height: auto;
+    width: 47px;
 }
