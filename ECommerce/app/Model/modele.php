@@ -24,7 +24,7 @@ abstract class Modele {
             $username = 'root';
             $password = '';
 
-            $dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
+            $dsn = "mysql:host=localhost;dbname=web4shop;charset=utf8;unix_socket=/Applications/XAMPP/xamppfiles/var/mysql/mysql.sock";
 
             $options = [
                 PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
@@ -36,16 +36,5 @@ abstract class Modele {
         }
         return $this->bdd;
     }
-
-    // Ajoutez des méthodes spécifiques pour chaque table de la base de données
-    // Par exemple, pour la table 'admin'
-    protected function getAdmins() {
-        $sql = "SELECT * FROM admin";
-        return $this->executerRequete($sql)->fetchAll();
-    }
-
-    // Ajoutez d'autres méthodes pour les autres tables de la base de données
-    // ...
-
 }
 ?>

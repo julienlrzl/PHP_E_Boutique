@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3bcf206-0156-494b-b473-fb5cecb9e812" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Model/AdminModele.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/modele.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Model/data.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controller/router.php" beforeDir="false" afterPath="$PROJECT_DIR$/router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/AdminModele.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/AdminModele.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/modele.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/modele.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/View/templates/biscuits.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/templates/biscuits.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/View/templates/conditions_generales.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/templates/conditions_generales.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/twig-config.php" beforeDir="false" afterPath="$PROJECT_DIR$/twig-config.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +24,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/usr/local/Cellar/php/8.2.12_1/bin/php">
     <include_path>
@@ -69,6 +72,16 @@
       <recent name="$PROJECT_DIR$/public/js/bootstrap" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="twig-config.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/twig-config.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHP Script.twig-config.php" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -79,7 +92,7 @@
       <updated>1700666644525</updated>
       <workItem from="1700666645467" duration="8458000" />
       <workItem from="1700849587516" duration="39309000" />
-      <workItem from="1700988881042" duration="4299000" />
+      <workItem from="1700988881042" duration="9049000" />
     </task>
     <servers />
   </component>

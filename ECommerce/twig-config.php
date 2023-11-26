@@ -1,7 +1,11 @@
 <?php
-
 require_once 'vendor/autoload.php';
-require_once 'AdminModele.php';
+require_once 'app/Model/AdminModele.php';
+
+/* récupérer le tableau des données */
+//test cours
+//require 'app/Model/data.php';
+//$donnees = getData();
 
 // Créez une instance de AdminModele
 $adminModele = new AdminModele();
@@ -9,9 +13,10 @@ $adminModele = new AdminModele();
 // Utilisez la méthode pour récupérer tous les admins
 $admins = $adminModele->getAllAdmins();
 
-// Affichez les données pour le débogage
-print_r($admins);
-
 $loader = new \Twig\Loader\FilesystemLoader("app/View/templates");
 $twig = new \Twig\Environment($loader);
-echo $twig->render('index.twig', ['admins' => $admins]);
+
+echo $twig->render('biscuits.twig', ['admins' => $admins]);
+
+//test cours
+//echo $twig->render('biscuits.twig', $donnees);
