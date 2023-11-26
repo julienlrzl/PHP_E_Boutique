@@ -101,6 +101,18 @@
             <h1 class="text-politique">Biscuits</h1>
         </div>
     </section>
+
+    <!-- TEST PHP PROVISOIRE -->
+    <h1>Bienvenue sur mon site !</h1>
+
+    <h2>Administrateurs :</h2>
+    <ul>
+        {% for admin in admins %}
+            <li>{{ admin.nom }} - {{ admin.email }}</li>
+        {% endfor %}
+    </ul>
+    <!-- TEST PHP PROVISOIRE -->
+
     <div class="d-flex justify-content-center">
         <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/colombe.jpf" id="colombe">
     </div>
