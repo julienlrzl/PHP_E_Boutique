@@ -29,16 +29,16 @@ main {
 /* 2. Header */
 /*------------------------------------------------------------------------------------------*/
 
-.container-header{
+.container-header {
     display: flex;
     flex-direction: column;
 }
 
-.logo{
+.logo {
     padding: 15px;
 }
 
-#logo-principal{
+#logo-principal {
     height: 120px;
     width: 226px;
 }
@@ -82,11 +82,11 @@ main {
 /*------------------------------------------------------------------------------------------*/
 /* 3. Footer */
 /*------------------------------------------------------------------------------------------*/
-.footer-custom{
+.footer-custom {
     min-height: 100px;
 }
 
-.footer-text{
+.footer-text {
     font-family: 'Montserrat', sans-serif;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
@@ -94,17 +94,17 @@ main {
     color: #412420;
 }
 
-#text-footer-main{
+#text-footer-main {
 
 }
 
-.nav-link-footer{
+.nav-link-footer {
     color: #412420;
     text-decoration: none;
     transition: color 0.3s;
 }
 
-.nav-link-footer:hover{
+.nav-link-footer:hover {
     color: #ca851d;
 }
 
@@ -115,7 +115,7 @@ main {
 /*------------------------------------------------------------------------------------------*/
 /* 5. Section photo main */
 /*------------------------------------------------------------------------------------------*/
-#photo{
+#photo {
     height: 575px;
     width: auto;
 }
@@ -148,7 +148,7 @@ main {
     top: 60%;
 }
 
-.button-disp{
+.button-disp {
     position: absolute;
     top: 70%;
 }
@@ -216,7 +216,7 @@ button:hover .arrow:before {
 /*------------------------------------------------------------------------------------------*/
 /* 6. Section description entreprise */
 /*------------------------------------------------------------------------------------------*/
-.col-ensemble{
+.col-ensemble {
     margin-top: 125px;
     margin-bottom: 125px;
 }
@@ -225,7 +225,7 @@ button:hover .arrow:before {
     text-align: left;
 }
 
-.text-description{
+.text-description {
     font-family: 'Montserrat', sans-serif;
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
@@ -234,7 +234,7 @@ button:hover .arrow:before {
     text-transform: uppercase;
 }
 
-.text-description-bis{
+.text-description-bis {
     font-family: 'Montserrat', sans-serif;
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
@@ -243,7 +243,7 @@ button:hover .arrow:before {
     line-height: 38px;
 }
 
-#text0{
+#text0 {
     font-family: 'Montserrat', sans-serif;
     font-family: 'Open Sans', sans-serif;
     font-size: 18px;
@@ -251,7 +251,7 @@ button:hover .arrow:before {
     font-weight: 400px;
 }
 
-#text1{
+#text1 {
     font-family: 'Montserrat', sans-serif;
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
@@ -260,7 +260,7 @@ button:hover .arrow:before {
     width: 85%;
 }
 
-#epicerie{
+#epicerie {
     height: 300px;
     width: 300px;
 }
@@ -268,7 +268,7 @@ button:hover .arrow:before {
 /*------------------------------------------------------------------------------------------*/
 /* 7. Section coupon reduction */
 /*------------------------------------------------------------------------------------------*/
-#rectangle{
+#rectangle {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -286,11 +286,23 @@ button:hover .arrow:before {
     padding-top: 10px;
 }
 
-.coupon0{
+.rectangle-bis {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 977px;
+    height: 232px;
+    background-color: #f8f6f1;
+    margin-bottom: 75px;
+    padding-top: 10px;
+}
+
+.coupon0 {
     margin-bottom: 25px;
 }
 
-#text-coupon0{
+#text-coupon0 {
     font-family: 'Montserrat', sans-serif;
     font-family: 'Open Sans', sans-serif;
     font-size: 22px;
@@ -299,7 +311,7 @@ button:hover .arrow:before {
     color: #412420;
 }
 
-#text-coupon1{
+#text-coupon1 {
     font-family: 'Montserrat', sans-serif;
     font-family: 'Open Sans', sans-serif;
     font-size: 1em;
@@ -310,7 +322,7 @@ button:hover .arrow:before {
     padding-right: 40px;
 }
 
-#text-coupon2{
+#text-coupon2 {
     font-family: 'Montserrat', sans-serif;
     font-family: 'Open Sans', sans-serif;
     font-size: 1em;
@@ -323,15 +335,15 @@ button:hover .arrow:before {
 /*------------------------------------------------------------------------------------------*/
 /* 8. Section produits */
 /*------------------------------------------------------------------------------------------*/
-.col-ensemble-bis{
+.col-ensemble-bis {
     margin-bottom: 125px;
 }
 
-.col-ensemble-int{
+.col-ensemble-int {
     margin-bottom: 70px;
 }
 
-#produits{
+#produits {
     height: 400px;
     width: 400px;
 }
@@ -356,7 +368,7 @@ button:hover .arrow:before {
     top: 55%;
 }
 
-.button-disp-bis{
+.button-disp-bis {
     position: absolute;
     top: 65%;
 }
@@ -364,7 +376,7 @@ button:hover .arrow:before {
 /*------------------------------------------------------------------------------------------*/
 /* 9. Section contact */
 /*------------------------------------------------------------------------------------------*/
-.contact-title{
+.contact-title {
     color: #412420;
     font-size: 32px;
     font-family: 'Montserrat', sans-serif;
@@ -375,17 +387,17 @@ button:hover .arrow:before {
     line-height: 40px;
 }
 
-.col-ensemble-contact{
+.col-ensemble-contact {
     margin-top: 125px;
     margin-bottom: 30px;
 }
 
-#colombe{
+#colombe {
     height: 150px;
     width: 150px;
 }
 
-.col-ensemble-contact-button{
+.col-ensemble-contact-button {
     margin-top: 30px;
     margin-bottom: 125px;
 }
@@ -396,7 +408,7 @@ button:hover .arrow:before {
     height: 45px;
     padding: 8px;
     border-radius: 5px;
-    border: 1.5px solid rgb(242,238,226);
+    border: 1.5px solid rgb(242, 238, 226);
     box-shadow: 0px 0px 20px -20px;
     cursor: pointer;
     background-color: #ffffff;
@@ -412,7 +424,7 @@ button:hover .arrow:before {
 }
 
 .bouton-contact:hover {
-    background-color: rgb(242,238,226);
+    background-color: rgb(242, 238, 226);
     box-shadow: 0px 0px 20px -18px;
 }
 
@@ -475,7 +487,7 @@ button:hover .arrow:before {
     border-radius: 8px;
     font-size: 16px;
     font-weight: 500;
-    background-color:#412420;
+    background-color: #412420;
     color: #f8f6f1;
     cursor: pointer;
 }
@@ -514,16 +526,14 @@ button:hover .arrow:before {
 }
 
 
-
-
 /*------------------------------------------------------------------------------------------*/
 /* 10. Section confiance */
 /*------------------------------------------------------------------------------------------*/
-.col-ensemble-confiance{
+.col-ensemble-confiance {
     margin-bottom: 125px;
 }
 
-.title-confiance{
+.title-confiance {
     color: #412420;
     font-family: 'Montserrat', sans-serif;
     font-family: 'Open Sans', sans-serif;
@@ -535,7 +545,7 @@ button:hover .arrow:before {
     margin-top: 30px;
 }
 
-.text-confiance{
+.text-confiance {
     color: #412420;
     font-family: 'Montserrat', sans-serif;
     font-family: 'Open Sans', sans-serif;
@@ -552,12 +562,63 @@ button:hover .arrow:before {
     border-bottom: 1.2px solid #f0f0f2;
 }
 
-.border-right{
+.border-right {
     border-right: 1.2px solid #f0f0f2;;
 }
 
-#logoconfiance{
+#logoconfiance {
     margin-top: 50px;
     height: auto;
     width: 47px;
+}
+
+/*------------------------------------------------------------------------------------------*/
+/* 10. Section Produits Other pages */
+/*------------------------------------------------------------------------------------------*/
+.marge-produits{
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.orga-text {
+    margin-top: 40px;
+}
+
+.title-products {
+    color: #412420;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 42px;
+    line-height: 24px;
+}
+
+.orga-produits {
+    margin-top: 125px;
+    margin-bottom: 125px;
+}
+
+.img-produits{
+    height: 200px;
+    width: 200px;
+}
+
+.orga-produits-detail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.style-text-produits{
+    color: #412420;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 20px;
+    padding-top: 20px;
+}
+
+.style-text-produits:hover{
+    color: #c97c56;
 }

@@ -16,7 +16,7 @@ $admins = $adminModele->getAllAdmins();
 $loader = new \Twig\Loader\FilesystemLoader("app/View/templates");
 $twig = new \Twig\Environment($loader);
 
-echo $twig->render('biscuits.twig', ['admins' => $admins]);
+echo $twig->render('ventesflash.twig', ['admins' => $admins]);
 
 //test cours
 //echo $twig->render('biscuits.twig', $donnees);

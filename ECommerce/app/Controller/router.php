@@ -6,43 +6,43 @@ $twig = new \Twig\Environment($loader);
 $request_uri = $_SERVER['REQUEST_URI'];
 
 switch ($request_uri) {
-    case 'app/View/templates/politique_confidentialite.twig':
+    case 'politique_confidentialite':
         echo $twig->render('politique_confidentialite.twig');
         break;
 
-    case 'app/View/templates/compte.twig':
+    case 'compte':
         echo $twig->render('compte.twig');
         break;
 
-    case 'app/View/templates/panier.twig':
+    case 'panier':
         echo $twig->render('panier.twig');
         break;
 
-    case 'app/View/templates/conditions_generales.twig':
+    case 'conditions_generales':
         echo $twig->render('conditions_generales.twig');
         break;
 
-    case 'app/View/templates/boissons.twig':
+    case 'boissons':
         echo $twig->render('boissons.twig');
         break;
 
-    case 'app/View/templates/biscuits.twig':
+    case 'biscuits':
         echo $twig->render('biscuits.twig');
         break;
 
-    case 'app/View/templates/conditions_generales.twig':
+    case 'conditions_generales':
         echo $twig->render('conditions_generales.twig');
         break;
 
-    case 'app/View/templates/fruitssec.twig':
+    case 'fruitssec':
         echo $twig->render('fruitssec.twig');
         break;
 
-    case 'app/View/templates/ventesflash.twig':
+    case 'ventesflash':
         echo $twig->render('ventesflash.twig');
         break;
 
-    case 'app/View/templates/magasins.twig':
+    case 'magasins':
         echo $twig->render('magasins.twig');
         break;
 

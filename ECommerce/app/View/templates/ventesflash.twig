@@ -101,8 +101,18 @@
             <h1 class="text-politique">Ventes générales</h1>
         </div>
     </section>
+
+    <!-- TEST PHP PROVISOIRE -->
+    <h2>Produits test :</h2>
+    <ul>
+        {% for admin in admins %}
+            <li>{{ admin.name }} - {{ admin.id }}</li>
+        {% endfor %}
+    </ul>
+    <!-- TEST PHP PROVISOIRE -->
+
     <div class="d-flex justify-content-center">
-        <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/colombe.jpf" id="colombe">
+        <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/colombe.jpg" id="colombe">
     </div>
 </main>
 

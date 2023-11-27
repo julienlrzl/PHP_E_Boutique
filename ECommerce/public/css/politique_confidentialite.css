@@ -17,6 +17,7 @@
     box-sizing: border-box;
     display: flex;
     align-items: center;
+    margin-bottom: 75px;
 }
 
 .text-politique {
