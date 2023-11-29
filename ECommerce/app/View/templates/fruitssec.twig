@@ -68,6 +68,9 @@
                                 magasins</a>
                         </li>
                         <li class="nav-item">
+                            <span class="nav-link link-custom-navbar">|</span>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link link-custom-navbar-icon"
                                href="/ProjetPHP/php-e-boutique/ECommerce/app/View/templates/compte.twig">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -128,57 +131,15 @@
         <section>
             <div class="container mx-5">
                 <div class="row orga-produits">
-                    <div class="col-md-4 align-items-start orga-produits-detail">
-                        <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/productimages/jusOrange.jpg"
-                             class="img-produits">
-                        <span>produit</span>
-                    </div>
-                    <div class="col-md-4 align-items-start orga-produits-detail">
-                        <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/productimages/jusOrange.jpg"
-                             class="img-produits">
-                        <span>produit</span>
-                    </div>
-                    <div class="col-md-4 align-items-start orga-produits-detail">
-                        <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/productimages/jusOrange.jpg"
-                             class="img-produits">
-                        <span>produit</span>
-                    </div>
+                    {% for fruitssec in fruitssecs %}
+                        <div class="col-md-4 align-items-center orga-produits-detail">
+                            <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/productimages/{{ fruitssec.image }}"
+                                 class="img-produits">
+                            <span class="style-text-produits">{{ fruitssec.name }}</span>
+                            <span class="style-text-produits">€{{ fruitssec.price }} | Il en reste {{ fruitssec.quantity }}</span>
+                        </div>
+                    {% endfor %}
                 </div>
-                <div class="row orga-produits">
-                    <div class="col-md-4 align-items-start orga-produits-detail">
-                        <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/productimages/jusOrange.jpg"
-                             class="img-produits">
-                        <span>produit</span>
-                    </div>
-                    <div class="col-md-4 align-items-start orga-produits-detail">
-                        <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/productimages/jusOrange.jpg"
-                             class="img-produits">
-                        <span>produit</span>
-                    </div>
-                    <div class="col-md-4 align-items-start orga-produits-detail">
-                        <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/productimages/jusOrange.jpg"
-                             class="img-produits">
-                        <span>produit</span>
-                    </div>
-                </div>
-                <div class="row orga-produits">
-                    <div class="col-md-4 align-items-start orga-produits-detail">
-                        <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/productimages/jusOrange.jpg"
-                             class="img-produits">
-                        <span>produit</span>
-                    </div>
-                    <div class="col-md-4 align-items-start orga-produits-detail">
-                        <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/productimages/jusOrange.jpg"
-                             class="img-produits">
-                        <span>produit</span>
-                    </div>
-                    <div class="col-md-4 align-items-start orga-produits-detail">
-                        <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/productimages/jusOrange.jpg"
-                             class="img-produits">
-                        <span>produit</span>
-                    </div>
-                </div>
-            </div>
         </section>
     </div>
     <div class="d-flex justify-content-center">
