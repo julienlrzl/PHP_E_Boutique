@@ -5,23 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3bcf206-0156-494b-b473-fb5cecb9e812" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Model/biscuit.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/boisson.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/fruitssec.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/AdminModele.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/View/templates/biscuits.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/templates/biscuits.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/View/templates/boissons.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/templates/boissons.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/View/templates/compte.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/templates/compte.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/View/templates/conditions_generales.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/templates/conditions_generales.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/View/templates/fruitssec.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/templates/fruitssec.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/View/templates/index.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/templates/index.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/View/templates/magasins.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/templates/magasins.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/View/templates/panier.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/templates/panier.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/View/templates/politique_confidentialite.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/templates/politique_confidentialite.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/View/templates/ventesflash.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/templates/ventesflash.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twig-config.php" beforeDir="false" afterPath="$PROJECT_DIR$/twig-config.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +21,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/app/Controller/router.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/Model/boisson.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/View/templates/boissons.twig" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/View/templates/compte.twig" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
@@ -108,7 +94,7 @@
       <updated>1700666644525</updated>
       <workItem from="1700666645467" duration="8458000" />
       <workItem from="1700849587516" duration="39309000" />
-      <workItem from="1700988881042" duration="25635000" />
+      <workItem from="1700988881042" duration="27283000" />
     </task>
     <servers />
   </component>
