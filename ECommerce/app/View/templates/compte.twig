@@ -16,6 +16,10 @@
     <link rel="stylesheet" href="/ProjetPHP/php-e-boutique/ECommerce/public/css/style.css">
     <link rel="stylesheet" href="/ProjetPHP/php-e-boutique/ECommerce/public/css/politique_confidentialite.css">
 
+    <!--link JS-->
+    <script src="/ProjetPHP/php-e-boutique/ECommerce/public/js/scripts.js"></script>
+    <script src="/ProjetPHP/php-e-boutique/ECommerce/public/js/jquery/jquery.min.js"></script>
+    <script src="/ProjetPHP/php-e-boutique/ECommerce/public/js/bootstrap/bootstrap.min.js"></script>
 
     <!-- Icônes Favicon -->
     <link rel="icon" href="/ProjetPHP/php-e-boutique/ECommerce/public/image/favicon.ico" type="image/x-icon">
@@ -91,11 +95,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link link-custom-navbar"
-                               href="?page=ventesflash">vente
-                                flash -20%</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link link-custom-navbar"
                                href="?page=magasins">nos
                                 magasins</a>
                         </li>
@@ -120,6 +119,7 @@
                                      class="bi bi-cart3" viewBox="0 0 16 16">
                                     <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
                                 </svg>
+                                <span id="panier-counter">0</span>
                             </a>
                         </li>
                     </ul>
@@ -136,11 +136,53 @@
             <h1 class="text-politique">Mon compte</h1>
         </div>
     </section>
-    <section>
-        <div class="flex-column d-flex justify-content-center align-items-center">
-            <div><div class="rectangle-compte"></div></div>
-        </div>
-    </section>
+    <div class="container">
+        <section class="row">
+            <div class="col-md-6 d-flex justify-content-end">
+                <div class="flex-column d-flex align-items-end">
+                    <div class="rectangle-compte d-flex justify-content-start align-items-start flex-column">
+                        <span class="connexion-contact">Se connecter</span>
+                        <span class="user-password-contact">Identifiant ou e-mail<span class="asterix"> *</span></span>
+                        <div class="input-container">
+                            <input class="input" name="text" type="search">
+                        </div>
+                        <span class="user-password-contact">Mot de passe<span class="asterix"> *</span></span>
+                        <div class="input-container">
+                            <input class="input" name="text" type="search">
+                        </div>
+                        <button id="bouton-connexion">
+                            SE CONNECTER
+                        </button>
+                        <div class="links-container user-password-contact">
+                            <a href="#" class="link link-contact">Créer un compte</a>
+                            <span class="separator"> | </span>
+                            <a href="#" class="link link-contact">Mot de passe oublié</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex justify-content-start">
+                <div class="flex-column d-flex align-items-end">
+                    <div class="rectangle-compte d-flex justify-content-start align-items-start flex-column">
+                        <span class="connexion-contact">S'enregistrer</span>
+                        <span class="user-password-contact">E-mail<span class="asterix"> *</span></span>
+                        <div class="input-container">
+                            <input class="input" name="text" type="search">
+                        </div>
+                        <p class="text-contact">Un lien permettant de définir un nouveau mot de passe sera envoyé à
+                            votre adresse e-mail.</p>
+                        <p class="text-contact">Vos données personnelles seront utilisées pour vous accompagner au cours
+                            de votre visite du
+                            site web, gérer l’accès à votre compte, et pour d’autres raisons décrites dans notre
+                            politique de confidentialité.</p>
+                        <button id="bouton-connexion-prix">
+                            S'ENREGISTRER
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
     <div class="d-flex justify-content-center">
         <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/colombe.jpg" id="colombe">
     </div>

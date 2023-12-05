@@ -1,10 +1,10 @@
 <?php
 
 // Chargement de l'autoloader de Composer
-require_once __DIR__.'/../vendor/autoload.php';
-require_once __DIR__.'/../app/Model/boisson.php';
-require_once __DIR__.'/../app/Model/biscuit.php';
-require_once __DIR__.'/../app/Model/fruitssec.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../app/Model/boisson.php';
+require_once __DIR__ . '/../app/Model/biscuit.php';
+require_once __DIR__ . '/../app/Model/fruitssec.php';
 
 // Créez une instance de boisson
 $boisson = new boisson();
@@ -16,17 +16,18 @@ $boissons = $boisson->getAllBoissons();
 $biscuits = $biscuit->getAllBiscuits();
 $fruitssecs = $fruitssec->getAllFruitssec();
 
+
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
 try {
     // Configuration du chemin vers les templates
-    $loader = new FilesystemLoader(__DIR__.'/../app/View/templates');
+    $loader = new FilesystemLoader(__DIR__ . '/../app/View/templates');
 
     // Initialisation de l'environnement Twig
     $twig = new Environment($loader);
 
-    $page = isset($_GET['page']) ? $_GET['page'] : 'fruitssec';
+    $page = isset($_GET['page']) ? $_GET['page'] : 'index';
 
     // Exemple de données à passer au template
     $data = [
