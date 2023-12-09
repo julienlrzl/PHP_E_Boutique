@@ -140,18 +140,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-10 offset-md-1">
-                    {% for boisson in boissons %}
+                    {% for produit in produits %}
                         <hr>
                         <div class="d-flex flex-row align-items-center product-item">
                             <button class="button">
-                                <span class="X"></span>
+                                <a href="controleur" <span class="X"></span>
                                 <span class="Y"></span>
                                 <div class="close">Close</div>
                             </button>
-                            <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/productimages/{{ boisson.image }}"
+                            <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/productimages/{{ produit.image }}"
                                  class="img-produits-panier">
-                            <p class="style-text-panier product-name">{{ boisson.name }}</p>
-                            <p class="style-text-panier-prix product-price">€{{ boisson.price }}</p>
+                            <p class="style-text-panier product-name">{{ produit.name }}</p>
+                            <p class="style-text-panier-prix product-price">€{{ produit.price }}</p>
+                            <p class="style-text-panier-quantité product-quantity">{{ produit.nombre_occurrences }}</p>
                         </div>
                     {% endfor %}
                     <hr>
