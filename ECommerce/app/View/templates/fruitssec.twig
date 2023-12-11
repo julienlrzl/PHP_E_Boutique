@@ -39,7 +39,7 @@
         <div class="container container-header d-flex justify-content-between">
             <!-- Logo au milieu -->
             <div class="logo text-center">
-                <a href="?page=index"><img
+                <a href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=index"><img
                             src="/ProjetPHP/php-e-boutique/ECommerce/public/image/logo-web-transparent.png"
                             id="logo-principal"></a>
             </div>
@@ -50,20 +50,20 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item active">
                             <a class="nav-link link-custom-navbar"
-                               href="?page=boissons">Boissons</a>
+                               href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=boissons">Boissons</a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link link-custom-navbar"
-                               href="?page=biscuits">Biscuits</a>
+                               href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=biscuits">Biscuits</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link link-custom-navbar"
-                               href="?page=fruitssec">Fruits
+                               href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=fruitssec">Fruits
                                 sec</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link link-custom-navbar"
-                               href="?page=magasins">nos
+                               href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=magasins">nos
                                 magasins</a>
                         </li>
                         <li class="nav-item">
@@ -71,7 +71,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link link-custom-navbar-icon"
-                               href="?page=compte">
+                               href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=compte">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                      class="bi bi-person-circle" viewBox="0 0 16 16">
                                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
@@ -82,12 +82,12 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link link-custom-navbar-icon"
-                               href="?page=panier">
+                               href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=panier">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                      class="bi bi-cart3" viewBox="0 0 16 16">
                                     <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
                                 </svg>
-                                <span id="panier-counter">0</span>
+                                <span id="panier-counter">{{ quantiteDansPanier }}</span>
                             </a>
                         </li>
                     </ul>
@@ -137,9 +137,9 @@
                                  class="img-produits">
                             <span class="style-text-produits">{{ fruitssec.name }}</span>
                             <span class="style-text-produits0">€{{ fruitssec.price }} | Il en reste {{ fruitssec.quantity }}</span>
-                            <button class="bouton-panier">
+                            <a class="boutton-panier" href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/controllerpanier.php?action=add_fruits_secs&id_produit={{ fruitssec.id }}&id_panier=1" " >
                                 Ajouter au Panier
-                            </button>
+                            </a>
                         </div>
                     {% endfor %}
                 </div>
@@ -158,10 +158,10 @@
         </div>
         <div>
             <p class="footer-text"><a class="nav-link-footer"
-                                      href="?page=conditions_generales">Conditions
+                                      href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=conditions_generales">Conditions
                     générales de ventes</a> | <a
                         class="nav-link-footer"
-                        href="?page=politique_confidentialite">Politique
+                        href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=politique_confidentialite">Politique
                     de confidentialité</a> - &copy; 2023 Boutique
                 Française</p>
         </div>

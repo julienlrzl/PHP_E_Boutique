@@ -20,6 +20,7 @@ $boissons = $boisson->getAllBoissons();
 $biscuits = $biscuit->getAllBiscuits();
 $fruitssecs = $fruitssec->getAllFruitssec();
 $produitsdupanier = $panier->getContenu(1);
+$quantiteDansPanier = $panier->getQuantitéDansPanier(1);
 
 
 use Twig\Environment;
@@ -40,13 +41,15 @@ try {
     if ($page == 'panier'){
         $data = [
             'produits' => $produitsdupanier,
+            'quantiteDansPanier' => $quantiteDansPanier
         ];
     }
     else {
         $data = [
             'boissons' => $boissons,
             'biscuits' => $biscuits,
-            'fruitssecs' => $fruitssecs  // Ajout des fruitssecs au tableau de données
+            'fruitssecs' => $fruitssecs,  // Ajout des fruitssecs au tableau de données
+            'quantiteDansPanier' => $quantiteDansPanier
         ];
     }
 
