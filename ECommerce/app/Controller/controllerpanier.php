@@ -18,9 +18,15 @@ $fruitssec = new fruitssec();
 $biscuits = new biscuit();
 
 
-$action = $_GET['action'];
-$id_produit = $_GET['id_produit'];
-$id_panier = $_GET['id_panier'];
+$action = isset($_GET['action']) ? $_GET['action'] : '';
+$id_produit = isset($_GET['id_produit']) ? $_GET['id_produit'] : '';
+$id_panier = isset($_GET['id_panier']) ? $_GET['id_panier'] : '';
+
+if (empty($id_panier)) {
+    // Si id_panier n'est pas défini, vous pouvez rediriger l'utilisateur vers une page d'erreur ou effectuer une autre action.
+    echo "Erreur : id_panier non défini.";
+    exit();
+}
 
 switch($action) {
     case "supp":{

@@ -8,11 +8,24 @@ class panier extends modele
     // Fonction pour ajouter un produit au panier
     function ajouterProduitPanier($id_product, $id_panier)
     {
-        $sql = "INSERT INTO produitspanier (id_product, id_panier) VALUES ($id_product, $id_panier);";
-        $this->executerRequete($sql);
-        $this->getQuantitéDansPanier($id_panier);
-        return $this;
+        // Utilisation de paramètres pour éviter les problèmes de sécurité
+        $sql = "INSERT INTO produitspanier (id_product, id_panier) VALUES (:id_product, :id_panier)";
+
+        // Paramètres à lier
+        $parametres = array(
+            ":id_product" => $id_product,
+            ":id_panier" => $id_panier,
+        );
+
+        // Exécution de la requête avec les paramètres
+        $this->executerRequete($sql, $parametres);
+
+        // Mettez à jour la quantité après l'ajout
+        $quantiteDansPanier = $this->getQuantiteDansPanier($id_panier);
+
+        return $quantiteDansPanier;
     }
+
 
     function retirerProduitPanier($id_product, $id_panier)
     {
@@ -23,10 +36,7 @@ class panier extends modele
 
 
     // Fonction qui créer un nouveau panier
-    function creerPanier(){
-        $sql = "INSERT INTO panier VALUES ();";
-        return $this->executerRequete($sql);
-    }
+
 
 
     // Fonction qui retourne le contenu d'un panier en prenant en paramètre l'id du panier
@@ -56,10 +66,41 @@ HAVING
 
     }
 
-    function getQuantitéDansPanier($id_panier){
+    function getQuantiteDansPanier($id_panier){
         $sql="SELECT COUNT(id_product) as quantiteDansPanier FROM produitspanier where id_panier = $id_panier";
         $result = $this->executerRequete($sql)->fetch(PDO::FETCH_ASSOC);
         return $result['quantiteDansPanier'];
+    }
+
+    function creerNouveauPanier($customer_id)
+    {
+        $sql = "INSERT INTO panier VALUES (customer_id)";
+
+        $parametres = array(
+            ":customer_id" => $customer_id,
+
+        );
+
+        return $this->executerRequete($sql, $parametres);
+
+    }
+
+    function getIdPanier($username, $password){
+
+        $sql = "SELECT logins.customer_id, panier.id_panier
+FROM logins
+JOIN panier ON panier.customer_id = logins.customer_id
+WHERE logins.username = :username AND logins.password = :password;";
+
+        $parametres = array(
+                ":username" => $username,
+                ":password" =>$password,
+
+        );
+
+        return $this->executerRequete($sql, $parametres);
+
+
     }
 
 }

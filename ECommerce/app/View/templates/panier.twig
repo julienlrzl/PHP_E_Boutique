@@ -150,7 +150,7 @@
                         {% for produit in produits %}
                             <hr>
                             <div class="d-flex flex-row align-items-center product-item">
-                                <a class="button" href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/controllerpanier.php?action=supp&id_produit={{ produit.id }}&id_panier=1">
+                                <a class="button" href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/controllerpanier.php?action=supp&id_produit={{ produit.id }}&id_panier={{ id_panier }}">
                                     <span class="X"></span>
                                     <span class="Y"></span>
                                     <div class="close">Close</div>
@@ -158,9 +158,9 @@
                                 <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/productimages/{{ produit.image }}" class="img-produits-panier">
                                 <p class="style-text-panier product-name">{{ produit.name }}</p>
                                 <p class="style-text-panier-prix product-price">€{{ produit.price * produit.nombre_occurrences }}</p>
-                                <a class="buttonadd" href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/controllerpanier.php?action=decreaseQty&id_produit={{ produit.id }}&id_panier=1">-</a>
+                                <a class="buttonadd" href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/controllerpanier.php?action=decreaseQty&id_produit={{ produit.id }}&id_panier={{ id_panier }}">-</a>
                                 <p class="style-text-panier-quantité product-quantity">{{ produit.nombre_occurrences }}</p>
-                                <a class="buttonadd" href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/controllerpanier.php?action=ajouterProduitPanier&id_produit={{ produit.id }}&id_panier=1">+</a>
+                                <a class="buttonadd" href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/controllerpanier.php?action=ajouterProduitPanier&id_produit={{ produit.id }}&id_panier={{ id_panier }}">+</a>
                             </div>
                         {% endfor %}
                     {% endif %}

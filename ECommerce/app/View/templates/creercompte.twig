@@ -129,37 +129,89 @@
     </nav>
 </header>
 
+
+
+
+
+
+
+
 <!-- Section principale -->
 <main>
     <section>
-        <!-- ... (autres balises de la section) ... -->
+        <div class="rectangle-politique">
+            <h1 class="text-politique">Mon compte</h1>
+        </div>
     </section>
     <div class="container">
         <section class="row">
             <div class="col-md-6 mx-auto">
-                    <div class="flex-column d-flex align-items-center">
-                        <div class="rectangle-compte d-flex justify-content-start align-items-start flex-column">
-                            <form action = "/ProjetPHP/php-e-boutique/ECommerce/app/Controller/logincontroller.php?action=seconnecter" method="post"
-                            <span class="connexion-contact">Se connecter</span>
-                            <span class="user-password-contact">Identifiant<span class="asterix"> *</span></span>
+                <div class="flex-column d-flex align-items-center">
+                    <div class="rectangle-compte d-flex justify-content-start align-items-start flex-column">
+                        <span class="connexion-contact">Créer un compte</span>
+                        <!-- Formulaire de création de compte -->
+                        <form action="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/logincontroller.php?action=creercompte" method="post">
+                            <!-- Nom -->
+                            <span class="user-password-contact">Nom<span class="asterix"> *</span></span>
+                            <div class="input-container">
+                                <input class="input" name="surname" type="text" required>
+                            </div>
+                            <!-- Prénom -->
+                            <span class="user-password-contact">Prénom<span class="asterix"> *</span></span>
+                            <div class="input-container">
+                                <input class="input" name="forname" type="text" required>
+                            </div>
+                            <!-- Adresse 1 -->
+                            <span class="user-password-contact">Adresse 1 <span class="asterix"> *</span></span>
+                            <div class="input-container">
+                                <input class="input" name="add1" type="text" required>
+                            </div>
+                            <!-- Adresse 2 (Facultatif) -->
+                            <span class="user-password-contact">Adresse 2</span>
+                            <div class="input-container">
+                                <input class="input" name="add2" type="text">
+                            </div>
+                            <!-- Ville -->
+                            <span class="user-password-contact">Ville<span class="asterix"> *</span></span>
+                            <div class="input-container">
+                                <input class="input" name="add3" type="text" required>
+                            </div>
+                            <!-- Code postal -->
+                            <span class="user-password-contact">Code postal<span class="asterix"> *</span></span>
+                            <div class="input-container">
+                                <input class="input" name="postcode" type="text" required>
+                            </div>
+                            <!-- Téléphone -->
+                            <span class="user-password-contact">N° de Téléphone<span class="asterix"> *</span></span>
+                            <div class="input-container">
+                                <input class="input" name="phone" type="text" required>
+                            </div>
+                            <!-- Email -->
+                            <span class="user-password-contact">Saisissez un e-mail<span class="asterix"> *</span></span>
+                            <div class="input-container">
+                                <input class="input" name="email" type="email" required>
+                            </div>
+                            <!-- Username -->
+                            <span class="user-password-contact">Votre nom d'utilisateur<span class="asterix"> *</span></span>
                             <div class="input-container">
                                 <input class="input" name="username" type="text" required>
                             </div>
-                            <span class="user-password-contact">Mot de passe<span class="asterix"> *</span></span>
+                            <!-- Mot de passe -->
+                            <span class="user-password-contact">Choisissez un mot de passe<span class="asterix"> *</span></span>
                             <div class="input-container">
                                 <input class="input" name="password" type="password" required>
                             </div>
-                            <button type="submit" name ="submit" >
-                                SE CONNECTER
-                            </button>
-                            <div class="links-container user-password-contact">
-                                <a href="?page=creercompte" class="link link-contact">Créer un compte</a>
-                                <span class="separator"> | </span>
-                                <a href="#" class="link link-contact">Mot de passe oublié</a>
+                            <!-- Confirmez le mot de passe -->
+                            <span class="user-password-contact">Confirmez le mot de passe<span class="asterix"> *</span></span>
+                            <div class="input-container">
+                                <input class="input" name="confirmer_mot_de_passe" type="password" required>
                             </div>
-                        </div>
+                            <!-- Bouton de soumission -->
+                            <button type="submit" name="submit">S'INSCRIRE</button>
+
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
         </section>
     </div>
@@ -167,6 +219,13 @@
         <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/colombe.jpg" id="colombe">
     </div>
 </main>
+
+
+
+
+
+
+
 
 <!-- Pied de page -->
 <footer class="py-3 footer-custom" style="background-color: #f8f6f1;">

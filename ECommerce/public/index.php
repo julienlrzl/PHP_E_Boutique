@@ -6,25 +6,41 @@ require_once __DIR__ . '/../app/Model/boisson.php';
 require_once __DIR__ . '/../app/Model/biscuit.php';
 require_once __DIR__ . '/../app/Model/fruitssec.php';
 require_once __DIR__ . '/../app/Model/panier.php';
+require_once __DIR__ . '/../app/Model/logins.php';
 
-
-
-// Créez une instance de boisson
+// Créez une instance
 $boisson = new boisson();
 $biscuit = new biscuit();
 $fruitssec = new fruitssec();
 $panier = new panier();
-
-// Utilisez la méthode pour récupérer tous les boisson
-$boissons = $boisson->getAllBoissons();
-$biscuits = $biscuit->getAllBiscuits();
-$fruitssecs = $fruitssec->getAllFruitssec();
-$produitsdupanier = $panier->getContenu(1);
-$quantiteDansPanier = $panier->getQuantitéDansPanier(1);
-
+$login = new Logins();
 
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
+
+// Utilisez la méthode pour récupérer tous les boissons
+$boissons = $boisson->getAllBoissons();
+$biscuits = $biscuit->getAllBiscuits();
+$fruitssecs = $fruitssec->getAllFruitssec();
+
+// Vérifiez si l'utilisateur est connecté en utilisant les cookies
+$username = $_COOKIE['username'] ?? null;
+$password = $_COOKIE['password'] ?? null;
+
+if ($username !== null && $password !== null) {
+    $resultat = $login->seConnecter($username, $password);
+
+    // Vérifie si la méthode a renvoyé un tableau non vide
+    if ($resultat && !empty($resultat)) {
+        $id_panier = $resultat[0]["id_panier"];
+        $produitsdupanier = $panier->getContenu($id_panier);
+        $quantiteDansPanier = $panier->getQuantiteDansPanier($id_panier);
+    } else {
+        // La connexion a échoué, vous pouvez traiter cela comme une déconnexion
+        $username = null;
+        $password = null;
+    }
+}
 
 try {
     // Configuration du chemin vers les templates
@@ -35,30 +51,31 @@ try {
 
     $page = isset($_GET['page']) ? $_GET['page'] : 'index';
 
-
     // Exemple de données à passer au template
     $data = null;
-    if ($page == 'panier'){
+
+    if ($page == 'panier') {
         $data = [
-            'produits' => $produitsdupanier,
-            'quantiteDansPanier' => $quantiteDansPanier
+            'produits' => $produitsdupanier ?? [],
+            'quantiteDansPanier' => $quantiteDansPanier ?? 0,
+            'id_panier' => $id_panier
+
         ];
-    }
-    else {
+    } else {
         $data = [
             'boissons' => $boissons,
             'biscuits' => $biscuits,
-            'fruitssecs' => $fruitssecs,  // Ajout des fruitssecs au tableau de données
-            'quantiteDansPanier' => $quantiteDansPanier
+            'fruitssecs' => $fruitssecs,
+            'quantiteDansPanier' => $quantiteDansPanier ?? 0,
+            'id_panier' => $id_panier
         ];
     }
 
-
     // Rendu du template avec les données
-
     echo $twig->render($page . '.twig', $data);
 
 } catch (\Exception $e) {
     // Affichage des erreurs
     die('Erreur Twig : ' . $e->getMessage());
 }
+?>

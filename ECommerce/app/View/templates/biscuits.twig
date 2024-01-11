@@ -137,14 +137,14 @@
                                  class="img-produits">
                             <span class="style-text-produits">{{ biscuit.name }}</span>
                             <span class="style-text-produits0">€{{ biscuit.price }} | Il en reste {{ biscuit.quantity }}</span>
-                            <a class="boutton-panier" href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/controllerpanier.php?action=add_biscuits&id_produit={{ biscuit.id }}&id_panier=1" " >
+                            <a class="boutton-panier" href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/controllerpanier.php?action=add_biscuits&id_produit={{ biscuit.id }}&id_panier={{ id_panier }}" " >
                                 Ajouter au Panier
                             </a>
                         </div>
                     {% endfor %}
                 </div>
         </section>
-    </div>
+    </div>56a5d2bd85e6c9956d122f59f79540ee0f75e5ad
     <div class="d-flex justify-content-center">
         <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/colombe.jpg" id="colombe">
     </div>

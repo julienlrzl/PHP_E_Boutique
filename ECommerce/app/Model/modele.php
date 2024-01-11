@@ -18,7 +18,7 @@ abstract class Modele
     }
 
     // Renvoie un objet de connexion à la BD en initialisant la connexion au besoin
-    private function getBdd()
+    protected function getBdd()
     {
         if ($this->bdd == null) { // Création de la connexion
             $host = 'localhost';

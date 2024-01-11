@@ -137,7 +137,7 @@
                                  class="img-produits">
                             <span class="style-text-produits">{{ fruitssec.name }}</span>
                             <span class="style-text-produits0">€{{ fruitssec.price }} | Il en reste {{ fruitssec.quantity }}</span>
-                            <a class="boutton-panier" href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/controllerpanier.php?action=add_fruits_secs&id_produit={{ fruitssec.id }}&id_panier=1" " >
+                            <a class="boutton-panier" href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/controllerpanier.php?action=add_fruits_secs&id_produit={{ fruitssec.id }}&id_panier={{ id_panier }}">
                                 Ajouter au Panier
                             </a>
                         </div>
