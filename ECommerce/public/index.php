@@ -9,6 +9,10 @@ require_once __DIR__ . '/../app/Model/panier.php';
 require_once __DIR__ . '/../app/Model/logins.php';
 require_once __DIR__ . '/../app/Model/review.php';
 require_once __DIR__ . '/../app/Model/Products.php';
+require_once __DIR__ . '/../app/Model/admin.php';
+
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
 // Créez une instance
 $boisson = new boisson();
@@ -17,9 +21,7 @@ $fruitssec = new fruitssec();
 $panier = new panier();
 $login = new Logins();
 $Products = new Products();
-
-use Twig\Environment;
-use Twig\Loader\FilesystemLoader;
+$admin = new Admin();
 
 // Utilisez la méthode pour récupérer tous les boissons
 $boissons = $boisson->getAllBoissons();
@@ -30,28 +32,54 @@ $fruitssecs = $fruitssec->getAllFruitssec();
 $username = $_COOKIE['username'] ?? null;
 $password = $_COOKIE['password'] ?? null;
 
-$id = isset($_GET['id']) ? $_GET['id'] : null;
-$Product = $Products -> getProduitsInfo($id);
-$reviews = $Products -> getReviewsProduits($id);
 
+
+$id = isset($_GET['id']) ? $_GET['id'] : null;
+$Product = $Products->getProduitsInfo($id);
+$reviews = $Products->getReviewsProduits($id);
+
+$isAdmin = false; // Initialisation de la variable admin
+
+$resultat = $login->seConnecter($username, $password);
+$resultatAdmin = $admin->seConnecterAdmin($username, $password);
 if ($username !== null && $password !== null) {
-    $resultat = $login->seConnecter($username, $password);
+
+
+
 
     // Vérifie si la méthode a renvoyé un tableau non vide
-    if ($resultat && !empty($resultat)) {
+    if (!empty($resultatAdmin)) {
+        // Utilisateur est un admin
+        $isAdmin = true;
+
+
+    } elseif (!empty($resultat)) {
         $id_panier = $resultat[0]["id_panier"];
         $produitsdupanier = $panier->getContenu($id_panier);
         $quantiteDansPanier = $panier->getQuantiteDansPanier($id_panier);
+
+
+        // Vérifie si l'utilisateur est aussi un admin
     } else {
         // La connexion a échoué, vous pouvez traiter cela comme une déconnexion
+
+        unset($_COOKIE['username']);
+        unset($_COOKIE['password']);
         $username = null;
         $password = null;
+        $id_panier = null;
+        $produitqdupanier = null;
     }
+    // Afficher les cookies avant la suppression
+
+
 }
 
 try {
     // Configuration du chemin vers les templates
     $loader = new FilesystemLoader(__DIR__ . '/../app/View/templates');
+
+
 
     // Initialisation de l'environnement Twig
     $twig = new Environment($loader);
@@ -65,10 +93,9 @@ try {
         $data = [
             'produits' => $produitsdupanier ?? [],
             'quantiteDansPanier' => $quantiteDansPanier ?? 0,
-            'id_panier' => $id_panier,
-            'id' =>$id,
-
-
+            'id_panier' => $id_panier ?? 0,
+            'id' => $id,
+            'admin' => $isAdmin, // Ajout de la variable admin
         ];
     } else {
         $data = [
@@ -76,20 +103,24 @@ try {
             'biscuits' => $biscuits,
             'fruitssecs' => $fruitssecs,
             'quantiteDansPanier' => $quantiteDansPanier ?? 0,
-            'id_panier' => $id_panier,
+            'id_panier' => $id_panier ?? 0,
             'Product' => $Product,
             'reviews' => $reviews,
-            'produitsdupanier' => $produitsdupanier,
-            'id' =>$id,
+            'produitsdupanier' => $produitsdupanier ?? 0,
+            'id' => $id,
             'username' => $username,
+            'isAdmin' => $isAdmin, // Ajout de la variable admin
         ];
     }
 
     // Rendu du template avec les données
     echo $twig->render($page . '.twig', $data);
 
+
 } catch (\Exception $e) {
     // Affichage des erreurs
     die('Erreur Twig : ' . $e->getMessage());
+
 }
+
 ?>

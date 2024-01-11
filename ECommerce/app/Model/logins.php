@@ -39,5 +39,9 @@ class Logins extends modele
     }
 
 
+
+    public function addRandomLogin(){
+
+    }
 }
 
