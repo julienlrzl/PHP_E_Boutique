@@ -134,15 +134,19 @@
                 <div class="row orga-produits">
                     {% for boisson in boissons %}
                         <div class="col-md-4 align-items-center orga-produits-detail">
-                            <a href="/ProjetPHP/php-e-boutique/ECommerce/public/?page=produit_boisson&id={{ boisson.id }}" class="lien-produits orga-produits-detail">
+                            <a href="/ProjetPHP/php-e-boutique/ECommerce/public/?page=produit_boisson&id={{ boisson.id }}"
+                               class="lien-produits orga-produits-detail">
                                 <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/productimages/{{ boisson.image }}"
                                      class="img-produits">
                                 <span class="style-text-produits">{{ boisson.name }}</span>
                                 <span class="style-text-produits0">€{{ boisson.price }} | Il en reste {{ boisson.quantity }}</span>
                             </a>
-                            <a class="boutton-panier" href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/controllerpanier.php?action=add_boissons&id_produit={{ boisson.id }}&id_panier={{ id_panier }}"  >
-                                Ajouter au Panier
-                            </a>
+                            <button class="boutton-panier espacement">
+                                <a class="lien-button-panier"
+                                   href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/controllerpanier.php?action=add_boissons&id_produit={{ boisson.id }}&id_panier={{ id_panier }}">
+                                    Ajouter au Panier
+                                </a>
+                            </button>
                         </div>
                     {% endfor %}
                 </div>
