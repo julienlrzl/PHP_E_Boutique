@@ -136,52 +136,87 @@
             <h1 class="text-politique">Payement</h1>
         </div>
     </section>
-    <section>
-        <div class="d-flex justify-content-center">
-            <div class="flex-column d-flex align-items-end">
-                <div class="rectangle-compte d-flex flex-column">
-                    <span class="connexion-contact">Finalisation de votre commande</span>
-                    {% set total = 0 %}
-                    {% for produit in produits %}
-                        <div class="d-flex flex-row product-item">
-                            <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/productimages/{{ produit.image }}"
-                                 class="img-produits-recap">
-                            <p class="style-text-panier separation">{{ produit.name }}</p>
-                            <p class="style-text-panier-prix product-price">
-                                €{{ produit.price * produit.nombre_occurrences }}</p>
+    <div class="container">
+        <section class="row">
+            <div class="col-md-6 d-flex justify-content-end">
+                <div class="d-flex justify-content-center">
+                    <div class="flex-column d-flex align-items-end">
+                        <div class="rectangle-compte d-flex flex-column">
+                            <span class="connexion-contact">Finalisation de votre commande</span>
+                            {% set total = 0 %}
+                            {% for produit in produits %}
+                                <div class="d-flex flex-row product-item">
+                                    <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/productimages/{{ produit.image }}"
+                                         class="img-produits-recap">
+                                    <p class="style-text-panier separation">{{ produit.name }}</p>
+                                    <p class="style-text-panier-prix product-price">
+                                        €{{ produit.price * produit.nombre_occurrences }}</p>
+                                </div>
+                                {% set total = total + (produit.price * produit.nombre_occurrences) %}
+                            {% endfor %}
+                            {% if produits is not empty %}
+                                <div class="d-flex justify-content-end align-items-end flex-column">
+                                    <p class="total-text">Total: €{{ total }}</p>
+                                </div>
+                            {% endif %}
+                            <div class="d-flex justify-content-center align-items-center flex-column button-paypal">
+                                <a href="https://www.paypal.com" target="_blank" class="lien-produits orga-produits-detail">
+                                    <button class="Btn">
+                                        Paypal
+                                        <svg class="svgIcon" viewBox="0 0 576 512">
+                                            <path d="M512 80c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H512zm16 144V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V224H528zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm56 304c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm128 0c-13.3 0-24 10.7-24 24s10.7 24 24 24H360c13.3 0 24-10.7 24-24s-10.7-24-24-24H248z"></path>
+                                        </svg>
+                                    </button>
+                                </a>
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center flex-column button-paypal">
+                                <a href="/ProjetPHP/php-e-boutique/ECommerce/public/?page=payementcheque"
+                                   class="lien-produits orga-produits-detail">
+                                    <button class="Btn">
+                                        Chèque
+                                        <svg class="svgIcon" viewBox="0 0 576 512">
+                                            <path d="M512 80c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H512zm16 144V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V224H528zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm56 304c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm128 0c-13.3 0-24 10.7-24 24s10.7 24 24 24H360c13.3 0 24-10.7 24-24s-10.7-24-24-24H248z"></path>
+                                        </svg>
+                                    </button>
+                                </a>
+                            </div>
                         </div>
-                        {% set total = total + (produit.price * produit.nombre_occurrences) %}
-                    {% endfor %}
-                    {% if produits is not empty %}
-                        <div class="d-flex justify-content-end align-items-end flex-column">
-                            <p class="total-text">Total: €{{ total }}</p>
-                        </div>
-                    {% endif %}
-                    <div class="d-flex justify-content-center align-items-center flex-column button-paypal">
-                        <a href="https://www.paypal.com" target="_blank" class="lien-produits orga-produits-detail">
-                            <button class="Btn">
-                                Paypal
-                                <svg class="svgIcon" viewBox="0 0 576 512">
-                                    <path d="M512 80c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H512zm16 144V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V224H528zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm56 304c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm128 0c-13.3 0-24 10.7-24 24s10.7 24 24 24H360c13.3 0 24-10.7 24-24s-10.7-24-24-24H248z"></path>
-                                </svg>
-                            </button>
-                        </a>
-                    </div>
-                    <div class="d-flex justify-content-center align-items-center flex-column button-paypal">
-                        <a href="/ProjetPHP/php-e-boutique/ECommerce/public/?page=payementcheque"
-                           class="lien-produits orga-produits-detail">
-                            <button class="Btn">
-                                Chèque
-                                <svg class="svgIcon" viewBox="0 0 576 512">
-                                    <path d="M512 80c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H512zm16 144V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V224H528zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm56 304c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm128 0c-13.3 0-24 10.7-24 24s10.7 24 24 24H360c13.3 0 24-10.7 24-24s-10.7-24-24-24H248z"></path>
-                                </svg>
-                            </button>
-                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+            <div class="col-md-6 d-flex justify-content-start">
+                <div class="flex-column d-flex align-items-end">
+                    <div class="rectangle-compte d-flex justify-content-start align-items-start flex-column">
+                        <span class="connexion-contact">Votre adresse de livraison</span>
+
+                        <label for="country" class="user-password-contact">Adresses<span class="asterix"> *</span></label>
+                        <div class="input-container">
+                            <select class="input" name="country" id="country">
+                                <option value="france">Ton Adresse enculé</option>
+                                <option value="usa">Nouvelle Adresse</option>
+                            </select>
+                        </div>
+
+                        <span class="user-password-contact">Adresse</span>
+                        <div class="input-container">
+                            <input class="input" name="text" type="search">
+                        </div>
+                        <span class="user-password-contact">Code postal<span class="asterix"> *</span></span>
+                        <div class="input-container">
+                            <input class="input" name="text" type="search">
+                        </div>
+                        <span class="user-password-contact">Ville<span class="asterix"> *</span></span>
+                        <div class="input-container">
+                            <input class="input" name="text" type="search">
+                        </div>
+                        <button id="bouton-connexion">
+                            <a href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=paypalcheque" class="valider-commad-button">VALIDER</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
     <div class="d-flex justify-content-center">
         <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/colombe.jpg" id="colombe">
     </div>
