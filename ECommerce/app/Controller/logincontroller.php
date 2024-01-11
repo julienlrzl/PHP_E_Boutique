@@ -1,16 +1,16 @@
 <?php
 
-require_once '/Applications/XAMPP/xamppfiles/htdocs/projetPHP/php-e-boutique/ECommerce/app/Model/panier.php';
-require_once '/Applications/XAMPP/xamppfiles/htdocs/projetPHP/php-e-boutique/ECommerce/app/Model/boisson.php';
-require_once '/Applications/XAMPP/xamppfiles/htdocs/projetPHP/php-e-boutique/ECommerce/app/Model/fruitssec.php';
-require_once '/Applications/XAMPP/xamppfiles/htdocs/projetPHP/php-e-boutique/ECommerce/app/Model/biscuit.php';
-require_once '/Applications/XAMPP/xamppfiles/htdocs/projetPHP/php-e-boutique/ECommerce/app/Model/customers.php';
-require_once '/Applications/XAMPP/xamppfiles/htdocs/projetPHP/php-e-boutique/ECommerce/app/Model/logins.php';
+require_once '../Model/panier.php';
+require_once '../Model/boisson.php';
+require_once '../Model/fruitssec.php';
+require_once '../Model/biscuit.php';
+require_once '../Model/customers.php';
+require_once '../Model/logins.php';
 
 
-include '/Applications/XAMPP/xamppfiles/htdocs/projetPHP/php-e-boutique/ECommerce/vendor/autoload.php';
+include '../vendor/autoload.php';
 
-$loader = new Twig\Loader\FilesystemLoader('/Applications/XAMPP/xamppfiles/htdocs/projetPHP/php-e-boutique/ECommerce/app/View/templates');
+$loader = new Twig\Loader\FilesystemLoader('../View/templates');
 $twig = new Twig\Environment($loader);
 
 require_once '../Model/logins.php';
