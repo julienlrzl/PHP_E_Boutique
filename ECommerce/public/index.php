@@ -81,6 +81,7 @@ try {
             'reviews' => $reviews,
             'produitsdupanier' => $produitsdupanier,
             'id' =>$id,
+            'username' => $username,
         ];
     }
 
