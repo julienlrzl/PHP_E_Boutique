@@ -120,8 +120,7 @@
                 <p id="text1">{{ Product.description }}</p>
                 <span class="style-text-produits0">€{{ Product.price }} | Il en reste {{ Product.quantity }}</span>
                 <button class="boutton-panier espacement">
-                    <a class="lien-button-panier"
-                       href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/controllerpanier.php?action=add_boissons&id_produit={{ Product.id }}&id_panier=1">
+                        <a class="boutton-panier" href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/controllerpanier.php?action=add_product&id_produit={{ id }}&id_panier={{ id_panier }}"  >
                         Ajouter au Panier
                     </a>
                 </button>

@@ -65,7 +65,9 @@ try {
         $data = [
             'produits' => $produitsdupanier ?? [],
             'quantiteDansPanier' => $quantiteDansPanier ?? 0,
-            'id_panier' => $id_panier
+            'id_panier' => $id_panier,
+            'id' =>$id,
+
 
         ];
     } else {
@@ -78,6 +80,7 @@ try {
             'Product' => $Product,
             'reviews' => $reviews,
             'produitsdupanier' => $produitsdupanier,
+            'id' =>$id,
         ];
     }
 

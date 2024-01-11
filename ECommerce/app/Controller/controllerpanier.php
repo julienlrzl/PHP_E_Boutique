@@ -3,6 +3,10 @@ require_once '../Model/panier.php';
 require_once '../Model/boisson.php';
 require_once '../Model/fruitssec.php';
 require_once '../Model/biscuit.php';
+require_once '../Model/modele.php';
+require_once '../Model/Products.php';
+
+
 
 
 include '../../vendor/autoload.php';
@@ -66,6 +70,29 @@ switch($action) {
         ob_end_clean();
         header('Location: http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=biscuits');
         exit();
+
+
+
+    }
+
+    case "add_product": {
+        $panier->ajouterProduitPanier($id_produit,$id_panier);
+        $template = $twig->load('panier.twig');
+        ob_start();
+        echo $template->render(array('biscuits' => $biscuits->getAllBiscuits()));
+        ob_clean();
+
+        ob_start();
+        echo $template->render(array('fruitssec' => $fruitssec->getAllFruitssec()));
+        ob_clean();
+
+        ob_start();
+        echo $template->render(array('boissons' => $boissons->getAllBoissons()));
+        ob_clean();
+        header('Location: http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=index');
+        exit();
+
+
 
 
 

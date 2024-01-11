@@ -8,7 +8,7 @@ require_once '../Model/customers.php';
 require_once '../Model/logins.php';
 
 
-include '../vendor/autoload.php';
+include '../../vendor/autoload.php';
 
 $loader = new Twig\Loader\FilesystemLoader('../View/templates');
 $twig = new Twig\Environment($loader);
