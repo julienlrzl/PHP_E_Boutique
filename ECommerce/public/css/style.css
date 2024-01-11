@@ -214,32 +214,69 @@ button:hover .arrow:before {
 }
 
 .boutton-panier {
-    /* Ajoutez ici vos styles CSS pour le bouton "Ajouter au Panier" */
-    background-color: #2d0c0c; /* Exemple : couleur de fond bleu */
-    color: #ffffff; /* Exemple : couleur du texte blanc */
-    padding: 7px 12px; /* Exemple : ajout de rembourrage */
-    text-decoration: none; /* Exemple : suppression du soulignement du lien */
-    display: inline-block; /* Exemple : affichage en ligne avec une largeur automatique */
-    border-radius: 5px; /* Exemple : coins arrondis */
+    width: fit-content;
+    min-width: 100px;
+    height: 25px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1.5px solid rgb(242, 238, 226);
+    box-shadow: 0px 0px 20px -20px;
+    cursor: pointer;
+    background-color: #ffffff;
+    transition: all 0.2s ease-in-out 0ms;
+    user-select: none;
+    margin-top: 15px;
 }
-.boutton-panier:hover {
-    /* Styles au survol du bouton "Ajouter au Panier" */
-    background-color: grey; /* Exemple : changement de couleur de fond au survol */
+.bouton-panier:hover {
+    background-color: rgb(242, 238, 226);
+    box-shadow: 0px 0px 20px -18px;
+}
+
+.bouton-panier:active {
+    transform: scale(0.95);
+}
+
+.lien-button-panier{
+    text-transform: uppercase;
+    color: #412420;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 8px;
+    text-decoration: none;
 }
 
 .buttonadd{
     background-color: #2d0c0c; /* Couleur de fond verte */
     color: #fff; /* Couleur du texte blanc */
     border: none;
-    padding: 8px 12px; /* Ajout de rembourrage */
+    padding: 4px 16px; /* Ajout de rembourrage */
     cursor: pointer;
     border-radius: 5px; /* Coins arrondis */
     text-decoration: none;
     margin-left: 15px;
     margin-right: 15px;
+    display: flex;
+    text-align: center;
 }
 .buttonadd:hover {
-    background-color: grey; /* Changement de couleur de fond au survol */
+    background-color: #ca851d;
+}
+
+.style-text-panier-quantité{
+    padding-top: 15px;
+}
+
+.quantity-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.valider-commad-button{
+    text-decoration: none;
+    color: white;
 }
 
 #back-to-shopping{
@@ -258,19 +295,9 @@ button:hover .arrow:before {
 }
 
 #back-to-index {
-    display: block;
-    margin-top: 10px; /* Ajustez la marge selon vos préférences */
-    padding: 10px;
-    background-color: #2d0c0c; /* Couleur de fond bleu (ajustez selon vos préférences) */
-    color: #fff; /* Couleur du texte blanc */
+    color: #412420; /* Couleur du texte blanc */
     text-decoration: none;
-    border-radius: 5px;
     text-align: center;
-    width: 150px; /* Ajustez la largeur selon vos préférences */
-}
-
-#back-to-index:hover {
-    background-color: grey; /* Changement de couleur de fond au survol */
 }
 
 
@@ -404,6 +431,10 @@ button:hover .arrow:before {
     margin-bottom: 70px;
 }
 
+.col-ensemble-int-bis {
+    margin-bottom: 30px;
+}
+
 #produits {
     height: 400px;
     width: 400px;
@@ -432,6 +463,12 @@ button:hover .arrow:before {
 .button-disp-bis {
     position: absolute;
     top: 65%;
+}
+
+#star{
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
 }
 
 /*------------------------------------------------------------------------------------------*/
@@ -664,10 +701,85 @@ button:hover .arrow:before {
     width: 200px;
 }
 
+.img-produits-recap{
+    height: 50px;
+    width: 50px;
+}
+
+#img-review{
+    height: 50px;
+    width: 50px;
+}
+
+.star {
+    font-size: 1.2em; /* Ajustez la taille selon vos besoins */
+    color: grey; /* Couleur par défaut pour les étoiles grises */
+    margin-right: 3px; /* Marge entre les étoiles */
+}
+
+.star.yellow {
+    color: gold; /* Couleur des étoiles jaunes */
+}
+
+.separation{
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 200px;
+}
+
+.separation-hr{
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.title-comment{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    line-height: 26px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.title-cheque{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 800;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.title-comment0{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    line-height: 26px;
+    font-weight: 800;
+}
+
+.button-margin{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.description-comment{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 26px;
+    font-weight: 400;
+}
+
 .orga-produits-detail{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 10px;
+}
+
+.espacement{
     margin-bottom: 100px;
 }
 
@@ -838,6 +950,10 @@ input:hover {
     font-weight: 400;
     font-size: 12px;
     margin-left: 25px;
+    margin-bottom: 10px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
 
 }
 
@@ -930,6 +1046,18 @@ input:hover {
 .product-item {
     width: 100%;
     justify-content: space-between;
+    margin-top: 20px;
+}
+
+.style-text-cheque{
+    color: #412420;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .product-name {
@@ -1014,6 +1142,65 @@ input:hover {
     margin-right: 25px;
 }
 
+.total-text{
+    margin-right: 25px;
+    color: #412420;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+}
 
+/*------------------------------------------------------------------------------------------*/
+/* 12. Section Payement Other pages */
+/*------------------------------------------------------------------------------------------*/
 
+.Btn {
+    width: 170px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(15, 15, 15);
+    border: none;
+    color: white;
+    font-weight: 600;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    border-radius: 0px;
+}
 
+.svgIcon {
+    width: 16px;
+}
+
+.svgIcon path {
+    fill: white;
+}
+
+.Btn:hover .svgIcon path {
+    fill: black;
+}
+
+.Btn:hover{
+    color: black;
+}
+
+.button-paypal{
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.lien-button{
+    text-decoration: none;
+    color: white;
+}
+
+.lien-produits{
+    text-decoration: none;
+}

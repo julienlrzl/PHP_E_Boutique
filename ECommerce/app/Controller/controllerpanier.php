@@ -1,13 +1,12 @@
 <?php
-require_once '/Applications/XAMPP/xamppfiles/htdocs/projetPHP/php-e-boutique/ECommerce/app/Model/panier.php';
-require_once '/Applications/XAMPP/xamppfiles/htdocs/projetPHP/php-e-boutique/ECommerce/app/Model/boisson.php';
-require_once '/Applications/XAMPP/xamppfiles/htdocs/projetPHP/php-e-boutique/ECommerce/app/Model/fruitssec.php';
-require_once '/Applications/XAMPP/xamppfiles/htdocs/projetPHP/php-e-boutique/ECommerce/app/Model/biscuit.php';
+require_once '../Model/panier.php';
+require_once '../Model/boisson.php';
+require_once '../Model/fruitssec.php';
+require_once '../Model/biscuit.php';
 
 
-
-include '/Applications/XAMPP/xamppfiles/htdocs/projetPHP/php-e-boutique/ECommerce/vendor/autoload.php';
-$loader = new Twig\Loader\FilesystemLoader('/Applications/XAMPP/xamppfiles/htdocs/projetPHP/php-e-boutique/ECommerce/app/View/templates');
+include '../../vendor/autoload.php';
+$loader = new Twig\Loader\FilesystemLoader('../View/templates');
 
 $twig = new Twig\Environment($loader);
 
@@ -97,20 +96,17 @@ switch($action) {
             ob_end_clean();
             header('Location: http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=panier');
             exit();
+    }
 
+    case "generateInvoice":
+    {
+        // Récupérer les données du panier directement
+        $id_panier = 1; // Remplacez 1 par l'id du panier approprié
+        $panier_data = $panier->getContenu($id_panier);
 
-
-        }
-
-
-
-
-
-
-
-
-
-
-
+        // Rediriger vers facture.php avec les données du panier
+        header('Location: http://localhost/projetPHP/php-e-boutique/ECommerce/public/facture.php?panier_data=' . urlencode(serialize($panier_data)));
+        exit();
+    }
 
 }

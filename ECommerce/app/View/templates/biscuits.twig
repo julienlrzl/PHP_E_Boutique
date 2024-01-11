@@ -133,10 +133,12 @@
                 <div class="row orga-produits">
                     {% for biscuit in biscuits %}
                         <div class="col-md-4 align-items-center orga-produits-detail">
-                            <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/productimages/{{ biscuit.image }}"
-                                 class="img-produits">
-                            <span class="style-text-produits">{{ biscuit.name }}</span>
-                            <span class="style-text-produits0">€{{ biscuit.price }} | Il en reste {{ biscuit.quantity }}</span>
+                            <a href="/ProjetPHP/php-e-boutique/ECommerce/public/?page=produit_boisson&id={{ biscuit.id }}" class="lien-produits orga-produits-detail">
+                                <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/productimages/{{ biscuit.image }}"
+                                     class="img-produits">
+                                <span class="style-text-produits">{{ biscuit.name }}</span>
+                                <span class="style-text-produits0">€{{ biscuit.price }} | Il en reste {{ biscuit.quantity }}</span>
+                            </a>
                             <a class="boutton-panier" href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/controllerpanier.php?action=add_biscuits&id_produit={{ biscuit.id }}&id_panier={{ id_panier }}" " >
                                 Ajouter au Panier
                             </a>

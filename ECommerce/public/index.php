@@ -7,6 +7,8 @@ require_once __DIR__ . '/../app/Model/biscuit.php';
 require_once __DIR__ . '/../app/Model/fruitssec.php';
 require_once __DIR__ . '/../app/Model/panier.php';
 require_once __DIR__ . '/../app/Model/logins.php';
+require_once __DIR__ . '/../app/Model/review.php';
+require_once __DIR__ . '/../app/Model/Products.php';
 
 // Créez une instance
 $boisson = new boisson();
@@ -14,6 +16,7 @@ $biscuit = new biscuit();
 $fruitssec = new fruitssec();
 $panier = new panier();
 $login = new Logins();
+$Products = new Products();
 
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
@@ -26,6 +29,10 @@ $fruitssecs = $fruitssec->getAllFruitssec();
 // Vérifiez si l'utilisateur est connecté en utilisant les cookies
 $username = $_COOKIE['username'] ?? null;
 $password = $_COOKIE['password'] ?? null;
+
+$id = isset($_GET['id']) ? $_GET['id'] : null;
+$Product = $Products -> getProduitsInfo($id);
+$reviews = $Products -> getReviewsProduits($id);
 
 if ($username !== null && $password !== null) {
     $resultat = $login->seConnecter($username, $password);
@@ -54,7 +61,7 @@ try {
     // Exemple de données à passer au template
     $data = null;
 
-    if ($page == 'panier') {
+    if ($page == 'panier' || $page == 'paypalcheque') {
         $data = [
             'produits' => $produitsdupanier ?? [],
             'quantiteDansPanier' => $quantiteDansPanier ?? 0,
@@ -67,7 +74,10 @@ try {
             'biscuits' => $biscuits,
             'fruitssecs' => $fruitssecs,
             'quantiteDansPanier' => $quantiteDansPanier ?? 0,
-            'id_panier' => $id_panier
+            'id_panier' => $id_panier,
+            'Product' => $Product,
+            'reviews' => $reviews,
+            'produitsdupanier' => $produitsdupanier,
         ];
     }
 

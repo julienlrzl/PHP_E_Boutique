@@ -71,7 +71,7 @@
         <div class="container container-header d-flex justify-content-between">
             <!-- Logo au milieu -->
             <div class="logo text-center">
-                <a href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=index"><img
+                <a href="?page=index"><img
                             src="/ProjetPHP/php-e-boutique/ECommerce/public/image/logo-web-transparent.png"
                             id="logo-principal"></a>
             </div>
@@ -82,20 +82,20 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item active">
                             <a class="nav-link link-custom-navbar"
-                               href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=boissons">Boissons</a>
+                               href="?page=boissons">Boissons</a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link link-custom-navbar"
-                               href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=biscuits">Biscuits</a>
+                               href="?page=biscuits">Biscuits</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link link-custom-navbar"
-                               href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=fruitssec">Fruits
+                               href="?page=fruitssec">Fruits
                                 sec</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link link-custom-navbar"
-                               href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=magasins">nos
+                               href="?page=magasins">nos
                                 magasins</a>
                         </li>
                         <li class="nav-item">
@@ -103,7 +103,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link link-custom-navbar-icon"
-                               href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=compte">
+                               href="?page=compte">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                      class="bi bi-person-circle" viewBox="0 0 16 16">
                                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
@@ -114,7 +114,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link link-custom-navbar-icon"
-                               href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=panier">
+                               href="?page=panier">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                      class="bi bi-cart3" viewBox="0 0 16 16">
                                     <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
@@ -129,71 +129,103 @@
     </nav>
 </header>
 
+
+
+
+
+
+
+
 <!-- Section principale -->
 <main>
     <section>
         <div class="rectangle-politique">
-            <h1 class="text-politique">Mon panier</h1>
-            <a id="back-to-shopping" href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=index   ">Retour
-                au shopping</a>
+            <h1 class="text-politique">Mon compte</h1>
         </div>
     </section>
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 offset-md-1">
-
-                    {% if produits is empty %}
-                        <p>Votre panier est vide</p>
-                        <a id="back-to-index"
-                           href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=index   ">Retour à
-                            l'accueil </a>
-
-                    {% else %}
-                        {% set total = 0 %}
-                        {% for produit in produits %}
-                            <hr>
-                            <div class="d-flex flex-row align-items-center product-item">
-                                <a class="button"
-                                   href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/controllerpanier.php?action=supp&id_produit={{ produit.id }}&id_panier={{ id_panier }}">
-                                    <span class="X"></span>
-                                    <span class="Y"></span>
-                                    <div class="close">Close</div>
-                                </a>
-                                <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/productimages/{{ produit.image }}"
-                                     class="img-produits-panier">
-                                <p class="style-text-panier product-name">{{ produit.name }}</p>
-                                <p class="style-text-panier-prix product-price">
-                                    €{{ produit.price * produit.nombre_occurrences }}</p>
-                                <a class="buttonadd"
-                                   href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/controllerpanier.php?action=decreaseQty&id_produit={{ produit.id }}&id_panier={{ id_panier }}">-</a>
-                                <p class="style-text-panier-quantité product-quantity">{{ produit.nombre_occurrences }}</p>
-                                <a class="buttonadd"
-                                   href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/controllerpanier.php?action=ajouterProduitPanier&id_produit={{ produit.id }}&id_panier={{ id_panier }}">+</a>
+    <div class="container">
+        <section class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="flex-column d-flex align-items-center">
+                    <div class="rectangle-compte d-flex justify-content-start align-items-start flex-column">
+                        <span class="connexion-contact">Créer un compte</span>
+                        <!-- Formulaire de création de compte -->
+                        <form action="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/logincontroller.php?action=creercompte" method="post">
+                            <!-- Nom -->
+                            <span class="user-password-contact">Nom<span class="asterix"> *</span></span>
+                            <div class="input-container">
+                                <input class="input" name="surname" type="text" required>
                             </div>
-                            {% set total = total + (produit.price * produit.nombre_occurrences) %}
-                        {% endfor %}
-                        {% if produits is not empty %}
-                            <hr>
-                            <div class="d-flex justify-content-end align-items-end flex-column">
-                                <p class="total-text">Total: €{{ total }}</p>
-                                <button class="d-flex justify-content-end bouton-prix" id="bouton-connexion-prix">
-                                    <a href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=informations"
-                                       class="valider-commad-button">VALIDER LA COMMANDE</a>
-                                </button>
+                            <!-- Prénom -->
+                            <span class="user-password-contact">Prénom<span class="asterix"> *</span></span>
+                            <div class="input-container">
+                                <input class="input" name="forname" type="text" required>
                             </div>
-                        {% endif %}
-                    {% endif %}
+                            <!-- Adresse 1 -->
+                            <span class="user-password-contact">Adresse 1 <span class="asterix"> *</span></span>
+                            <div class="input-container">
+                                <input class="input" name="add1" type="text" required>
+                            </div>
+                            <!-- Adresse 2 (Facultatif) -->
+                            <span class="user-password-contact">Adresse 2</span>
+                            <div class="input-container">
+                                <input class="input" name="add2" type="text">
+                            </div>
+                            <!-- Ville -->
+                            <span class="user-password-contact">Ville<span class="asterix"> *</span></span>
+                            <div class="input-container">
+                                <input class="input" name="add3" type="text" required>
+                            </div>
+                            <!-- Code postal -->
+                            <span class="user-password-contact">Code postal<span class="asterix"> *</span></span>
+                            <div class="input-container">
+                                <input class="input" name="postcode" type="text" required>
+                            </div>
+                            <!-- Téléphone -->
+                            <span class="user-password-contact">N° de Téléphone<span class="asterix"> *</span></span>
+                            <div class="input-container">
+                                <input class="input" name="phone" type="text" required>
+                            </div>
+                            <!-- Email -->
+                            <span class="user-password-contact">Saisissez un e-mail<span class="asterix"> *</span></span>
+                            <div class="input-container">
+                                <input class="input" name="email" type="email" required>
+                            </div>
+                            <!-- Username -->
+                            <span class="user-password-contact">Votre nom d'utilisateur<span class="asterix"> *</span></span>
+                            <div class="input-container">
+                                <input class="input" name="username" type="text" required>
+                            </div>
+                            <!-- Mot de passe -->
+                            <span class="user-password-contact">Choisissez un mot de passe<span class="asterix"> *</span></span>
+                            <div class="input-container">
+                                <input class="input" name="password" type="password" required>
+                            </div>
+                            <!-- Confirmez le mot de passe -->
+                            <span class="user-password-contact">Confirmez le mot de passe<span class="asterix"> *</span></span>
+                            <div class="input-container">
+                                <input class="input" name="confirmer_mot_de_passe" type="password" required>
+                            </div>
+                            <!-- Bouton de soumission -->
+                            <button type="submit" name="submit">S'INSCRIRE</button>
 
-
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
     <div class="d-flex justify-content-center">
         <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/colombe.jpg" id="colombe">
     </div>
 </main>
+
+
+
+
+
+
+
 
 <!-- Pied de page -->
 <footer class="py-3 footer-custom" style="background-color: #f8f6f1;">
@@ -203,10 +235,10 @@
         </div>
         <div>
             <p class="footer-text"><a class="nav-link-footer"
-                                      href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=conditions_generales">Conditions
+                                      href="?page=conditions_generales">Conditions
                     générales de ventes</a> | <a
                         class="nav-link-footer"
-                        href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=politique_confidentialite">Politique
+                        href="?page=politique_confidentialite">Politique
                     de confidentialité</a> - &copy; 2023 Boutique
                 Française</p>
         </div>
