@@ -147,7 +147,23 @@
                                 <tr>
                                     <td class="text-center align-middle">{{ order.id }}</td>
                                     <td class="text-center align-middle">{{ order.customer_id }}</td>
+                                    <td class="text-center align-middle">
+                                        {% for product in order.products %}
+                                            {{ product.name }} - {{ product.quantity }}<br>
+                                        {% endfor %}
+                                    </td>
+                                    <td class="text-center align-middle">€{{ order.total_price }}</td>
                                     <td class="text-center align-middle">{{ order.payment_type }}</td>
+                                    <td class="text-center align-middle">
+                                        {% if not order.confirmer %}
+                                            <form action="http://localhost/projetPHP/php-e-boutique/ECommerce/app/Controller/confirm_order.php" method="post">
+                                                <input type="hidden" name="order_id" value="{{ order.id }}">
+                                                <button type="submit" class="btn btn-success">Confirmer</button>
+                                            </form>
+                                        {% else %}
+                                            Confirmée
+                                        {% endif %}
+                                    </td>
                                 </tr>
                             {% endfor %}
                             </tbody>

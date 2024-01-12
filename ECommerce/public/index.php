@@ -48,6 +48,7 @@ if ($username !== null && $password !== null) {
         // Utilisateur est un admin
         $isAdmin = true;
         $orders = $admin->getAllOrders();
+        $data['orders'] = $orders;
 
     } elseif (!empty($resultat)) {
         $id_panier = $resultat[0]["id_panier"];
