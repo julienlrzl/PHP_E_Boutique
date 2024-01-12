@@ -95,8 +95,17 @@ try {
             'quantiteDansPanier' => $quantiteDansPanier ?? 0,
             'id_panier' => $id_panier ?? 0,
             'id' => $id,
-            'admin' => $isAdmin, // Ajout de la variable admin
+            'isAdmin' => $isAdmin, // Ajout de la variable admin
+            'boissons' => $boissons,
+            'biscuits' => $biscuits,
+            'fruitssecs' => $fruitssecs,
+            'Product' => $Product,
+            'reviews' => $reviews,
+            'produitsdupanier' => $produitsdupanier ?? 0,
+            'username' => $username,
         ];
+
+        
     } else {
         $data = [
             'boissons' => $boissons,
