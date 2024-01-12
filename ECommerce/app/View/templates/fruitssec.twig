@@ -150,12 +150,14 @@
                                 <span class="style-text-produits">{{ fruitssec.name }}</span>
                                 <span class="style-text-produits0">€{{ fruitssec.price }} | Il en reste {{ fruitssec.quantity }}</span>
                             </a>
+                            {% if not isAdmin %}
                             <button class="boutton-panier espacement">
                                 <a class="lien-button-panier"
                                    href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/controllerpanier.php?action=add_fruits_secs&id_produit={{ fruitssec.id }}&id_panier={{ id_panier }}">
                                     Ajouter au Panier
                                 </a>
                             </button>
+                            {% endif %}
                         </div>
                     {% endfor %}
                 </div>

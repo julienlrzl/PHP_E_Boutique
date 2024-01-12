@@ -152,15 +152,18 @@
                                 <span class="style-text-produits">{{ boisson.name }}</span>
                                 <span class="style-text-produits0">€{{ boisson.price }} | Il en reste {{ boisson.quantity }}</span>
                             </a>
-                            <button class="boutton-panier espacement">
-                                <a class="lien-button-panier"
-                                   href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/controllerpanier.php?action=add_boissons&id_produit={{ boisson.id }}&id_panier={{ id_panier }}">
-                                    Ajouter au Panier
-                                </a>
-                            </button>
+                            {% if not isAdmin %}
+                                <button class="boutton-panier espacement">
+                                    <a class="lien-button-panier"
+                                       href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/controllerpanier.php?action=add_boissons&id_produit={{ boisson.id }}&id_panier={{ id_panier }}">
+                                        Ajouter au Panier
+                                    </a>
+                                </button>
+                            {% endif %}
                         </div>
                     {% endfor %}
                 </div>
+            </div>
         </section>
     </div>
     <div class="d-flex justify-content-center">

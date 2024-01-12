@@ -21,6 +21,7 @@ $fruitssec = new fruitssec();
 $biscuits = new biscuit();
 
 
+
 $action = isset($_GET['action']) ? $_GET['action'] : '';
 $id_produit = isset($_GET['id_produit']) ? $_GET['id_produit'] : '';
 $id_panier = isset($_GET['id_panier']) ? $_GET['id_panier'] : '';
@@ -76,27 +77,19 @@ switch($action) {
     }
 
     case "add_product": {
-        $panier->ajouterProduitPanier($id_produit,$id_panier);
-        $template = $twig->load('panier.twig');
-        ob_start();
-        echo $template->render(array('biscuits' => $biscuits->getAllBiscuits()));
-        ob_clean();
+        $quantite = isset($_GET['quantite']) ? (int)$_GET['quantite'] : 1;
+        $quantite = max($quantite, 1); // Assurez-vous que la quantité est au moins 1
 
-        ob_start();
-        echo $template->render(array('fruitssec' => $fruitssec->getAllFruitssec()));
-        ob_clean();
+        // Ajoutez le produit au panier avec la quantité spécifiée
+        for ($i = 0; $i < $quantite; $i++) {
+            $panier->ajouterProduitPanier($id_produit, $id_panier);
+        }
 
-        ob_start();
-        echo $template->render(array('boissons' => $boissons->getAllBoissons()));
-        ob_clean();
-        header('Location: http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=index');
+        // Redirection vers la page du panier ou une autre page appropriée
+        header('Location: http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=panier');
         exit();
-
-
-
-
-
     }
+
 
 
     case "list":{

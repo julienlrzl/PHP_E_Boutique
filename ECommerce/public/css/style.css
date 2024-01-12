@@ -117,7 +117,7 @@ main {
 /*------------------------------------------------------------------------------------------*/
 #photo-main {
     height: 575px;
-    width: auto;
+    width: 100%;
 }
 
 .image-container {
@@ -1215,4 +1215,9 @@ input:hover {
 
 .lien-produits{
     text-decoration: none;
+}
+
+#quantity{
+    margin-left: 20px;
+    margin-top: 15px;
 }

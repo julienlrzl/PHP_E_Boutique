@@ -159,6 +159,16 @@
                             <a href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/logincontroller.php?action=sedeconnecter"
                                class="valider-commad-button">Se déconnecter</a>
                         </button>
+                        {% if not isAdmin %}
+                            {% if customerInfo %}
+                                <div>
+                                    <p>Nom: {{ customerInfo.forname }}</p>
+                                    <p>Code Postal: {{ customerInfo.postcode }}</p>
+                                    <p>Téléphone: {{ customerInfo.phone }}</p>
+                                    <p>Email: {{ customerInfo.email }}</p>
+                                </div>
+                            {% endif %}
+                        {% endif %}
                     </div>
                 </div>
             </div>

@@ -148,8 +148,6 @@
     <section>
         <div class="rectangle-politique">
             <h1 class="text-politique">Mon panier</h1>
-            <a id="back-to-shopping" href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=index   ">Retour
-                au shopping</a>
         </div>
     </section>
     <section>
@@ -191,12 +189,23 @@
                             </div>
                             {% set total = total + (produit.price * produit.nombre_occurrences) %}
                         {% endfor %}
-                        {% if produits is not empty %}
+                        {% if  username == null %}
+                            {% if produits is not empty %}
+                                <hr>
+                                <div class="d-flex justify-content-end align-items-end flex-column">
+                                    <p class="total-text">Total: €{{ total }}</p>
+                                    <button class="d-flex justify-content-end bouton-prix" id="bouton-connexion-prix">
+                                        <a href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=informations"
+                                           class="valider-commad-button">VALIDER LA COMMANDE</a>
+                                    </button>
+                                </div>
+                            {% endif %}
+                        {% else %}
                             <hr>
                             <div class="d-flex justify-content-end align-items-end flex-column">
                                 <p class="total-text">Total: €{{ total }}</p>
                                 <button class="d-flex justify-content-end bouton-prix" id="bouton-connexion-prix">
-                                    <a href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=informations"
+                                    <a href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=paypalcheque"
                                        class="valider-commad-button">VALIDER LA COMMANDE</a>
                                 </button>
                             </div>

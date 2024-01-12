@@ -141,39 +141,24 @@ class Customer extends modele
     }
 
 
-    public function getUnUtilisateur($username)
-    {
-        // Logique pour récupérer un utilisateur par son ID depuis la base de données
-        $sql = "SELECT * FROM logins WHERE username = :username";
-        $parametres = array(
-                ':username' => $username,
+    public function getUnUtilisateur($username) {
+        $sql = "SELECT c.* FROM logins l
+            JOIN customers c ON l.customer_id = c.id
+            WHERE l.username = :username";
+        $parametres = array(':username' => $username);
 
-        );
+        $resultat = $this->executerRequete($sql, $parametres)->fetch(PDO::FETCH_ASSOC);
 
-
-        // Fetch en tant qu'objet Utilisateur
-        $utilisateurData = $query->fetch(PDO::FETCH_ASSOC);
-
-        // Vérifie si un utilisateur a été trouvé
-        if (!$utilisateurData) {
+        if (!$resultat) {
             return null;
         }
 
-        // Crée un objet Utilisateur à partir des données de la base de données
-        $utilisateur = new Utilisateur(
-            $utilisateurData['id'],
-            $utilisateurData['forname'],
-            $utilisateurData['add1'],
-            $utilisateurData['add2'],
-            $utilisateurData['add3'],
-            $utilisateurData['postcode'],
-            $utilisateurData['phone'],
-            $utilisateurData['email'],
-            $utilisateurData['registered']
-        );
-
-        return $utilisateur;
+        return $resultat;
     }
+
+
+
+
 
     public function mettreAJourUtilisateur(Utilisateur $utilisateur)
     {

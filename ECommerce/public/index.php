@@ -9,6 +9,7 @@ require_once __DIR__ . '/../app/Model/logins.php';
 require_once __DIR__ . '/../app/Model/review.php';
 require_once __DIR__ . '/../app/Model/Products.php';
 require_once __DIR__ . '/../app/Model/admin.php';
+require_once __DIR__ . '/../app/Model/customers.php';
 
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
@@ -21,11 +22,14 @@ $panier = new panier();
 $login = new Logins();
 $Products = new Products();
 $admin = new Admin();
+$customer = new Customer();
 
 // Utilisez la méthode pour récupérer tous les boissons
 $boissons = $boisson->getAllBoissons();
 $biscuits = $biscuit->getAllBiscuits();
 $fruitssecs = $fruitssec->getAllFruitssec();
+
+$customerInfo = null;
 
 // Vérifiez si l'utilisateur est connecté en utilisant les cookies
 $username = $_COOKIE['username'] ?? null;
@@ -114,10 +118,15 @@ try {
             'produitsdupanier' => $produitsdupanier ?? 0,
             'id' => $id,
             'username' => $username,
+            'customerInfo' => $customerInfo,
             'isAdmin' => $isAdmin, // Ajout de la variable admin
         ];
         if ($isAdmin) {
             $data['orders'] = $orders; // Ajouter les commandes pour l'admin
+        }
+        elseif ($username) {
+            $customerInfo = $customer->getUnUtilisateur($username);
+            $data['customerInfo'] = $customerInfo;
         }
     }
 
