@@ -21,4 +21,9 @@ class Admin extends modele
 
     }
 
+    public function getAllOrders() {
+        $sql = "SELECT * FROM orders";
+        return $this->executerRequete($sql)->fetchAll();
+    }
+
 }

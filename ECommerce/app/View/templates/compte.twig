@@ -103,13 +103,17 @@
                         </li>
                         <li class="nav-item">
                             {% if username == null %}
-                                <a class="nav-link link-custom-navbar-icon" href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=compte"></a>
+                                <a class="nav-link link-custom-navbar-icon"
+                                   href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=compte"></a>
                             {% else %}
-                                <a class="nav-link link-custom-navbar-icon" href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=deconnexion"></a>
+                                <a class="nav-link link-custom-navbar-icon"
+                                   href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=deconnexion"></a>
                             {% endif %}
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle svg-icon" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-person-circle svg-icon" viewBox="0 0 16 16">
                                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                                <path fill-rule="evenodd"
+                                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
                             </svg>
 
 
@@ -118,7 +122,7 @@
                         {% if isAdmin %}
                             <li class="nav-item">
                                 <a class="nav-link link-custom-navbar"
-                                   href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=magasins">Admin
+                                   href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=admin">Admin
                                 </a>
                             </li>
                         {% else %}
@@ -148,10 +152,11 @@
     <div class="container">
         <section class="row">
             <div class="col-md-6 mx-auto">
-                    <div class="flex-column d-flex align-items-center">
+                <div class="flex-column d-flex align-items-end">
+                    <form action="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/logincontroller.php?action=seconnecter"
+                          method="post">
                         <div class="rectangle-compte d-flex justify-content-start align-items-start flex-column">
-                <form action = "/ProjetPHP/php-e-boutique/ECommerce/app/Controller/logincontroller.php?action=seconnecter" method="post">
-                                <span class="connexion-contact">Se connecter</span>
+                            <span class="connexion-contact">Se connecter</span>
                             <span class="user-password-contact">Identifiant<span class="asterix"> *</span></span>
                             <div class="input-container">
                                 <input class="input" name="username" type="text" required>
@@ -160,7 +165,7 @@
                             <div class="input-container">
                                 <input class="input" name="password" type="password" required>
                             </div>
-                            <button type="submit" name ="submit" >
+                            <button type="submit" name="submit" id="bouton-connexion">
                                 SE CONNECTER
                             </button>
                             <div class="links-container user-password-contact">
@@ -168,15 +173,15 @@
                                 <span class="separator"> | </span>
                                 <a href="#" class="link link-contact">Mot de passe oublié</a>
                             </div>
-                </form>
                         </div>
-                    </div>
+                    </form>
+                </div>
 
             </div>
         </section>
     </div>
     <div class="d-flex justify-content-center">
-        <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/colombe.jpg" id="colombe">
+        <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/colombe.png" id="colombe">
     </div>
 </main>
 

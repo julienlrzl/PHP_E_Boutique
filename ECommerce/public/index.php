@@ -1,6 +1,5 @@
 <?php
 
-// Chargement de l'autoloader de Composer
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../app/Model/boisson.php';
 require_once __DIR__ . '/../app/Model/biscuit.php';
@@ -33,7 +32,6 @@ $username = $_COOKIE['username'] ?? null;
 $password = $_COOKIE['password'] ?? null;
 
 
-
 $id = isset($_GET['id']) ? $_GET['id'] : null;
 $Product = $Products->getProduitsInfo($id);
 $reviews = $Products->getReviewsProduits($id);
@@ -45,13 +43,11 @@ $resultatAdmin = $admin->seConnecterAdmin($username, $password);
 if ($username !== null && $password !== null) {
 
 
-
-
     // Vérifie si la méthode a renvoyé un tableau non vide
     if (!empty($resultatAdmin)) {
         // Utilisateur est un admin
         $isAdmin = true;
-
+        $orders = $admin->getAllOrders();
 
     } elseif (!empty($resultat)) {
         $id_panier = $resultat[0]["id_panier"];
@@ -80,7 +76,6 @@ try {
     $loader = new FilesystemLoader(__DIR__ . '/../app/View/templates');
 
 
-
     // Initialisation de l'environnement Twig
     $twig = new Environment($loader);
 
@@ -105,7 +100,7 @@ try {
             'username' => $username,
         ];
 
-        
+
     } else {
         $data = [
             'boissons' => $boissons,
@@ -120,6 +115,9 @@ try {
             'username' => $username,
             'isAdmin' => $isAdmin, // Ajout de la variable admin
         ];
+        if ($isAdmin) {
+            $data['orders'] = $orders; // Ajouter les commandes pour l'admin
+        }
     }
 
     // Rendu du template avec les données

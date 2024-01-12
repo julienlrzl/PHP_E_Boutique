@@ -103,13 +103,17 @@
                         </li>
                         <li class="nav-item">
                             {% if username == null %}
-                                <a class="nav-link link-custom-navbar-icon" href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=compte"></a>
+                                <a class="nav-link link-custom-navbar-icon"
+                                   href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=compte"></a>
                             {% else %}
-                                <a class="nav-link link-custom-navbar-icon" href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=deconnexion"></a>
+                                <a class="nav-link link-custom-navbar-icon"
+                                   href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=deconnexion"></a>
                             {% endif %}
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle svg-icon" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-person-circle svg-icon" viewBox="0 0 16 16">
                                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                                <path fill-rule="evenodd"
+                                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
                             </svg>
 
 
@@ -118,7 +122,7 @@
                         {% if isAdmin %}
                             <li class="nav-item">
                                 <a class="nav-link link-custom-navbar"
-                                   href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=magasins">Admin
+                                   href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=admin">Admin
                                 </a>
                             </li>
                         {% else %}
@@ -149,20 +153,21 @@
         <section class="row">
             <div class="col-md-6 mx-auto">
                 <div class="flex-column d-flex align-items-end">
-                    <div class="rectangle-compte d-flex justify-content-start align-items-start flex-column">
+                    <div class="rectangle-compte d-flex justify-content-center align-items-center flex-column">
                         <span class="connexion-contact">Bonjour {{ username }}</span>
                         <button id="bouton-connexion">
-                            <a href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/logincontroller.php?action=sedeconnecter" class="valider-commad-button">Se déconnecter</a>
+                            <a href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/logincontroller.php?action=sedeconnecter"
+                               class="valider-commad-button">Se déconnecter</a>
                         </button>
                     </div>
                 </div>
-                </div>
-                </form>
             </div>
         </section>
     </div>
+    </section>
+    </div>
     <div class="d-flex justify-content-center">
-        <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/colombe.jpg" id="colombe">
+        <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/colombe.png" id="colombe">
     </div>
 </main>
 

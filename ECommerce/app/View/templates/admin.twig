@@ -30,6 +30,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
           rel="stylesheet">
 
+    <!--FontAweseome Icons-->
+    <script src="https://kit.fontawesome.com/9f202e79c8.js" crossorigin="anonymous"></script>
+
+
     <title>Boutique Française</title>
 </head>
 <body>
@@ -71,14 +75,18 @@
                         </li>
                         <li class="nav-item">
                             {% if username == null %}
-                                <a class="nav-link link-custom-navbar-icon" href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=compte"></a>
+                                <a class="nav-link link-custom-navbar-icon"
+                                   href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=compte"></a>
                             {% else %}
-                                <a class="nav-link link-custom-navbar-icon" href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=deconnexion"></a>
+                                <a class="nav-link link-custom-navbar-icon"
+                                   href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=deconnexion"></a>
                             {% endif %}
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle svg-icon" viewBox="0 0 16 16">
-                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-                                </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-person-circle svg-icon" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                <path fill-rule="evenodd"
+                                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                            </svg>
 
 
                         </li>
@@ -90,16 +98,16 @@
                                 </a>
                             </li>
                         {% else %}
-                                <li class="nav-item">
-                                    <a class="nav-link link-custom-navbar-icon"
-                                       href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=panier">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                             class="bi bi-cart3" viewBox="0 0 16 16">
-                                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-                                        </svg>
-                                        <span id="panier-counter">{{ quantiteDansPanier }}</span>
-                                    </a>
-                                </li>
+                            <li class="nav-item">
+                                <a class="nav-link link-custom-navbar-icon"
+                                   href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=panier">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                         class="bi bi-cart3" viewBox="0 0 16 16">
+                                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                                    </svg>
+                                    <span id="panier-counter">{{ quantiteDansPanier }}</span>
+                                </a>
+                            </li>
                         {% endif %}
                     </ul>
                 </div>
@@ -112,57 +120,44 @@
 <main>
     <section>
         <div class="rectangle-politique">
-            <h1 class="text-politique">Biscuits</h1>
+            <h1 class="text-politique">Page administrateur</h1>
         </div>
     </section>
-    <!-- Section coupon reduction -->
-    <section id="rectangle">
-        <div class="rectangle-bis">
-            <div class="coupon0">
-                <p id="text-coupon0">15 % de réduction pour toute première inscription sur la boutique Française en
-                    ligne !</p>
-            </div>
-            <div class="coupon0">
-                <p id="text-coupon1">L’offre de bienvenue s’étend sur toute notre gamme, vous permettant de découvrir
-                    nos produits artisanaux français à prix réduit pendant les trois premiers mois de votre
-                    inscription.</p>
-            </div>
-            <a id="text-coupon2" href="#">Inscrivez-vous dès maintenant !</a>
-        </div>
-    </section>
-    <!-- END Section coupon seduction -->
-    <div class="marge-produits">
-        <section>
-            <div class="orga-text mx-5">
-                <span class="title-products">La Boutique Française vous propose</span>
-                <br><br>
-                <span class="title-products">sa variété de biscuits artisanaux</span>
-            </div>
-        </section>
-        <section>
-            <div class="container mx-5">
-                <div class="row orga-produits">
-                    {% for biscuit in biscuits %}
-                        <div class="col-md-4 align-items-center orga-produits-detail">
-                            <a href="/ProjetPHP/php-e-boutique/ECommerce/public/?page=produit_boisson&id={{ biscuit.id }}" class="lien-produits orga-produits-detail">
-                                <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/productimages/{{ biscuit.image }}"
-                                     class="img-produits">
-                                <span class="style-text-produits">{{ biscuit.name }}</span>
-                                <span class="style-text-produits0">€{{ biscuit.price }} | Il en reste {{ biscuit.quantity }}</span>
-                            </a>
-                            <button class="boutton-panier espacement">
-                                <a class="lien-button-panier"
-                                   href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/controllerpanier.php?action=add_biscuits&id_produit={{ biscuit.id }}&id_panier={{ id_panier }}">
-                                    Ajouter au Panier
-                                </a>
-                            </button>
-                        </div>
-                    {% endfor %}
+    <div class="container">
+        <section class="row">
+            <div class="col-md-12 d-flex justify-content-start flex-column">
+                <span id="prod-artisanale">Bonjour {{ username }}</span>
+                <h4 id="title-brand">LISTE DES COMMANDES</h4>
+                <i class="fa-solid fa-minus fa-2xl" style="color: #000000;"></i>
+                <div class="table-responsive-sm">
+                    <div class="container mt-5">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col" class="text-center align-middle px-4">Order ID</th>
+                                <th scope="col" class="text-center align-middle px-4">Customer ID</th>
+                                <th scope="col" class="text-center align-middle px-4">Panier</th>
+                                <th scope="col" class="text-center align-middle">Prix total</th>
+                                <th scope="col" class="text-center align-middle">Payment type</th>
+                                <th scope="col" class="text-center align-middle">Confirmation</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for order in orders %}
+                                <tr>
+                                    <td class="text-center align-middle">{{ order.id }}</td>
+                                    <td class="text-center align-middle">{{ order.customer_id }}</td>
+                                    <td class="text-center align-middle">{{ order.payment_type }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </section>
     </div>
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center colombe-margin">
         <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/colombe.png" id="colombe">
     </div>
 </main>
@@ -175,10 +170,10 @@
         </div>
         <div>
             <p class="footer-text"><a class="nav-link-footer"
-                                      href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=conditions_generales">Conditions
+                                      href="?page=conditions_generales">Conditions
                     générales de ventes</a> | <a
                         class="nav-link-footer"
-                        href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=politique_confidentialite">Politique
+                        href="?page=politique_confidentialite">Politique
                     de confidentialité</a> - &copy; 2023 Boutique
                 Française</p>
         </div>
