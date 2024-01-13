@@ -31,6 +31,7 @@
           rel="stylesheet">
 
     <title>Boutique Française</title>
+
 </head>
 <body>
 <!-- En-tête du site -->
@@ -103,13 +104,17 @@
                         </li>
                         <li class="nav-item">
                             {% if username == null %}
-                                <a class="nav-link link-custom-navbar-icon" href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=compte"></a>
+                                <a class="nav-link link-custom-navbar-icon"
+                                   href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=compte"></a>
                             {% else %}
-                                <a class="nav-link link-custom-navbar-icon" href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=deconnexion"></a>
+                                <a class="nav-link link-custom-navbar-icon"
+                                   href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=deconnexion"></a>
                             {% endif %}
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle svg-icon" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-person-circle svg-icon" viewBox="0 0 16 16">
                                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                                <path fill-rule="evenodd"
+                                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
                             </svg>
 
 
@@ -170,7 +175,8 @@
                                 </div>
                             {% endif %}
                             <div class="d-flex justify-content-center align-items-center flex-column button-paypal">
-                                <a href="https://www.paypal.com" target="_blank" class="lien-produits orga-produits-detail">
+                                <a href="https://www.paypal.com" target="_blank"
+                                   class="lien-produits orga-produits-detail">
                                     <button class="Btn">
                                         Paypal
                                         <svg class="svgIcon" viewBox="0 0 576 512">
@@ -199,29 +205,39 @@
                     <div class="rectangle-compte d-flex justify-content-start align-items-start flex-column">
                         <span class="connexion-contact">Votre adresse de livraison</span>
 
-                        <label for="country" class="user-password-contact">Adresses<span class="asterix"> *</span></label>
+                        <label for="country" class="user-password-contact">Adresses<span
+                                    class="asterix"> *</span></label>
                         <div class="input-container">
                             <select class="input" name="country" id="country">
-                                <option value="france">Ton Adresse enculé</option>
+                                <option>---</option>
+                                {% if customerInfo %}
+                                    <option value="currentAddress">
+                                        {{ customerInfo.add1 }}, {{ customerInfo.postcode }}, {{ customerInfo.add3 }}
+                                    </option>
+                                {% else %}
+                                    <option value="currentAddress">Adresse actuelle</option>
+                                {% endif %}
                                 <option value="usa">Nouvelle Adresse</option>
                             </select>
                         </div>
-
-                        <span class="user-password-contact">Adresse</span>
-                        <div class="input-container">
-                            <input class="input" name="text" type="search">
-                        </div>
-                        <span class="user-password-contact">Code postal<span class="asterix"> *</span></span>
-                        <div class="input-container">
-                            <input class="input" name="text" type="search">
-                        </div>
-                        <span class="user-password-contact">Ville<span class="asterix"> *</span></span>
-                        <div class="input-container">
-                            <input class="input" name="text" type="search">
-                        </div>
-                        <button id="bouton-connexion">
-                            <a href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=paypalcheque" class="valider-commad-button">VALIDER</a>
-                        </button>
+                        <form action="http://localhost/ProjetPHP/php-e-boutique/ECommerce/app/Model/traitementAdresse.php" method="POST">
+                            <span class="user-password-contact">Adresse</span>
+                            <div class="input-container">
+                                <input class="input" name="address" type="search" placeholder="Adresse">
+                            </div>
+                            <span class="user-password-contact">Code postal<span class="asterix"> *</span></span>
+                            <div class="input-container">
+                                <input class="input" name="postalCode" type="search" placeholder="Code postal">
+                            </div>
+                            <span class="user-password-contact">Ville<span class="asterix"> *</span></span>
+                            <div class="input-container">
+                                <input class="input" name="city" type="search" placeholder="Ville">
+                            </div>
+                            <div class="input-container">
+                                <input type="hidden" name="customerId" value="{{ customerInfo.id }}">
+                            </div>
+                            <button type="submit" id="bouton-connexion">VALIDER</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -250,6 +266,38 @@
     </div>
 </footer>
 <!--Bootstrap-->
+<script>
+    console.log('Script chargé');
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log('DOM entièrement chargé et analysé');
+        document.getElementById('country').addEventListener('change', function () {
+            var currentAddress = '{{ customerInfo.add1 }}';
+            var currentPostalCode = '{{ customerInfo.postcode }}';
+            var currentCity = '{{ customerInfo.add3 }}';
+            console.log(currentAddress, currentPostalCode, currentCity);
+            var addressInput = document.querySelector('input[name="address"]');
+            var postalCodeInput = document.querySelector('input[name="postalCode"]');
+            var cityInput = document.querySelector('input[name="city"]');
+
+            if (this.value === 'currentAddress') {
+                addressInput.value = currentAddress;
+                postalCodeInput.value = currentPostalCode;
+                cityInput.value = currentCity;
+            } else {
+                addressInput.value = '';
+                postalCodeInput.value = '';
+                cityInput.value = '';
+            }
+        });
+    });
+    window.addEventListener('load', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const addressUpdated = urlParams.get('addressUpdated');
+        if (addressUpdated === 'true') {
+            alert('Votre adresse a bien été enregistrée.');
+        }
+    });
+</script>
 <script src="/ProjetPHP/php-e-boutique/ECommerce/public/js/jquery/jquery.min.js"></script>
 <script src="/ProjetPHP/php-e-boutique/ECommerce/public/js/bootstrap/bootstrap.min.js"></script>
 <!--End of Bootstrap-->

@@ -58,6 +58,8 @@ if ($username !== null && $password !== null) {
         $id_panier = $resultat[0]["id_panier"];
         $produitsdupanier = $panier->getContenu($id_panier);
         $quantiteDansPanier = $panier->getQuantiteDansPanier($id_panier);
+        $customerInfo = $customer->getUnUtilisateur($username);
+        $data['customerInfo'] = $customerInfo;
 
 
         // Vérifie si l'utilisateur est aussi un admin
@@ -103,8 +105,8 @@ try {
             'reviews' => $reviews,
             'produitsdupanier' => $produitsdupanier ?? 0,
             'username' => $username,
+            'customerInfo' => $customerInfo,
         ];
-
 
     } else {
         $data = [

@@ -156,9 +156,18 @@ class Customer extends modele
         return $resultat;
     }
 
+    public function updateAddress($customerId, $newAddress, $newPostalCode, $newCity) {
+        $sql = "UPDATE customers SET add1 = :newAddress, postcode = :newPostalCode, add3 = :newCity WHERE id = :customerId";
 
+        $params = array(
+            ':newAddress' => $newAddress,
+            ':newPostalCode' => $newPostalCode,
+            ':newCity' => $newCity,
+            ':customerId' => $customerId
+        );
 
-
+        $this->executerRequete($sql, $params);
+    }
 
     public function mettreAJourUtilisateur(Utilisateur $utilisateur)
     {
