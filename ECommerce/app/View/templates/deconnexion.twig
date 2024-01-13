@@ -161,11 +161,11 @@
                         </button>
                         {% if not isAdmin %}
                             {% if customerInfo %}
-                                <div>
-                                    <p>Nom: {{ customerInfo.forname }}</p>
-                                    <p>Code Postal: {{ customerInfo.postcode }}</p>
-                                    <p>Téléphone: {{ customerInfo.phone }}</p>
-                                    <p>Email: {{ customerInfo.email }}</p>
+                                <div class="d-flex align-items-start flex-column colombe-margin">
+                                    <p id="text-coupon1"><strong> - Nom : </strong>{{ customerInfo.forname }}</p>
+                                    <p id="text-coupon1"><strong> - Code Postal : </strong>{{ customerInfo.postcode }}</p>
+                                    <p id="text-coupon1"><strong> - Téléphone : </strong>{{ customerInfo.phone }}</p>
+                                    <p id="text-coupon1"><strong> - Email : </strong>{{ customerInfo.email }}</p>
                                 </div>
                             {% endif %}
                         {% endif %}
