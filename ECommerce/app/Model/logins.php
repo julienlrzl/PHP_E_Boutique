@@ -10,16 +10,15 @@ class Logins extends modele
         $sql = "INSERT INTO logins (customer_id, username, password) 
             VALUES (:customer_id, :username, :password)";
 
-            $parametres = array(
-                ':customer_id' => $customer_id,
-                ':username' => $username,
-                ':password' => $password,
-            );
+        $parametres = array(
+            ':customer_id' => $customer_id,
+            ':username' => $username,
+            ':password' => $password,
+        );
 
-            return $this->executerRequete($sql, $parametres);
+        return $this->executerRequete($sql, $parametres);
 
     }
-
 
 
     public function seConnecter($username, $password)
@@ -38,9 +37,15 @@ class Logins extends modele
         return $this->executerRequete($sql, $parametres)->fetchAll();
     }
 
-
-
-    public function addRandomLogin(){
+    public function getCustomerId($username, $password)
+    {
+        $sql = "SELECT customer_id FROM logins WHERE username = :username AND password = :password";
+        $parametres = array(
+            ':username' => $username,
+            ':password' => $password,
+        );
+        $resultat = $this->executerRequete($sql, $parametres)->fetch();
+        return $resultat ? $resultat['customer_id'] : null;
 
     }
 }

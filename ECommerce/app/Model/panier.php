@@ -103,5 +103,11 @@ WHERE logins.username = :username AND logins.password = :password;";
 
     }
 
+    function viderPanier($id_panier)
+    {
+        $sql = "DELETE FROM produitspanier WHERE id_panier = :id_panier";
+        $this->executerRequete($sql, [':id_panier' => $id_panier]);
+    }
+
 }
 ?>

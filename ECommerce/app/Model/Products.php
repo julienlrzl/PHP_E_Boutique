@@ -44,5 +44,14 @@ class Products extends modele
 
         return $reviewsData;
     }
+
+    public function decrementerQuantite($id_produit, $quantite) {
+        $sql = "UPDATE products SET quantity = GREATEST(0, quantity - :quantite) WHERE id = :id_produit";
+        $parametres = array(
+            ":quantite" => $quantite,
+            ":id_produit" => $id_produit,
+        );
+        $this->executerRequete($sql, $parametres);
+    }
 }
 ?>
