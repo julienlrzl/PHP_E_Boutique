@@ -13,21 +13,19 @@ class PDF extends FPDF
 {
     function BasicTable($header, $data)
     {
-        // En-tête
         $height = 12;
         $this->SetFont('Arial', 'B', 10);
         foreach ($header as $col) {
             $str = iconv('UTF-8', 'windows-1252', $col);
             $this->Cell(38, $height, $str, "TB");
         }
-        $this->Ln(); // Données
+        $this->Ln();
 
-        // Ajouter les données du panier
         foreach ($data as $row) {
             foreach ($row as $col) {
-                if (substr($col, -3) === "jpg" || substr($col, -3) === "png" ) {
+                if (substr($col, -3) === "jpg" || substr($col, -3) === "png") {
                     $this->Cell(38, $height, "", "TB");
-                }else{
+                } else {
                     $str = iconv('UTF-8', 'windows-1252', $col);
                     $this->Cell(38, $height, $str, "TB");
                 }
@@ -37,29 +35,27 @@ class PDF extends FPDF
         }
     }
 }
+
 $username = $_COOKIE['username'] ?? null;
 $password = $_COOKIE['password'] ?? null;
 $login = new Logins();
-$resultat = $login->seConnecter($username, $password);
+$passwordhash = $login->getPasswordHash($username);
+$resultat = $login->seConnecter($username, $passwordhash);
 $id_panier = $resultat[0]["id_panier"];
 $panier = new panier();
-$panier_data = $panier -> getContenu($id_panier);
+$panier_data = $panier->getContenu($id_panier);
 
-$pdf = new PDF(); // Use the custom PDF class
+$pdf = new PDF();
 $pdf->AddPage();
-
-// Titre
 $pdf->SetFont('Arial', 'B', 20);
 $pdf->Cell(38, 12, "Facture pour votre commande", "");
 
 $pdf->Ln();
 $pdf->Ln();
 
-// Recapitulatif de commande
 $header = array('id', 'Nom du produit', '', 'Prix', 'Quantité');
 $pdf->BasicTable($header, $panier_data);
 
-// Total
 $total = 0;
 foreach ($panier_data as $product) {
     $total += $product['price'] * $product['nombre_occurrences'];
@@ -78,7 +74,6 @@ $pdf->cell(30, 6, $str, "TRB");
 $pdf->ln();
 $pdf->ln();
 $pdf->ln();
-// Indication chèque
 
 $pdf->SetFont('Arial', 'I', 10);
 $str = iconv('UTF-8', 'windows-1252', "Afin de régler votre commande, nous vous prions de bien vouloir nous faire parvenir un chèque d'une valeur du montant");

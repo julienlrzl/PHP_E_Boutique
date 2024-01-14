@@ -12,14 +12,17 @@ $password = $_COOKIE['password'] ?? null;
 $total = $_GET['total'] ?? 0;
 $session_id = $_COOKIE['PHPSESSID'] ?? null;
 $payment_type = $_GET['payment_type'] ?? 'cheque';
+$login = new Logins();
+$passwordhash = $login->getPasswordHash($username);
 
 $login = new Logins();
-$resultat = $login->seConnecter($username, $password);
+$resultat = $login->seConnecter($username, $passwordhash);
+$resultatsanshash = $login->seConnecter($username, $password);
 
 
 
-if (!empty($resultat)) {
-    $customer_id = $login->getCustomerId($username, $password);
+if (!empty($resultat) || !(empty($resultatsanshash))) {
+    $customer_id = $login->getCustomerId($username, $passwordhash);
     $id_panier = $resultat[0]["id_panier"];
     $panier = new panier();
     $Products = new Products();

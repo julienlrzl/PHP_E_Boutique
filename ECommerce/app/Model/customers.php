@@ -61,10 +61,6 @@ class Customer extends modele
     }
 
 
-
-
-
-
     public function Utilisateur($id, $forname, $add1, $add2, $add3, $postcode, $phone, $email, $registered)
     {
         $this->id = $id;
@@ -77,10 +73,6 @@ class Customer extends modele
         $this->email = $email;
         $this->registered = $registered;
     }
-
-
-
-
 
 
     public function creerUtilisateur($nom, $prenom, $add1, $add2, $add3, $postcode, $phone, $email)
@@ -101,47 +93,23 @@ class Customer extends modele
         return $this->executerRequete($sql, $parametres);
 
     }
-    public function creerUtilisateurCookie()
+
+    public function getIdUtilisateur($forname, $surname, $email)
     {
-        // Vérification de la présence du cookie de l'utilisateur
-        $cookieName = 'customer_id';
-        $customer_id = isset($_COOKIE[$cookieName]) ? $_COOKIE[$cookieName] : null;
-
-        // Création ou récupération de l'utilisateur
-        if ($customer_id === null) {
-            // Si le cookie n'existe pas, créez un nouvel utilisateur
-            $customer_id = genererNouvelUtilisateur(); // Fonction à implémenter
-
-            // Stockez l'ID de l'utilisateur dans un cookie
-            setcookie($cookieName, $customer_id, time() + (86400 * 30), "/"); // valide pendant 30 jours
-        } else {
-            // Si le cookie existe, récupérez l'ID de l'utilisateur
-            // Vous pourriez également effectuer des vérifications supplémentaires ici si nécessaire
-        }
-
-        // Reste du code pour traiter l'utilisateur, par exemple, récupérer d'autres informations de la base de données
-
-        return $customer_id;
-    }
-
-
-
-
-
-        public function getIdUtilisateur($forname, $surname, $email){
-        $sql ="SELECT id FROM customers WHERE forname = :forname and surname = :surname and email = :email";
+        $sql = "SELECT id FROM customers WHERE forname = :forname and surname = :surname and email = :email";
 
         $parametres = array(
-                ':forname' => $forname,
-                ':surname' => $surname,
-                ':email' => $email
+            ':forname' => $forname,
+            ':surname' => $surname,
+            ':email' => $email
         );
 
         return $this->executerRequete($sql, $parametres)->fetchColumn();
     }
 
 
-    public function getUnUtilisateur($username) {
+    public function getUnUtilisateur($username)
+    {
         $sql = "SELECT c.* FROM logins l
             JOIN customers c ON l.customer_id = c.id
             WHERE l.username = :username";
@@ -156,7 +124,8 @@ class Customer extends modele
         return $resultat;
     }
 
-    public function updateAddress($customerId, $newAddress, $newPostalCode, $newCity) {
+    public function updateAddress($customerId, $newAddress, $newPostalCode, $newCity)
+    {
         $sql = "UPDATE customers SET add1 = :newAddress, postcode = :newPostalCode, add3 = :newCity WHERE id = :customerId";
 
         $params = array(
@@ -168,41 +137,5 @@ class Customer extends modele
 
         $this->executerRequete($sql, $params);
     }
-
-    public function mettreAJourUtilisateur(Utilisateur $utilisateur)
-    {
-        // Logique pour mettre à jour un utilisateur dans la base de données
-        $sql = "UPDATE utilisateurs SET forname = :forname, add1 = :add1, add2 = :add2, add3 = :add3,
-                postcode = :postcode, phone = :phone, email = :email, registered = :registered
-                WHERE id = :id";
-
-        $query = $this->db->prepare($sql);
-        $query->bindParam(':id', $utilisateur->getId(), PDO::PARAM_INT);
-        $query->bindParam(':forname', $utilisateur->getForname(), PDO::PARAM_STR);
-        $query->bindParam(':add1', $utilisateur->getAdd1(), PDO::PARAM_STR);
-        $query->bindParam(':add2', $utilisateur->getAdd2(), PDO::PARAM_STR);
-        $query->bindParam(':add3', $utilisateur->getAdd3(), PDO::PARAM_STR);
-        $query->bindParam(':postcode', $utilisateur->getPostcode(), PDO::PARAM_STR);
-        $query->bindParam(':phone', $utilisateur->getPhone(), PDO::PARAM_STR);
-        $query->bindParam(':email', $utilisateur->getEmail(), PDO::PARAM_STR);
-        $query->bindParam(':registered', $utilisateur->getRegistered(), PDO::PARAM_STR);
-
-        return $query->execute();
-    }
-
-    public function supprimerUtilisateur($id)
-    {
-        // Logique pour supprimer un utilisateur de la base de données
-        $sql = "DELETE FROM utilisateurs WHERE id = :id";
-
-        $query = $this->db->prepare($sql);
-        $query->bindParam(':id', $id, PDO::PARAM_INT);
-
-        return $query->execute();
-    }
-
-
-
-
 
 }

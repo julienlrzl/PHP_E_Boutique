@@ -27,7 +27,6 @@ $id_produit = isset($_GET['id_produit']) ? $_GET['id_produit'] : '';
 $id_panier = isset($_GET['id_panier']) ? $_GET['id_panier'] : '';
 
 if (empty($id_panier)) {
-    // Si id_panier n'est pas défini, vous pouvez rediriger l'utilisateur vers une page d'erreur ou effectuer une autre action.
     echo "Erreur : id_panier non défini.";
     exit();
 }
@@ -78,14 +77,12 @@ switch($action) {
 
     case "add_product": {
         $quantite = isset($_GET['quantite']) ? (int)$_GET['quantite'] : 1;
-        $quantite = max($quantite, 1); // Assurez-vous que la quantité est au moins 1
+        $quantite = max($quantite, 1);
 
-        // Ajoutez le produit au panier avec la quantité spécifiée
         for ($i = 0; $i < $quantite; $i++) {
             $panier->ajouterProduitPanier($id_produit, $id_panier);
         }
 
-        // Redirection vers la page du panier ou une autre page appropriée
         header('Location: http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=panier');
         exit();
     }
@@ -108,7 +105,7 @@ switch($action) {
         exit();
     }
 
-    case "ajouterProduitPanier":{ //increaseQTy
+    case "ajouterProduitPanier":{
             $panier->ajouterProduitPanier($id_produit, $id_panier);
             $template = $twig->load('panier.twig');
             ob_start();
@@ -120,13 +117,10 @@ switch($action) {
 
     case "generateInvoice":
     {
-        // Récupérer les données du panier directement
-        $id_panier = 1; // Remplacez 1 par l'id du panier approprié
+        $id_panier = 1;
         $panier_data = $panier->getContenu($id_panier);
 
-        // Rediriger vers facture.php avec les données du panier
         header('Location: http://localhost/projetPHP/php-e-boutique/ECommerce/public/facture.php?panier_data=' . urlencode(serialize($panier_data)));
         exit();
     }
-
 }

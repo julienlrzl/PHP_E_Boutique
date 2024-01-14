@@ -14,14 +14,13 @@ class Admin extends modele
         $parametres = array(
             ':username' => $usernameadmin,
             ':password' => $passwordadmin,
-
         );
-
         return $this->executerRequete($sql, $parametres)->fetchAll();
 
     }
 
-    public function getAllOrders() {
+    public function getAllOrders()
+    {
         $sql = "SELECT o.id, o.customer_id, o.payment_type, o.confirmer,
                    oi.order_id, oi.product_id, oi.quantity, 
                    p.name as product_name, p.price,
@@ -57,10 +56,20 @@ class Admin extends modele
         return $orders;
     }
 
-    public function confirmOrder($orderId) {
+    public function confirmOrder($orderId)
+    {
         $sql = "UPDATE orders SET confirmer = true WHERE id = :orderId";
         $this->executerRequete($sql, [':orderId' => $orderId]);
     }
 
+    public function getPasswordHashAdmin($username)
+    {
+        $sql = "SELECT password FROM admin WHERE username = :username";
+        $parametres = array(
+            ':username' => $username,
+        );
+
+        return $this->executerRequete($sql, $parametres)->fetchColumn();
+    }
 
 }

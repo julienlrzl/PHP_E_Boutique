@@ -2,7 +2,8 @@
 
 class Orders extends Modele
 {
-    public function ajouterCommande($customer_id, $total, $session, $payment_type = 'cheque') {
+    public function ajouterCommande($customer_id, $total, $session, $payment_type = 'cheque')
+    {
         $sql = "INSERT INTO orders (customer_id, registered, delivery_add_id, payment_type, date, session, total, confirmer) 
                 VALUES (:customer_id, 1, 11, :payment_type, CURDATE(), :session, :total, 0)";
         $parametres = array(
@@ -17,7 +18,8 @@ class Orders extends Modele
 
     }
 
-    public function ajouterOrderItems($order_id, $product_id, $quantity) {
+    public function ajouterOrderItems($order_id, $product_id, $quantity)
+    {
         $sql = "INSERT INTO orderitems (order_id, product_id, quantity) 
             VALUES (:order_id, :product_id, :quantity)";
         $parametres = array(

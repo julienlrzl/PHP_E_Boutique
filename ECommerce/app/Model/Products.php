@@ -6,14 +6,11 @@ class Products extends modele
 
     public function getProduitsInfo($id)
     {
-        // Logique pour récupérer un utilisateur par son ID depuis la base de données
         $sql = "SELECT * FROM products WHERE id = :id";
         $query = $this->executerRequete($sql, [':id' => $id]);
 
-        // Fetch en tant qu'objet Utilisateur
         $ProduitsData = $query->fetch(PDO::FETCH_ASSOC);
 
-        // Vérifie si un utilisateur a été trouvé
         if (!$ProduitsData) {
             return null;
         }
@@ -21,14 +18,13 @@ class Products extends modele
     }
 
 
-    public function getReviewsProduits($id){
+    public function getReviewsProduits($id)
+    {
         $sql = "SELECT * FROM reviews WHERE id_product = :id";
         $query = $this->executerRequete($sql, [':id' => $id]);
 
-        // Fetch en tant qu'ensemble d'avis
         $reviewsData = $query->fetchAll(PDO::FETCH_ASSOC);
 
-        // Vérifie si des avis ont été trouvés
         if (!$reviewsData) {
             return null;
         }
@@ -36,7 +32,8 @@ class Products extends modele
         return $reviewsData;
     }
 
-    public function decrementerQuantite($id_produit, $quantite) {
+    public function decrementerQuantite($id_produit, $quantite)
+    {
         $sql = "UPDATE products SET quantity = GREATEST(0, quantity - :quantite) WHERE id = :id_produit";
         $parametres = array(
             ":quantite" => $quantite,
@@ -45,4 +42,5 @@ class Products extends modele
         $this->executerRequete($sql, $parametres);
     }
 }
+
 ?>

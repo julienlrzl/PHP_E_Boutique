@@ -14,7 +14,8 @@ require_once __DIR__ . '/../app/Model/customers.php';
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
-// Créez une instance
+session_start();
+
 $boisson = new boisson();
 $biscuit = new biscuit();
 $fruitssec = new fruitssec();
@@ -24,48 +25,42 @@ $Products = new Products();
 $admin = new Admin();
 $customer = new Customer();
 
-// Utilisez la méthode pour récupérer tous les boissons
 $boissons = $boisson->getAllBoissons();
 $biscuits = $biscuit->getAllBiscuits();
 $fruitssecs = $fruitssec->getAllFruitssec();
 
 $customerInfo = null;
 
-// Vérifiez si l'utilisateur est connecté en utilisant les cookies
 $username = $_COOKIE['username'] ?? null;
 $password = $_COOKIE['password'] ?? null;
-
-
 $id = isset($_GET['id']) ? $_GET['id'] : null;
+
 $Product = $Products->getProduitsInfo($id);
 $reviews = $Products->getReviewsProduits($id);
 
-$isAdmin = false; // Initialisation de la variable admin
+$passwordhash = $login->getPasswordHash($username);
+$passwordhashadmin = $admin->getPasswordHashAdmin($username);
 
-$resultat = $login->seConnecter($username, $password);
+$isAdmin = false;
+$resultat = $login->seConnecter($username, $passwordhash);
 $resultatAdmin = $admin->seConnecterAdmin($username, $password);
-if ($username !== null && $password !== null) {
+$resultatsanshash = $login->seConnecter($username, $password);
 
-
-    // Vérifie si la méthode a renvoyé un tableau non vide
+if ($username !== null) {
     if (!empty($resultatAdmin)) {
-        // Utilisateur est un admin
         $isAdmin = true;
         $orders = $admin->getAllOrders();
         $data['orders'] = $orders;
 
-    } elseif (!empty($resultat)) {
+    } elseif (!empty($resultat) || !(empty($resultatsanshash))) {
+        $username = $_COOKIE['username'] ?? null;
+        $password = $_COOKIE['password'] ?? null;
         $id_panier = $resultat[0]["id_panier"];
         $produitsdupanier = $panier->getContenu($id_panier);
         $quantiteDansPanier = $panier->getQuantiteDansPanier($id_panier);
         $customerInfo = $customer->getUnUtilisateur($username);
         $data['customerInfo'] = $customerInfo;
-
-
-        // Vérifie si l'utilisateur est aussi un admin
     } else {
-        // La connexion a échoué, vous pouvez traiter cela comme une déconnexion
-
         unset($_COOKIE['username']);
         unset($_COOKIE['password']);
         $username = null;
@@ -73,22 +68,39 @@ if ($username !== null && $password !== null) {
         $id_panier = null;
         $produitqdupanier = null;
     }
-    // Afficher les cookies avant la suppression
+}
 
+if (isset($_COOKIE['id_panier']) ){
+
+
+    $id_panier = $_COOKIE['id_panier'] ?? null;
+    $produitsdupanier = $panier->getContenu($id_panier);
+    $panier->getQuantiteDansPanier($id_panier);
+    $quantiteDansPanier = $panier->getQuantiteDansPanier($id_panier);
+    $username = $_COOKIE['username'] ?? null;
+    $password = $_COOKIE['password'] ?? null;
+
+}
+elseif (!isset($_COOKIE['id_panier'])) {
+    // Les cookies n'existent pas, générer des valeurs par défaut
+    $panier->creerEmptyPanier();
+    $id_panier = $panier->lastInsertPanierId();
+    $produitsdupanier = $panier->getContenu($id_panier);
+    $quantiteDansPanier = $panier->getQuantiteDansPanier($id_panier);
+
+    $expire = time() + 365 * 24 * 3600; // 1 an
+    setcookie('username', $username, $expire, '/');
+    setcookie('password', $password, $expire, '/');
+    setcookie('id_panier', $id_panier, time() + 24 * 3600, '/');
+    $username = $_COOKIE['username'] ?? null;
+    $password = $_COOKIE['password'] ?? null;
 
 }
 
 try {
-    // Configuration du chemin vers les templates
     $loader = new FilesystemLoader(__DIR__ . '/../app/View/templates');
-
-
-    // Initialisation de l'environnement Twig
     $twig = new Environment($loader);
-
     $page = isset($_GET['page']) ? $_GET['page'] : 'index';
-
-    // Exemple de données à passer au template
     $data = null;
 
     if ($page == 'panier' || $page == 'paypalcheque') {
@@ -97,7 +109,7 @@ try {
             'quantiteDansPanier' => $quantiteDansPanier ?? 0,
             'id_panier' => $id_panier ?? 0,
             'id' => $id,
-            'isAdmin' => $isAdmin, // Ajout de la variable admin
+            'isAdmin' => $isAdmin,
             'boissons' => $boissons,
             'biscuits' => $biscuits,
             'fruitssecs' => $fruitssecs,
@@ -121,25 +133,20 @@ try {
             'id' => $id,
             'username' => $username,
             'customerInfo' => $customerInfo,
-            'isAdmin' => $isAdmin, // Ajout de la variable admin
+            'isAdmin' => $isAdmin,
         ];
         if ($isAdmin) {
-            $data['orders'] = $orders; // Ajouter les commandes pour l'admin
-        }
-        elseif ($username) {
+            $data['orders'] = $orders;
+        } elseif ($username) {
             $customerInfo = $customer->getUnUtilisateur($username);
             $data['customerInfo'] = $customerInfo;
         }
     }
-
-    // Rendu du template avec les données
     echo $twig->render($page . '.twig', $data);
 
 
 } catch (\Exception $e) {
-    // Affichage des erreurs
     die('Erreur Twig : ' . $e->getMessage());
-
 }
 
 ?>

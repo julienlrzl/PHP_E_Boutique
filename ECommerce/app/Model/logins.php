@@ -3,19 +3,15 @@ require_once 'modele.php';
 
 class Logins extends modele
 {
-
-
     public function creerLogin($customer_id, $username, $password)
     {
         $sql = "INSERT INTO logins (customer_id, username, password) 
             VALUES (:customer_id, :username, :password)";
-
         $parametres = array(
             ':customer_id' => $customer_id,
             ':username' => $username,
             ':password' => $password,
         );
-
         return $this->executerRequete($sql, $parametres);
 
     }
@@ -27,13 +23,11 @@ class Logins extends modele
         FROM logins 
         JOIN panier ON panier.customer_id = logins.customer_id 
         WHERE logins.username = :username AND logins.password = :password";
-
         $parametres = array(
             ':username' => $username,
             ':password' => $password,
 
         );
-
         return $this->executerRequete($sql, $parametres)->fetchAll();
     }
 
@@ -49,11 +43,21 @@ class Logins extends modele
 
     }
 
-    public function checkUsernameExists($username) {
+    public function checkUsernameExists($username)
+    {
         $sql = "SELECT COUNT(*) FROM logins WHERE username = :username";
         $parametres = array(':username' => $username);
         $resultat = $this->executerRequete($sql, $parametres)->fetchColumn();
         return $resultat > 0;
+    }
+
+    public function getPasswordHash($username)
+    {
+        $sql = "SELECT password FROM logins WHERE username = :username";
+        $parametres = array(
+            ':username' => $username,
+        );
+        return $this->executerRequete($sql, $parametres)->fetchColumn();
     }
 }
 

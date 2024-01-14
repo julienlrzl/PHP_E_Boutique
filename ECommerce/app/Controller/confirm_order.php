@@ -18,7 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order_id'])) {
     $admin = new admin();
     $admin->confirmOrder($orderId);
 
-    // Redirection vers la page admin ou affichage d'un message de confirmation
     header('Location: http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=admin');
     exit;
 }
