@@ -1,0 +1,1228 @@
+/*******************************************************************************
+ *
+ * Nom : style.css
+ * Date et auteur :
+ *      Julien Larzul
+ *		Créé le 21/11/2023
+ *
+ * Description :
+ *		Fichier CSS de notre site E-Commerce
+ *
+ *******************************************************************************/
+
+/*------------------------------------------------------------------------------------------*/
+/* 1. General */
+/*------------------------------------------------------------------------------------------*/
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 220px;
+}
+
+main {
+    flex: 1;
+}
+
+/*------------------------------------------------------------------------------------------*/
+/* 2. Header */
+/*------------------------------------------------------------------------------------------*/
+
+.container-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    padding: 15px;
+}
+
+#logo-principal {
+    height: 120px;
+    width: 226px;
+}
+
+.navbar-custom {
+    background-color: #f8f6f1;
+    min-height: 50px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.link-custom-navbar {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: #412420;
+    transition: color 0.3s;
+    letter-spacing: 0.015em;
+    text-transform: uppercase;
+}
+
+.link-custom-navbar-icon {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #412420;
+    transition: color 0.3s;
+}
+
+.link-custom-navbar:hover {
+    color: #ca851d;
+}
+
+.link-custom-navbar-icon:hover {
+    color: #ca851d;
+}
+
+/*------------------------------------------------------------------------------------------*/
+/* 3. Footer */
+/*------------------------------------------------------------------------------------------*/
+.footer-custom {
+    min-height: 100px;
+}
+
+.footer-text {
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: #412420;
+}
+
+#text-footer-main {
+
+}
+
+.nav-link-footer {
+    color: #412420;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-link-footer:hover {
+    color: #ca851d;
+}
+
+/*------------------------------------------------------------------------------------------*/
+/* 4. Main */
+/*------------------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------*/
+/* 5. Section photo main */
+/*------------------------------------------------------------------------------------------*/
+#photo-main {
+    height: 575px;
+    width: 100%;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.image-text {
+    position: absolute;
+    color: white;
+    font-size: 55px;
+    line-height: 60px;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    top: 45%;
+}
+
+.image-text-bis {
+    position: absolute;
+    color: white;
+    font-size: 26px;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    top: 60%;
+}
+
+.button-disp {
+    position: absolute;
+    top: 70%;
+}
+
+button {
+    --primary-color: #ffffff;
+    --secondary-color: #000000;
+    --hover-color: #f8f6f1;
+    --arrow-width: 10px;
+    --arrow-stroke: 2px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 20px;
+    color: var(--secondary-color);
+    padding: 1em 1.8em;
+    background: var(--primary-color);
+    display: flex;
+    transition: 0.2s background;
+    align-items: center;
+    gap: 0.6em;
+    font-weight: bold;
+}
+
+button .arrow-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button .arrow {
+    margin-top: 1px;
+    width: var(--arrow-width);
+    background: var(--primary-color);
+    height: var(--arrow-stroke);
+    position: relative;
+    transition: 0.2s;
+}
+
+button .arrow::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    border: solid var(--secondary-color);
+    border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+    display: inline-block;
+    top: -3px;
+    right: 3px;
+    transition: 0.2s;
+    padding: 3px;
+    transform: rotate(-45deg);
+}
+
+button:hover {
+    background-color: var(--hover-color);
+}
+
+button:hover .arrow {
+    background: var(--secondary-color);
+}
+
+button:hover .arrow:before {
+    right: 0;
+}
+
+
+
+.svg-icon {
+    margin-top: -38px !important; /* Ajustez la valeur selon vos besoins */
+    pointer-events: none;
+}
+
+
+.boutton-panier {
+    width: fit-content;
+    min-width: 100px;
+    height: 25px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1.5px solid rgb(242, 238, 226);
+    box-shadow: 0px 0px 20px -20px;
+    cursor: pointer;
+    background-color: #ffffff;
+    transition: all 0.2s ease-in-out 0ms;
+    user-select: none;
+    margin-top: 15px;
+}
+.bouton-panier:hover {
+    background-color: rgb(242, 238, 226);
+    box-shadow: 0px 0px 20px -18px;
+}
+
+.bouton-panier:active {
+    transform: scale(0.95);
+}
+
+.lien-button-panier{
+    text-transform: uppercase;
+    color: #412420;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.buttonadd{
+    background-color: #2d0c0c; /* Couleur de fond verte */
+    color: #fff; /* Couleur du texte blanc */
+    border: none;
+    padding: 4px 16px; /* Ajout de rembourrage */
+    cursor: pointer;
+    border-radius: 5px; /* Coins arrondis */
+    text-decoration: none;
+    margin-left: 15px;
+    margin-right: 15px;
+    display: flex;
+    text-align: center;
+}
+.buttonadd:hover {
+    background-color: #ca851d;
+}
+
+.style-text-panier-quantité{
+    padding-top: 15px;
+}
+
+.quantity-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.valider-commad-button{
+    text-decoration: none;
+    color: white;
+}
+
+#back-to-shopping{
+
+    background-color: black;
+    color: white;
+    font-size: 14px; /* Ajustez la taille de la police selon vos préférences */
+    padding: 5px 10px; /* Ajustez les marges intérieures selon vos préférences */
+    position: fixed;
+    bottom: 20px; /* Ajustez la distance du bas selon vos préférences */
+    right: 20px; /* Ajustez la distance de la droite selon vos préférences */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+#back-to-index {
+    color: #412420; /* Couleur du texte blanc */
+    text-decoration: none;
+    text-align: center;
+}
+
+
+/*------------------------------------------------------------------------------------------*/
+/* 6. Section description entreprise */
+/*------------------------------------------------------------------------------------------*/
+.col-ensemble {
+    margin-top: 125px;
+    margin-bottom: 125px;
+}
+
+.custom-text-align-left {
+    text-align: left;
+}
+
+.text-description {
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 48px;
+    color: #d6d5d5;
+    text-transform: uppercase;
+}
+
+.text-description-bis {
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    text-transform: uppercase;
+    line-height: 38px;
+}
+
+#text0 {
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 400px;
+}
+
+#text1 {
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 26px;
+    font-weight: 400;
+    width: 85%;
+}
+
+#epicerie {
+    height: 300px;
+    width: 300px;
+}
+
+/*------------------------------------------------------------------------------------------*/
+/* 7. Section coupon reduction */
+/*------------------------------------------------------------------------------------------*/
+#rectangle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rectangle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 977px;
+    height: 232px;
+    background-color: #f8f6f1;
+    margin-bottom: 125px;
+    padding-top: 10px;
+}
+
+.rectangle-bis {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 977px;
+    height: 232px;
+    background-color: #f8f6f1;
+    margin-bottom: 75px;
+    padding-top: 10px;
+}
+
+.coupon0 {
+    margin-bottom: 25px;
+}
+
+#text-coupon0 {
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    font-style: normal;
+    color: #412420;
+}
+
+#text-coupon1 {
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    color: #412420;
+    text-align: center;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+#text-coupon2 {
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    color: #412420;
+    text-align: center;
+    text-decoration: none;
+}
+
+/*------------------------------------------------------------------------------------------*/
+/* 8. Section produits */
+/*------------------------------------------------------------------------------------------*/
+.col-ensemble-bis {
+    margin-bottom: 125px;
+}
+
+.col-ensemble-int {
+    margin-bottom: 70px;
+}
+
+.col-ensemble-int-bis {
+    margin-bottom: 30px;
+}
+
+#produits {
+    height: 400px;
+    width: 400px;
+}
+
+.image-text-0 {
+    position: absolute;
+    color: white;
+    font-size: 28px;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    top: 40%;
+}
+
+.image-text-1 {
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    top: 55%;
+}
+
+.button-disp-bis {
+    position: absolute;
+    top: 65%;
+}
+
+#star{
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
+}
+
+/*------------------------------------------------------------------------------------------*/
+/* 9. Section contact */
+/*------------------------------------------------------------------------------------------*/
+.contact-title {
+    color: #412420;
+    font-size: 32px;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    width: 80%;
+    text-transform: uppercase;
+    line-height: 40px;
+}
+
+.col-ensemble-contact {
+    margin-top: 125px;
+    margin-bottom: 30px;
+}
+
+#colombe {
+    height: 150px;
+    width: 150px;
+}
+
+.colombe-margin{
+    margin-top: 50px;
+}
+
+.col-ensemble-contact-button {
+    margin-top: 30px;
+    margin-bottom: 125px;
+}
+
+.bouton-contact {
+    width: fit-content;
+    min-width: 100px;
+    height: 45px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1.5px solid rgb(242, 238, 226);
+    box-shadow: 0px 0px 20px -20px;
+    cursor: pointer;
+    background-color: #ffffff;
+    transition: all 0.2s ease-in-out 0ms;
+    user-select: none;
+    text-transform: uppercase;
+    color: #412420;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+
+}
+
+.bouton-contact:hover {
+    background-color: rgb(242, 238, 226);
+    box-shadow: 0px 0px 20px -18px;
+}
+
+.bouton-contact:active {
+    transform: scale(0.95);
+}
+
+/*------------------------------------------------------------------------------------------*/
+/* Form */
+/*------------------------------------------------------------------------------------------*/
+
+.form {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+    background-color: #f8f6f1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 30px 30px -30px rgba(27, 26, 26, 0.315);
+}
+
+.form .title {
+    color: #412420;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form input {
+    outline: 0;
+    border: 1px solid rgb(219, 213, 213);
+    padding: 8px 14px;
+    border-radius: 8px;
+    width: 100%;
+    height: 50px;
+}
+
+.form textarea {
+    border-radius: 8px;
+    height: 100px;
+    width: 100%;
+    resize: none;
+    outline: 0;
+    padding: 8px 14px;
+    border: 1px solid rgb(219, 213, 213);
+}
+
+.form button {
+    align-self: flex-end;
+    padding: 8px;
+    outline: 0;
+    border: 0;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #412420;
+    color: #f8f6f1;
+    cursor: pointer;
+}
+
+#formulaire-contact {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+}
+
+.popup-form {
+    display: none;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    filter: blur(0);
+    transition: filter 0.3s ease;
+    z-index: 1; /* Assurez-vous que l'overlay est en dessous du formulaire */
+}
+
+.popup-form.visible {
+    display: block;
+}
+
+.overlay.blur {
+    filter: blur(5px); /* Ajustez la quantité de flou selon vos préférences */
+}
+
+
+/*------------------------------------------------------------------------------------------*/
+/* 10. Section confiance */
+/*------------------------------------------------------------------------------------------*/
+.col-ensemble-confiance {
+    margin-bottom: 125px;
+}
+
+.title-confiance {
+    color: #412420;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 23px;
+    text-transform: capitalize;
+    margin-top: 30px;
+}
+
+.text-confiance {
+    color: #412420;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.custom-border {
+    border-top: 1.2px solid #f0f0f2;
+    border-bottom: 1.2px solid #f0f0f2;
+}
+
+.border-right {
+    border-right: 1.2px solid #f0f0f2;;
+}
+
+#logoconfiance {
+    margin-top: 50px;
+    height: auto;
+    width: 47px;
+}
+
+/*------------------------------------------------------------------------------------------*/
+/* 10. Section Produits Other pages */
+/*------------------------------------------------------------------------------------------*/
+.marge-produits{
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.orga-text {
+    margin-top: 40px;
+}
+
+.title-products {
+    color: #412420;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 42px;
+    line-height: 24px;
+}
+
+.orga-produits {
+    margin-top: 125px;
+    margin-bottom: 125px;
+}
+
+.img-produits{
+    height: 200px;
+    width: 200px;
+}
+
+.img-produits-recap{
+    height: 50px;
+    width: 50px;
+}
+
+#img-review{
+    height: 50px;
+    width: 50px;
+}
+
+.star {
+    font-size: 1.2em; /* Ajustez la taille selon vos besoins */
+    color: grey; /* Couleur par défaut pour les étoiles grises */
+    margin-right: 3px; /* Marge entre les étoiles */
+}
+
+.star.yellow {
+    color: gold; /* Couleur des étoiles jaunes */
+}
+
+.separation{
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 200px;
+}
+
+.separation-hr{
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.title-comment{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    line-height: 26px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.title-cheque{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 800;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.title-comment0{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    line-height: 26px;
+    font-weight: 800;
+}
+
+.button-margin{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.description-comment{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 26px;
+    font-weight: 400;
+}
+
+.orga-produits-detail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.espacement{
+    margin-bottom: 100px;
+}
+
+.style-text-produits{
+    color: #412420;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 20px;
+    padding-top: 20px;
+}
+
+.style-text-produits0{
+    color: #412420;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 20px;
+    padding-top: 5px;
+}
+
+.bouton-panier {
+    width: fit-content;
+    min-width: 100px;
+    height: 25px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1.5px solid rgb(242, 238, 226);
+    box-shadow: 0px 0px 20px -20px;
+    cursor: pointer;
+    background-color: #ffffff;
+    transition: all 0.2s ease-in-out 0ms;
+    user-select: none;
+    text-transform: uppercase;
+    color: #412420;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 8px;
+    margin-top: 15px;
+
+}
+
+.bouton-panier:hover {
+    background-color: rgb(242, 238, 226);
+    box-shadow: 0px 0px 20px -18px;
+}
+
+.bouton-panier:active {
+    transform: scale(0.95);
+}
+
+/*------------------------------------------------------------------------------------------*/
+/* 10. Section Compte Other pages */
+/*------------------------------------------------------------------------------------------*/
+
+.rectangle-compte {
+    width: 547px;
+    min-height: 412px;
+    background-color: #f7f6f7;
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 150px;
+    margin-top: 20px;
+}
+
+.connexion-contact{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    color: #232323;
+    margin-left: 25px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.user-password-contact{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 2;
+    color: #232323;
+    margin-left: 25px;
+    margin-top: 15px;
+    margin-bottom: -20px;
+}
+
+.asterix{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    color: red;
+}
+
+.text-contact{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: black;
+    margin-left: 25px;
+    margin-right: 25px;
+    display: flex;
+    text-align: left;
+}
+
+.links-container {
+    display: flex;
+    align-items: center;
+}
+
+.separator {
+    margin: 0 5px;
+}
+
+.link-contact{
+    text-decoration: none;
+    color: #232323;
+}
+
+.input {
+    width: 490px;
+    background-color: white;
+    color: #242424;
+    padding: .15rem .5rem;
+    min-height: 40px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    line-height: 1.15;
+    box-shadow: 0px 10px 20px -18px;
+    margin:25px;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+input:focus {
+    border-bottom: 2px solid #5b5fc7;
+    border-radius: 4px 4px 2px 2px;
+}
+
+input:hover {
+    outline: 1px solid lightgrey;
+}
+
+#bouton-connexion {
+    width: fit-content;
+    min-width: 100px;
+    height: 35px;
+    padding: 8px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px -20px;
+    cursor: pointer;
+    background-color: #232323;
+    color: white;
+    transition: all 0.2s ease-in-out 0ms;
+    user-select: none;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    margin-left: 25px;
+    margin-bottom: 10px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+
+}
+
+/*------------------------------------------------------------------------------------------*/
+/* 11. Section Magasins Other pages */
+/*------------------------------------------------------------------------------------------*/
+
+.text-magasin{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    margin-left: 25px;
+    line-height: 24px;
+    margin-bottom: 25px;
+}
+
+.title-magasins{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #412420;
+    margin-left: 25px;
+    margin-bottom: 25px;
+    line-height: 26px;
+}
+
+#prod-artisanale{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #412420;
+    margin-bottom:10px;
+    line-height: 24px;
+}
+
+#title-brand{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    color: #232323;
+    margin-bottom:20px;
+    margin-top: 15px;
+    line-height: 46px;
+    letter-spacing: -1px;
+}
+
+#photo-magasin{
+    height: auto;
+    width: 375px;
+    margin-top: 50px;
+}
+
+/*------------------------------------------------------------------------------------------*/
+/* 12. Section Panier Other pages */
+/*------------------------------------------------------------------------------------------*/
+
+.img-produits-panier{
+    height: 55px;
+    width: auto;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.style-text-panier{
+    color: #412420;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+    padding-top: 20px;
+    margin-right: 100px;
+}
+
+.style-text-panier-prix{
+    color: #412420;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+    padding-top: 20px;
+    margin-right: 200px;
+}
+
+.product-item {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.style-text-cheque{
+    color: #412420;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.product-name {
+    flex-grow: 1;
+}
+
+.product-price {
+    min-width: 60px;
+}
+
+
+.button {
+    position: relative;
+    width: 2em; /* Ajustez la largeur du bouton */
+    height: 2em; /* Ajustez la hauteur du bouton */
+    border: none;
+    background: white;
+    border-radius: 5px;
+    transition: background 0.5s;
+}
+
+.X,
+.Y {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1em; /* Ajustez la taille de la croix */
+    height: 1px; /* Ajustez la taille de la croix */
+    background-color: #232323; /* Couleur de la croix */
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.Y {
+    transform: translateX(-50%) rotate(-45deg);
+}
+
+.close {
+    position: absolute;
+    display: flex;
+    padding: 0.3rem 0.8rem; /* Ajustez le rembourrage du texte "Close" */
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-50%);
+    top: -50%; /* Ajustez la position verticale du texte "Close" */
+    left: 50%;
+    width: 1.5em; /* Ajustez la largeur du bouton "Close" */
+    height: 1em; /* Ajustez la hauteur du bouton "Close" */
+    font-size: 8px; /* Ajustez la taille de la police du texte "Close" */
+    background-color: #fff; /* Couleur de fond en blanc */
+    color: #232323; /* Couleur du texte "Close" */
+    border: none;
+    border-radius: 3px;
+    pointer-events: none;
+    opacity: 0;
+}
+
+#bouton-connexion-prix {
+    width: fit-content;
+    min-width: 100px;
+    height: 35px;
+    padding: 8px;
+    border-radius: 0px;
+    box-shadow: 0px 0px 20px -20px;
+    cursor: pointer;
+    background-color: #232323;
+    color: white;
+    transition: all 0.2s ease-in-out 0ms;
+    user-select: none;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    margin-left: 25px;
+
+}
+
+.bouton-prix{
+    margin-top: 10px;
+    margin-bottom: 50px;
+    margin-right: 25px;
+}
+
+.total-text{
+    margin-right: 25px;
+    color: #412420;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+/*------------------------------------------------------------------------------------------*/
+/* 12. Section Payement Other pages */
+/*------------------------------------------------------------------------------------------*/
+
+.Btn {
+    width: 170px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(15, 15, 15);
+    border: none;
+    color: white;
+    font-weight: 600;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    border-radius: 0px;
+}
+
+.svgIcon {
+    width: 16px;
+}
+
+.svgIcon path {
+    fill: white;
+}
+
+.Btn:hover .svgIcon path {
+    fill: black;
+}
+
+.Btn:hover{
+    color: black;
+}
+
+.button-paypal{
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.lien-button{
+    text-decoration: none;
+    color: white;
+}
+
+.lien-produits{
+    text-decoration: none;
+}
+
+#quantity{
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.separation0{
+    margin-right: 20px;
+    margin-bottom: 8px;
+}

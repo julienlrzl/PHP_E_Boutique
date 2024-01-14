@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!--
+        Projet : Mon Site Web E-Commerce
+        Auteur : Julien Larzul
+        Description : Fichier HTML de notre site E-Commerce avec des commentaires détaillés.
+        Date de création : 26/11/2023
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="/ProjetPHP/php-e-boutique/ECommerce/public/css/bootstrap/bootstrap.min.css">
+    <!--link CSS-->
+    <link rel="stylesheet" href="/ProjetPHP/php-e-boutique/ECommerce/public/css/style.css">
+    <link rel="stylesheet" href="/ProjetPHP/php-e-boutique/ECommerce/public/css/politique_confidentialite.css">
+
+    <!--link JS-->
+    <script src="/ProjetPHP/php-e-boutique/ECommerce/public/js/scripts.js"></script>
+    <script src="/ProjetPHP/php-e-boutique/ECommerce/public/js/jquery/jquery.min.js"></script>
+    <script src="/ProjetPHP/php-e-boutique/ECommerce/public/js/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Icônes Favicon -->
+    <link rel="icon" href="/ProjetPHP/php-e-boutique/ECommerce/public/image/favicon.ico" type="image/x-icon">
+
+    <!--ADD Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!--FontAweseome Icons-->
+    <script src="https://kit.fontawesome.com/9f202e79c8.js" crossorigin="anonymous"></script>
+
+
+    <title>Boutique Française</title>
+</head>
+<body>
+<!-- En-tête du site -->
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top">
+        <div class="container container-header d-flex justify-content-between">
+            <!-- Logo au milieu -->
+            <div class="logo text-center">
+                <a href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=index"><img
+                            src="/ProjetPHP/php-e-boutique/ECommerce/public/image/logo-web-transparent.png"
+                            id="logo-principal"></a>
+            </div>
+
+            <!-- Contenu de la barre de navigation -->
+            <div>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link link-custom-navbar"
+                               href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=boissons">Boissons</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link link-custom-navbar"
+                               href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=biscuits">Biscuits</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link-custom-navbar"
+                               href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=fruitssec">Fruits
+                                sec</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link-custom-navbar"
+                               href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=magasins">nos
+                                magasins</a>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-link link-custom-navbar">|</span>
+                        </li>
+                        <li class="nav-item">
+                            {% if username == null %}
+                                <a class="nav-link link-custom-navbar-icon"
+                                   href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=compte"></a>
+                            {% else %}
+                                <a class="nav-link link-custom-navbar-icon"
+                                   href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=deconnexion"></a>
+                            {% endif %}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-person-circle svg-icon" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                <path fill-rule="evenodd"
+                                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                            </svg>
+
+
+                        </li>
+
+                        {% if isAdmin %}
+                            <li class="nav-item">
+                                <a class="nav-link link-custom-navbar"
+                                   href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=admin">Admin
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link link-custom-navbar-icon"
+                                   href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=panier">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                         class="bi bi-cart3" viewBox="0 0 16 16">
+                                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                                    </svg>
+                                    <span id="panier-counter">{{ quantiteDansPanier }}</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- Section principale -->
+<main>
+    <section>
+        <div class="rectangle-politique">
+            <h1 class="text-politique">Nos Magasin</h1>
+        </div>
+    </section>
+    <div class="container">
+        <section class="row">
+            <div class="col-md-6 d-flex justify-content-start flex-column">
+                <span id="prod-artisanale">La Boutique Française</span>
+                <h4 id="title-brand">{{ Product.name }}</h4>
+                <i class="fa-solid fa-minus fa-2xl" style="color: #000000;"></i>
+                <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/productimages/{{ Product.image }}"
+                     class="img-produits">
+                <br>
+                <p id="text1">{{ Product.description }}</p>
+                <span class="style-text-produits0">€{{ Product.price }} | Il en reste {{ Product.quantity }}</span>
+                <form action="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/controllerpanier.php" method="get">
+                    <div class="d-flex flex-row align-items-center">
+                        <input type="hidden" name="action" value="add_product">
+                        <input type="hidden" name="id_produit" value="{{ id }}">
+                        <input type="hidden" name="id_panier" value="{{ id_panier }}">
+                        <button type="submit" class="boutton-panier espacement lien-button-panier">
+                            Ajouter au Panier
+                        </button>
+                        <div class="espacement" id="quantity">
+                            <input type="number" id="quantite" name="quantite" min="1" max="{{ Product.quantity }}"
+                                   value="1">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6 d-flex justify-content-start flex-column">
+                <!-- Ajoutez une section pour les avis -->
+                <section>
+                    <h3>Avis sur le produit</h3>
+                    <br>
+                    {% if reviews is not empty %}
+                        <ul>
+                            {% for review in reviews %}
+                                <li class="d-flex flex-column">
+                                    <div class="d-flex flex-row">
+                                        <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/productimages/{{ review.photo_user }}"
+                                             id="img-review">
+                                        <p class="title-comment0 separation">{{ review.name_user }}</p>
+                                    </div>
+                                    <br>
+                                    <div class="d-flex flex-row">
+                                        <p>
+                                            {% for i in range(1, 5) %}
+                                                {% if i <= review.stars %}
+                                                    <span class="star yellow">&#9733;</span>
+                                                {% else %}
+                                                    <span class="star grey">&#9733;</span>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </p>
+                                        <p class="separation">|</p>
+                                        <p class="title-comment">{{ review.title }}</p>
+                                    </div>
+                                    <div class="d-flex flex-row">
+                                        <p class="description-comment">{{ review.description }}</p>
+                                    </div>
+                                </li>
+                                <br><br>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>Aucun avis disponible pour le moment.</p>
+                    {% endif %}
+                </section>
+                <section>
+                    <h3>Ajouter un avis</h3>
+                    <form action="http://localhost/ProjetPHP/php-e-boutique/ECommerce/app/Model/submit_review.php" method="post">
+                        <input type="hidden" name="id_product" value="{{ Product.id }}">
+                        <div>
+                            <label for="name_user" class="title-comment0 separation0 colombe-margin">Nom :</label>
+                            <input type="text" id="name_user" name="name_user" required>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <label for="photo_user" class="title-comment0 separation0">Genre :</label>
+                            <div>
+                                <input type="radio" id="genre_homme" name="photo_user" value="homme.jpg" required>
+                                <label for="genre_homme" class="separation0">Homme</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="genre_femme" name="photo_user" value="femme.png" required>
+                                <label for="genre_femme">Femme</label>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="stars" class="title-comment0 separation0">Note :</label>
+                            <select name="stars" id="stars" required>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="title" class="title-comment0 separation0">Titre :</label>
+                            <input type="text" id="title" name="title" required>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <label for="description" class="title-comment0 separation0">Description :</label>
+                            <input type="text" id="description" name="description" required></input>
+                        </div>
+                        <button type="submit" class="button-margin" id="bouton-connexion">Envoyer l'avis</button>
+                    </form>
+                </section>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- Pied de page -->
+<footer class="py-3 footer-custom" style="background-color: #f8f6f1;">
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <div>
+            <p class="footer-text">Larzul Julien - Revendeur depuis 1987</p>
+        </div>
+        <div>
+            <p class="footer-text"><a class="nav-link-footer"
+                                      href="?page=conditions_generales">Conditions
+                    générales de ventes</a> | <a
+                        class="nav-link-footer"
+                        href="?page=politique_confidentialite">Politique
+                    de confidentialité</a> - &copy; 2023 Boutique
+                Française</p>
+        </div>
+    </div>
+</footer>
+<!--Bootstrap-->
+<script src="/ProjetPHP/php-e-boutique/ECommerce/public/js/jquery/jquery.min.js"></script>
+<script src="/ProjetPHP/php-e-boutique/ECommerce/public/js/bootstrap/bootstrap.min.js"></script>
+<!--End of Bootstrap-->
+</body>
+</html>

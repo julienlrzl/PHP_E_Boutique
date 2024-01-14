@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!--
+        Projet : Mon Site Web E-Commerce
+        Auteur : Julien Larzul
+        Description : Fichier HTML de notre site E-Commerce avec des commentaires détaillés.
+        Date de création : 26/11/2023
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="/ProjetPHP/php-e-boutique/ECommerce/public/css/bootstrap/bootstrap.min.css">
+    <!--link CSS-->
+    <link rel="stylesheet" href="/ProjetPHP/php-e-boutique/ECommerce/public/css/style.css">
+    <link rel="stylesheet" href="/ProjetPHP/php-e-boutique/ECommerce/public/css/politique_confidentialite.css">
+
+    <!--link JS-->
+    <script src="/ProjetPHP/php-e-boutique/ECommerce/public/js/scripts.js"></script>
+    <script src="/ProjetPHP/php-e-boutique/ECommerce/public/js/jquery/jquery.min.js"></script>
+    <script src="/ProjetPHP/php-e-boutique/ECommerce/public/js/bootstrap/bootstrap.min.js"></script>
+
+
+    <!-- Icônes Favicon -->
+    <link rel="icon" href="/ProjetPHP/php-e-boutique/ECommerce/public/image/favicon.ico" type="image/x-icon">
+
+    <!--ADD Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <title>Boutique Française</title>
+</head>
+<body>
+<!-- En-tête du site -->
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top">
+        <div class="container container-header d-flex justify-content-between">
+            <!-- Logo au milieu -->
+            <div class="logo text-center">
+                <a href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=index"><img
+                            src="/ProjetPHP/php-e-boutique/ECommerce/public/image/logo-web-transparent.png"
+                            id="logo-principal"></a>
+            </div>
+
+            <!-- Contenu de la barre de navigation -->
+            <div>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link link-custom-navbar"
+                               href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=boissons">Boissons</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link link-custom-navbar"
+                               href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=biscuits">Biscuits</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link-custom-navbar"
+                               href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=fruitssec">Fruits
+                                sec</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link-custom-navbar"
+                               href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=magasins">nos
+                                magasins</a>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-link link-custom-navbar">|</span>
+                        </li>
+                        <li class="nav-item">
+                            {% if username == null %}
+                                <a class="nav-link link-custom-navbar-icon" href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=compte"></a>
+                            {% else %}
+                                <a class="nav-link link-custom-navbar-icon" href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=deconnexion"></a>
+                            {% endif %}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle svg-icon" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                            </svg>
+
+
+                        </li>
+
+                        {% if isAdmin %}
+                            <li class="nav-item">
+                                <a class="nav-link link-custom-navbar"
+                                   href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=admin">Admin
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link link-custom-navbar-icon"
+                                   href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=panier">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                         class="bi bi-cart3" viewBox="0 0 16 16">
+                                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                                    </svg>
+                                    <span id="panier-counter">{{ quantiteDansPanier }}</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Section principale -->
+<main>
+    <section>
+        <div class="rectangle-politique">
+            <h1 class="text-politique">Boissons</h1>
+        </div>
+    </section>
+    <!-- Section coupon reduction -->
+    <section id="rectangle">
+        <div class="rectangle-bis">
+            <div class="coupon0">
+                <p id="text-coupon0">15 % de réduction pour toute première inscription sur la boutique Française en
+                    ligne !</p>
+            </div>
+            <div class="coupon0">
+                <p id="text-coupon1">L’offre de bienvenue s’étend sur toute notre gamme, vous permettant de découvrir
+                    nos produits artisanaux français à prix réduit pendant les trois premiers mois de votre
+                    inscription.</p>
+            </div>
+            <a id="text-coupon2" href="#">Inscrivez-vous dès maintenant !</a>
+        </div>
+    </section>
+    <!-- END Section coupon seduction -->
+    <div class="marge-produits">
+        <section>
+            <div class="orga-text mx-5">
+                <span class="title-products">La Boutique Française vous propose</span>
+                <br><br>
+                <span class="title-products">sa variété de boissons artisanales</span>
+            </div>
+        </section>
+        <section>
+            <div class="container mx-5">
+                <div class="row orga-produits">
+                    {% for boisson in boissons %}
+                        <div class="col-md-4 align-items-center orga-produits-detail">
+                            <a href="/ProjetPHP/php-e-boutique/ECommerce/public/?page=produit_boisson&id={{ boisson.id }}"
+                               class="lien-produits orga-produits-detail">
+                                <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/productimages/{{ boisson.image }}"
+                                     class="img-produits">
+                                <span class="style-text-produits">{{ boisson.name }}</span>
+                                <span class="style-text-produits0">€{{ boisson.price }} | Il en reste {{ boisson.quantity }}</span>
+                            </a>
+                            {% if not isAdmin %}
+                                <button class="boutton-panier espacement">
+                                    <a class="lien-button-panier"
+                                       href="/ProjetPHP/php-e-boutique/ECommerce/app/Controller/controllerpanier.php?action=add_boissons&id_produit={{ boisson.id }}&id_panier={{ id_panier }}">
+                                        Ajouter au Panier
+                                    </a>
+                                </button>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="d-flex justify-content-center">
+        <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/colombe.png" id="colombe">
+    </div>
+</main>
+
+<!-- Pied de page -->
+<footer class="py-3 footer-custom" style="background-color: #f8f6f1;">
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <div>
+            <p class="footer-text">Larzul Julien - Revendeur depuis 1987</p>
+        </div>
+        <div>
+            <p class="footer-text"><a class="nav-link-footer"
+                                      href="http://localhost/projetPHP/php-e-boutique/ECommerce/public?page=conditions_generales">Conditions
+                    générales de ventes</a> | <a
+                        class="nav-link-footer"
+                        href="http://localhost/projetPHP/php-e-boutique/ECommerce/public?page=politique_confidentialite">Politique
+                    de confidentialité</a> - &copy; 2023 Boutique
+                Française</p>
+        </div>
+    </div>
+</footer>
+<!--Bootstrap-->
+<script src="/ProjetPHP/php-e-boutique/ECommerce/public/js/jquery/jquery.min.js"></script>
+<script src="/ProjetPHP/php-e-boutique/ECommerce/public/js/bootstrap/bootstrap.min.js"></script>
+<!--End of Bootstrap-->
+</body>
+</html>

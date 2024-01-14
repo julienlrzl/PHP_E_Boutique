@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!--
+        Projet : Mon Site Web E-Commerce
+        Auteur : Julien Larzul
+        Description : Fichier HTML de notre site E-Commerce avec des commentaires détaillés.
+        Date de création : 26/11/2023
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="/ProjetPHP/php-e-boutique/ECommerce/public/css/bootstrap/bootstrap.min.css">
+    <!--link CSS-->
+    <link rel="stylesheet" href="/ProjetPHP/php-e-boutique/ECommerce/public/css/style.css">
+    <link rel="stylesheet" href="/ProjetPHP/php-e-boutique/ECommerce/public/css/politique_confidentialite.css">
+
+    <!--link JS-->
+    <script src="/ProjetPHP/php-e-boutique/ECommerce/public/js/scripts.js"></script>
+    <script src="/ProjetPHP/php-e-boutique/ECommerce/public/js/jquery/jquery.min.js"></script>
+    <script src="/ProjetPHP/php-e-boutique/ECommerce/public/js/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Icônes Favicon -->
+    <link rel="icon" href="/ProjetPHP/php-e-boutique/ECommerce/public/image/favicon.ico" type="image/x-icon">
+
+    <!--ADD Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <title>Boutique Française</title>
+</head>
+<body>
+<!-- En-tête du site -->
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top">
+        <div class="container container-header d-flex justify-content-between">
+            <!-- Logo au milieu -->
+            <div class="logo text-center">
+                <a href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=index"><img
+                            src="/ProjetPHP/php-e-boutique/ECommerce/public/image/logo-web-transparent.png"
+                            id="logo-principal"></a>
+            </div>
+
+            <!-- Contenu de la barre de navigation -->
+            <div>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link link-custom-navbar"
+                               href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=boissons">Boissons</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link link-custom-navbar"
+                               href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=biscuits">Biscuits</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link-custom-navbar"
+                               href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=fruitssec">Fruits
+                                sec</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link-custom-navbar"
+                               href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=magasins">nos
+                                magasins</a>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-link link-custom-navbar">|</span>
+                        </li>
+                        <li class="nav-item">
+                            {% if username == null %}
+                                <a class="nav-link link-custom-navbar-icon" href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=compte"></a>
+                            {% else %}
+                                <a class="nav-link link-custom-navbar-icon" href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=deconnexion"></a>
+                            {% endif %}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle svg-icon" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                            </svg>
+
+
+                        </li>
+
+                        {% if isAdmin %}
+                            <li class="nav-item">
+                                <a class="nav-link link-custom-navbar"
+                                   href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=admin">Admin
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link link-custom-navbar-icon"
+                                   href="http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=panier">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                         class="bi bi-cart3" viewBox="0 0 16 16">
+                                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                                    </svg>
+                                    <span id="panier-counter">{{ quantiteDansPanier }}</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Section principale -->
+<main>
+    <section>
+        <div class="rectangle-politique">
+            <h1 class="text-politique">Termes et conditions</h1>
+        </div>
+    </section>
+    <div class="mx-5">
+        <section id="main-text">
+            <div id="colonne-main">
+                <span class="title-politique">
+                    1 - Objet et acceptation des CGV
+                </span>
+                <p class="text-politique-bis">
+                    <br>
+                    La société Boutique Française, via le site web “boutiquefrançaise.com”, propose à la vente une large
+                    gamme
+                    de produits alimentaires (désignés ci-après comme les « Produits »).<br><br>
+
+                    Ces conditions générales régissent les ventes de produits réalisées ou commercialisées par la
+                    société Boutique Française via le site web “boutiquefrançaise.com” (ci-après dénommé le « site »)
+                    auprès de
+                    toute personne physique majeure dans son pays d’origine (ci-après dénommée le « client »).<br><br>
+
+                    En cliquant sur l’icône « Commande » pour confirmer sa commande des produits sélectionnés, le client
+                    reconnaît avoir pris connaissance des présentes conditions générales de vente et les accepter sans
+                    réserve.<br><br>
+
+                    Nous invitons donc le client à lire attentivement les clauses ci-après.<br><br>
+
+                    Le client ne peut acheter l’un des produits présentés sur le site sans avoir, au préalable, accepté
+                    les présentes conditions générales de vente.<br><br>
+
+                    Aux fins de ces conditions, le client et la société Boutique Française via le site web
+                    “boutiquefrançaise.com” sont collectivement dénommés les « parties » et individuellement dénommés la
+                    «
+                    partie ».<br><br><br>
+                </p>
+                <span class="title-politique">
+                    2 - Prix
+                </span>
+                <p class="text-politique-bis">
+                    <br>
+                    Les prix sont affichés en euros, toutes taxes comprises, mais hors frais de transport.<br><br>
+
+                    Il est important de noter que la taxe sur la valeur ajoutée (TVA) appliquée est celle en vigueur en
+                    France au jour de la validation de la commande, si elle est collectée. (Actuellement, les produits
+                    vendus sur le site ravellopasta.com ne sont pas soumis à la TVA, en raison du statut de
+                    l’entreprise. Cependant, cela pourrait changer sans préavis en fonction de l’évolution du statut de
+                    l’entreprise Boutique Française.)<br><br>
+
+                    En cas de modification du taux de TVA, ces changements pourront être répercutés sur le prix des
+                    produits.<br><br>
+
+                    boutiquefrançaise.com se réserve le droit de modifier les tarifs affichés sur le site à tout moment,
+                    sans
+                    préavis. Les produits seront facturés sur la base des tarifs en vigueur au moment de la validation
+                    de la commande par le client.<br><br><br>
+                </p>
+                <span class="title-politique">
+                    3 - Compte client
+                </span>
+                <p class="text-politique-bis">
+                    <br>
+                    Les commandes s’effectuent en ligne, directement sur le site.<br><br>
+
+                    Lors de la première commande, le client doit créer un compte client en saisissant un identifiant et
+                    un mot de passe.<br><br>
+
+                    En cas de perte de son mot de passe, le client peut récupérer celui-ci en saisissant son adresse
+                    électronique dans le champ correspondant, et le système le lui renverra automatiquement à cette
+                    adresse électronique.<br><br>
+
+                    Les informations fournies par le client lors de la création du compte client sont engageantes. En
+                    cas d’erreur, notamment dans les coordonnées du destinataire, boutiquefrançaise.com ne peut être
+                    tenue
+                    responsable de l’impossibilité de livrer les produits.<br><br><br>
+                </p>
+                <span class="title-politique">
+                    4 - Paiement et réserve de propriété
+                </span>
+                <p class="text-politique-bis">
+                    <br>
+                    Le choix du mode de paiement s’effectue sur le site au moment de la commande, en euros.<br><br>
+
+                    Le débit par carte est réalisé au jour de la commande.<br><br>
+
+                    En vertu de l’article L.132-2 du Code monétaire et financier, l’engagement de payer au moyen d’une
+                    carte de paiement est irrévocable. En fournissant les informations relatives à sa carte bancaire, le
+                    client autorise ravellopasta.com à débiter sa carte du montant correspondant au prix des produits,
+                    auquel sont ajoutés les frais de livraison, toutes taxes comprises.<br><br>
+
+                    À cette fin, le client confirme qu’il est le titulaire de la carte bancaire à débiter, que le nom
+                    figurant sur la carte est bien le sien, et qu’il dispose des autorisations nécessaires pour procéder
+                    au paiement le cas échéant. Le client communique les seize chiffres et la date d’expiration de sa
+                    carte bancaire, ainsi que, le cas échéant, les numéros du cryptogramme visuel.<br><br>
+
+                    En cas d’utilisation frauduleuse de sa carte bancaire sur le site, le client est invité à contacter
+                    boutiquefrançaise.com au numéro suivant : 06 14 24 14 88, du lundi au vendredi, de 09 heures à 12
+                    heures
+                    et de 14 heures à 17 heures, ou par mail à l’adresse suivante : info@boutiquefrançaise.com.<br><br>
+
+                    Si le débit des sommes dues par le client s’avère impossible, la vente serait immédiatement résolue
+                    de plein droit et la commande serait annulée.<br><br>
+
+                    Une facture détaillée est envoyée par courrier électronique au client pour chaque commande. La
+                    facture reste également disponible dans le compte client.<br><br>
+
+                    Les produits restent la propriété de boutiquefrançaise.com jusqu’à l’encaissement de toutes les
+                    sommes
+                    dues par le client au titre de la commande, y compris les frais et taxes.<br><br><br>
+                </p>
+                <span class="title-politique">
+                    5 - Sécurisation des paiements
+                </span>
+                <p>
+                    <br>
+                    Le site bénéficie d’un système de sécurisation avancé, comprenant le procédé de cryptage SSL et
+                    d’autres méthodes de brouillage et de cryptage, visant à garantir une protection optimale de toutes
+                    les données sensibles liées aux moyens de paiement.<br><br><br>
+                </p>
+                <span class="title-politique">
+                    6 - Livraison
+                </span>
+                <p>
+                    <br>
+                    Les produits sont livrés à l’adresse de livraison indiquée par le client lors du processus de
+                    commande. Il est de la responsabilité du client de vérifier l’exactitude et la complétude des
+                    informations fournies à boutiquefrançaise.com. La société décline toute responsabilité en cas
+                    d’erreur de
+                    saisie entraînant des retards ou des erreurs de livraison. Tous les frais liés à la réexpédition des
+                    produits seront entièrement à la charge du client.<br><br>
+
+                    boutiquefrançaise.com s’engage à livrer les commandes accompagnées d’un bon de livraison dans un
+                    délai
+                    maximal de dix (10) jours en France métropolitaine. Les délais de livraison indiqués correspondent
+                    aux jours ouvrés, à l’exclusion des samedis, dimanches et jours fériés. Ils incluent les délais de
+                    traitement, de préparation et d’acheminement de la commande, à partir de la date de confirmation de
+                    la commande par boutiquefrançaise.com.<br><br>
+
+                    Si le client n’est pas présent lors de la livraison du colis, le transporteur laissera un avis de
+                    passage. Il incombera alors au client de contacter le transporteur pour convenir d’une nouvelle date
+                    de livraison. Si le client ne prend pas contact dans le délai indiqué sur l’avis de passage, le
+                    colis sera retourné à boutiquefrançaise.com, et la vente sera résolue, les frais d’expédition
+                    restant à
+                    la charge du client à titre de pénalité.<br><br>
+
+                    Si le client souhaite que les produits lui soient renvoyés, il devra passer une nouvelle commande et
+                    payer les frais de livraison correspondants.<br><br>
+
+                    En cas de dépassement de la date de livraison, le client peut résoudre le contrat de vente en
+                    envoyant une lettre recommandée avec demande d’avis de réception à l’adresse suivante :
+                    boutiquefrançaise
+                    Julien Larzul, 68 rue voltaire, 69003 Lyon, ou par courrier électronique à
+                    l’adresse suivante : info@boutiquefrançaise.com, si boutiquefrançaise.com ne s’est pas exécutée
+                    après avoir
+                    été enjointe d’effectuer la livraison dans un délai supplémentaire raisonnable.<br><br>
+
+                    Le contrat sera considéré comme rompu à réception de la lettre par boutiquefrançaise.com, sauf si la
+                    livraison a été effectuée entre-temps.<br><br>
+
+                    En cas de résolution du contrat, le client sera intégralement remboursé, par tout moyen de paiement,
+                    dans les meilleurs délais et au plus tard dans les quatorze (14) jours suivant la réception de la
+                    lettre par boutiquefrançaise.com.<br><br>
+
+                    boutiquefrançaise.com ne pourra être tenue responsable de l’inexécution du contrat en cas de défaut
+                    de
+                    livraison dû à une mauvaise information fournie par le client (adresse de livraison erronée ou
+                    incomplète), à un événement imprévisible et irrésistible d’un tiers au contrat, ou à un cas de force
+                    majeure.<br><br>
+
+                    Le montant des frais de livraison dépend du poids et de la taille de la commande, ainsi que de
+                    l’adresse de livraison le cas échéant. Le montant des frais de livraison est clairement indiqué au
+                    client avant la validation de la commande.<br><br>
+
+                    Le client choisit le mode de livraison et le transporteur avant de procéder au paiement de la
+                    commande.<br><br><br>
+                </p>
+                <span class="title-politique">
+                    7 - Réception de la commande et conformité des Produits
+                </span>
+                <p>
+                    <br>
+                    Lors de la réception des produits, le client est tenu de vérifier l’état de l’emballage et
+                    l’intégrité des articles livrés. En cas d’anomalie, il doit émettre des réserves et des réclamations
+                    sur le bordereau de livraison du transporteur, tout en informant ravellopasta.com en lui adressant
+                    une copie des réserves mentionnées auprès du transporteur. Cette notification doit être effectuée
+                    par voie postale ou électronique dans les deux (2) jours ouvrables suivant la date de livraison des
+                    produits. Vous pouvez envoyer votre courrier à l’adresse suivante : boutiquefrançaise Julien Larzul,
+                    68 rue Voltaire, 69003 Lyon.<br><br>
+
+                    De plus, le client doit signaler toute erreur de livraison et/ou tout article manquant à
+                    boutiquefrançaise.com dans un délai de quatorze (14) jours à compter de la livraison. Toute
+                    réclamation
+                    formulée au-delà de ce délai sera rejetée sans possibilité de recours.<br><br>
+
+                    Il est également de la responsabilité du client de vérifier la conformité des produits reçus par
+                    rapport à sa commande lors de la livraison. Toute non-conformité ou défaut doit être notifié à
+                    boutiquefrançaise.com dans les délais légaux.<br><br>
+
+                    Veuillez noter qu’aucun retour pour non-conformité ou vice caché ne sera accepté sans validation
+                    préalable de boutiquefrançaise.com.<br><br><br>
+                </p>
+                <span class="title-politique">
+                    8 - Responsabilité
+                </span>
+                <p>
+                    <br>
+                    boutiquefrançaise.com décline toute responsabilité pour les inconvénients ou dommages liés à
+                    l’utilisation du réseau Internet, tels que les interruptions de service, l’impossibilité d’accéder
+                    au site, les intrusions extérieures, la présence de virus informatiques ou tout autre événement
+                    considéré comme un cas de force majeure, conformément à la jurisprudence française.<br><br>
+
+                    Le client est seul responsable des dommages causés à lui-même ou à un tiers résultant d’une mauvaise
+                    utilisation des produits, et en aucun cas la responsabilité de boutiquefrançaise.com ne pourra être
+                    engagée à cet égard.<br><br><br>
+                </p>
+                <span class="title-politique">
+                    9 - Force majeure
+                </span>
+                <p>
+                    <br>
+                    La responsabilité de ravellopasta.com ne pourra être engagée en cas de retard ou de manquement
+                    contractuel résultant d’un cas de force majeure, c’est-à-dire un événement extérieur aux parties,
+                    imprévisible et irrésistible.<br><br>
+
+                    L’exécution des obligations de boutiquefrançaise.com sera suspendue en cas de survenance d’un
+                    événement
+                    constituant un cas de force majeure selon la jurisprudence des tribunaux français. Dans ce cas,
+                    boutiquefrançaise.com informera le client dans les meilleurs délais de la durée de l’événement de
+                    force
+                    majeure et de ses conséquences prévisibles.<br><br><br>
+                </p>
+            </div>
+            <div class="d-flex justify-content-center">
+                <img src="/ProjetPHP/php-e-boutique/ECommerce/public/image/colombe.png" id="colombe">
+            </div>
+        </section>
+</main>
+
+<!-- Pied de page -->
+<footer class="py-3 footer-custom" style="background-color: #f8f6f1;">
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <div>
+            <p class="footer-text">Larzul Julien - Revendeur depuis 1987</p>
+        </div>
+        <div>
+            <p class="footer-text"><a class="nav-link-footer"
+                                      href="?page=conditions_generales">Conditions
+                    générales de ventes</a> | <a
+                        class="nav-link-footer"
+                        href="?page=politique_confidentialite">Politique
+                    de confidentialité</a> - &copy; 2023 Boutique
+                Française</p>
+        </div>
+    </div>
+</footer>
+<!--Bootstrap-->
+<script src="/ProjetPHP/php-e-boutique/ECommerce/public/js/jquery/jquery.min.js"></script>
+<script src="/ProjetPHP/php-e-boutique/ECommerce/public/js/bootstrap/bootstrap.min.js"></script>
+<!--End of Bootstrap-->
+</body>
+</html>

@@ -1,0 +1,60 @@
+/*******************************************************************************
+ *
+ * Nom : style.css
+ * Date et auteur :
+ *      Julien Larzul
+ *		Créé le 25/11/2023
+ *
+ * Description :
+ *		Fichier CSS pour la page politique de confidentialité
+ *
+ *******************************************************************************/
+
+.rectangle-politique {
+    background-color: #f2eee2;
+    width: 100%;
+    height: 110px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    margin-bottom: 75px;
+}
+
+.text-politique {
+    padding-left: 150px;
+    color: #412420;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 600;
+}
+
+#main-text{
+    margin-top: 100px;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-top: 130px;
+    padding-bottom: 130px;
+}
+
+#colonne-main{
+    display: flex;
+    flex-direction:column ;
+}
+
+.title-politique{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    color: #232323;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.text-politique-bis{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 400;
+}
