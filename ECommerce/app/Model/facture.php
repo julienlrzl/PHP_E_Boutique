@@ -5,6 +5,9 @@ require_once __DIR__ . '/panier.php';
 require_once __DIR__ . '/boisson.php';
 require_once __DIR__ . '/fruitssec.php';
 require_once __DIR__ . '/biscuit.php';
+require_once '../Model/logins.php';
+require_once '../Model/Products.php';
+require_once '../Model/Orders.php';
 
 class PDF extends FPDF
 {
@@ -34,8 +37,13 @@ class PDF extends FPDF
         }
     }
 }
+$username = $_COOKIE['username'] ?? null;
+$password = $_COOKIE['password'] ?? null;
+$login = new Logins();
+$resultat = $login->seConnecter($username, $password);
+$id_panier = $resultat[0]["id_panier"];
 $panier = new panier();
-$panier_data = $panier -> getContenu(1);
+$panier_data = $panier -> getContenu($id_panier);
 
 $pdf = new PDF(); // Use the custom PDF class
 $pdf->AddPage();
@@ -95,3 +103,4 @@ $pdf->cell(30, 6, $str);
 $pdf->ln();
 
 $pdf->Output('', 'facture.pdf');
+$panier->viderPanier($id_panier);

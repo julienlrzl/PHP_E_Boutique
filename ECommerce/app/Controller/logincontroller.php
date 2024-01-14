@@ -24,7 +24,7 @@ $admin = new Admin();
 
 // Récupérer l'action de l'URL
 $action = $_GET['action'];
-
+session_start();
 // Switch case pour gérer les différentes actions
 switch ($action) {
     case "creercompte":
@@ -41,20 +41,19 @@ switch ($action) {
             $email = $_POST['email'];
             $username = $_POST['username'];
             $password = $_POST['password'];
+            $userExists = $login->checkUsernameExists($username);
 
-            // Créer un utilisateur
-            $customer->creerUtilisateur($nom, $prenom, $add1, $add2, $add3, $postcode, $phone, $email);
-
-            // Récupérer l'ID de l'utilisateur créé
-            $customer_id = $customer->getIdUtilisateur($prenom, $nom, $email);
-
-            // Créer un login pour l'utilisateur
-            ob_start();
-            $login->creerLogin($customer_id, $username, $password);
-            ob_clean();
-
-            // Rediriger vers la page d'accueil
-            header("Location: http://localhost/projetPHP/php-e-boutique/ECommerce/public?page=index");
+            if (!$userExists) {
+                $customer->creerUtilisateur($nom, $prenom, $add1, $add2, $add3, $postcode, $phone, $email);
+                $customer_id = $customer->getIdUtilisateur($prenom, $nom, $email);
+                ob_start();
+                $login->creerLogin($customer_id, $username, $password);
+                ob_clean();
+                header("Location: http://localhost/projetPHP/php-e-boutique/ECommerce/public?page=compte");
+            }else{
+                echo"Le nom d'utilisateur existe déjà. Veuillez en choisir un autre.";
+                exit();
+            }
         }
         break;
 

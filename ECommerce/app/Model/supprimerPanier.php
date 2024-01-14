@@ -16,6 +16,8 @@ $payment_type = $_GET['payment_type'] ?? 'cheque';
 $login = new Logins();
 $resultat = $login->seConnecter($username, $password);
 
+
+
 if (!empty($resultat)) {
     $customer_id = $login->getCustomerId($username, $password);
     $id_panier = $resultat[0]["id_panier"];
@@ -42,10 +44,9 @@ if (!empty($resultat)) {
         $Products->decrementerQuantite($id_produit, $quantite);
     }
 
-    $panier->viderPanier($id_panier);
-
     if ($payment_type == 'paypal') {
         header("Location: https://www.paypal.com");
+        $panier->viderPanier($id_panier);
         exit();
     } else {
         header("Location: http://localhost/projetPHP/php-e-boutique/ECommerce/public/?page=payementcheque");

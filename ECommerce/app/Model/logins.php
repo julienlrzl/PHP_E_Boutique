@@ -48,5 +48,12 @@ class Logins extends modele
         return $resultat ? $resultat['customer_id'] : null;
 
     }
+
+    public function checkUsernameExists($username) {
+        $sql = "SELECT COUNT(*) FROM logins WHERE username = :username";
+        $parametres = array(':username' => $username);
+        $resultat = $this->executerRequete($sql, $parametres)->fetchColumn();
+        return $resultat > 0;
+    }
 }
 
