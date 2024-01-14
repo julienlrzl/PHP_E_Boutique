@@ -20,15 +20,6 @@ class Products extends modele
         return $ProduitsData;
     }
 
-    public function getIdProduit($name){
-        $sql ="SELECT id FROM products WHERE name =:name";
-
-        $parametres = array(
-                ":name" => $name,
-        );
-        return $this->executerRequete($sql, $parametres)->fetchColumn();
-
-    }
 
     public function getReviewsProduits($id){
         $sql = "SELECT * FROM reviews WHERE id_product = :id";

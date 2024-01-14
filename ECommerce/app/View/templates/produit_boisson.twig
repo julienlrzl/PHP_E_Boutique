@@ -187,6 +187,46 @@
                         <p>Aucun avis disponible pour le moment.</p>
                     {% endif %}
                 </section>
+                <section>
+                    <h3>Ajouter un avis</h3>
+                    <form action="http://localhost/ProjetPHP/php-e-boutique/ECommerce/app/Model/submit_review.php" method="post">
+                        <input type="hidden" name="id_product" value="{{ Product.id }}">
+                        <div>
+                            <label for="name_user" class="title-comment0 separation0 colombe-margin">Nom :</label>
+                            <input type="text" id="name_user" name="name_user" required>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <label for="photo_user" class="title-comment0 separation0">Genre :</label>
+                            <div>
+                                <input type="radio" id="genre_homme" name="photo_user" value="homme.jpg" required>
+                                <label for="genre_homme" class="separation0">Homme</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="genre_femme" name="photo_user" value="femme.png" required>
+                                <label for="genre_femme">Femme</label>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="stars" class="title-comment0 separation0">Note :</label>
+                            <select name="stars" id="stars" required>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="title" class="title-comment0 separation0">Titre :</label>
+                            <input type="text" id="title" name="title" required>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <label for="description" class="title-comment0 separation0">Description :</label>
+                            <input type="text" id="description" name="description" required></input>
+                        </div>
+                        <button type="submit" class="button-margin" id="bouton-connexion">Envoyer l'avis</button>
+                    </form>
+                </section>
             </div>
         </section>
     </div>
